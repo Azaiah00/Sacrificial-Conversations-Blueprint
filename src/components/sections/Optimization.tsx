@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { Zap, Shield, Target, TrendingUp } from "lucide-react";
 
 const valuePillars = [
   {
