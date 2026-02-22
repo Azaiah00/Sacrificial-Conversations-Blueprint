@@ -2,12 +2,20 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Youtube, Users, ChevronRight, FileText } from "lucide-react";
+import { Youtube, Users, ChevronRight, FileText, Smartphone } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Title Engineering: Before vs After options for interactive display
+const titleBefore = "Conversation with Joy Styles | Ep. 67";
+const titleAfterOptions = [
+  { label: "News", title: "Joy Styles Exposes NES Power Outage Failures & 2027 Mayoral Run | Ep. 67" },
+  { label: "Community", title: "New Chinatown & Super Target Coming to Antioch? Joy Styles Reveals All" },
+  { label: "Leadership", title: "\"Nashville Is Ready\": Why Joy Styles is Running for Mayor 2027 | Sacrificial Conversations" },
+];
 
 const strategies = [
   {
@@ -19,26 +27,7 @@ const strategies = [
     modules: [
       {
         title: "Title Engineering",
-        content: (
-          <div className="space-y-4">
-            <div className="bg-zinc-950 p-4 border border-red-900/30 rounded-lg">
-              <span className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 1: News/Controversy</span>
-              <p className="text-white font-bold text-lg">"Joy Styles Exposes NES Power Outage Failures & 2027 Mayoral Run | Ep. 67"</p>
-            </div>
-            <div className="bg-zinc-950 p-4 border border-red-900/30 rounded-lg">
-              <span className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 2: Community Focused</span>
-              <p className="text-white font-bold text-lg">"New Chinatown & Super Target Coming to Antioch? Joy Styles Reveals All"</p>
-            </div>
-            <div className="bg-zinc-950 p-4 border border-red-900/30 rounded-lg">
-              <span className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 3: Leadership/Inspirational</span>
-              <p className="text-white font-bold text-lg">"\"Nashville Is Ready\": Why Joy Styles is Running for Mayor 2027 | Sacrificial Conversations"</p>
-            </div>
-            <div className="bg-zinc-950 p-4 border border-red-900/30 rounded-lg">
-              <span className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 4: The \"Question\" Hook</span>
-              <p className="text-white font-bold text-lg">"Who is to Blame for the Nashville Ice Storm Blackout? Councilwoman Joy Styles Speaks Out"</p>
-            </div>
-          </div>
-        )
+        content: "title-engineering-interactive"
       },
       {
         title: "SEO Description Architecture",
@@ -96,8 +85,103 @@ const strategies = [
         )
       }
     ]
+  },
+  {
+    id: "tiktok",
+    title: "TikTok Growth Engine",
+    subtitle: "Hero-to-Micro & Hook Engineering",
+    icon: Smartphone,
+    description: "A complete supply chain for short-form video. We don't just edit—we engineer virality with hooks, pacing, and a proven AI tech stack.",
+    modules: [
+      {
+        title: "Hero-to-Micro Supply Chain",
+        content: (
+          <div className="space-y-4 text-sm text-zinc-400">
+            <p className="leading-relaxed">Long-form (Hero) content is mined for high-impact moments and repackaged into Shorts/TikToks (Micro). One episode becomes multiple clips, each with a single clear hook.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs">
+              <div className="bg-zinc-950 p-3 border-l-2 border-red-600">
+                <span className="text-red-500 font-bold block mb-1">HERO</span>
+                <span className="text-white">Full episode (e.g. Joy Styles Ep. 67)</span>
+              </div>
+              <div className="bg-zinc-950 p-3 border-l-2 border-zinc-600">
+                <span className="text-zinc-500 font-bold block mb-1">EXTRACT</span>
+                <span className="text-white">Timestamp clips (22:42, 47:52, 51:28)</span>
+              </div>
+              <div className="bg-zinc-950 p-3 border-l-2 border-zinc-600">
+                <span className="text-zinc-500 font-bold block mb-1">MICRO</span>
+                <span className="text-white">Vertical Shorts with hook + CTA</span>
+              </div>
+            </div>
+          </div>
+        )
+      },
+      {
+        title: "Hook Engineering",
+        content: (
+          <ul className="space-y-4 text-sm text-zinc-400">
+            <li className="border-l-2 border-red-600 pl-4">
+              <span className="text-white font-bold">Specificity Effect:</span> &quot;Why Nashville Lost Power for 11 Days&quot; beats &quot;What Happened with the Storm.&quot;
+            </li>
+            <li className="border-l-2 border-zinc-700 pl-4">
+              <span className="text-white font-bold">POV:</span> First-person or authority framing—&quot;Councilwoman Joy Styles Speaks Out&quot;—drives credibility.
+            </li>
+            <li className="border-l-2 border-zinc-700 pl-4">
+              <span className="text-white font-bold">Timeframe Tension:</span> &quot;Coming to Antioch&quot; or &quot;2027 Mayoral Run&quot; creates urgency and curiosity.
+            </li>
+          </ul>
+        )
+      }
+    ]
   }
 ];
+
+// Interactive Before/After title selector for YouTube Title Engineering
+function TitleEngineeringInteractive() {
+  const [showAfter, setShowAfter] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(0);
+  return (
+    <div className="space-y-4">
+      <div className="flex gap-2 mb-4">
+        <button
+          onClick={() => setShowAfter(false)}
+          className={`px-4 py-2 text-xs font-bold uppercase tracking-widest border transition-colors ${!showAfter ? "bg-red-600 border-red-600 text-white" : "border-zinc-700 text-zinc-500 hover:text-white"}`}
+        >
+          Before
+        </button>
+        <button
+          onClick={() => setShowAfter(true)}
+          className={`px-4 py-2 text-xs font-bold uppercase tracking-widest border transition-colors ${showAfter ? "bg-red-600 border-red-600 text-white" : "border-zinc-700 text-zinc-500 hover:text-white"}`}
+        >
+          After
+        </button>
+      </div>
+      {!showAfter ? (
+        <div className="bg-zinc-950 p-4 border border-zinc-700 rounded-lg">
+          <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-2 block">Current (Passive)</span>
+          <p className="text-white font-bold text-lg">{titleBefore}</p>
+        </div>
+      ) : (
+        <>
+          <div className="flex flex-wrap gap-2 mb-3">
+            {titleAfterOptions.map((opt, i) => (
+              <button
+                key={opt.label}
+                onClick={() => setSelectedOption(i)}
+                className={`px-3 py-1.5 text-xs font-bold uppercase border transition-colors ${selectedOption === i ? "bg-red-600 border-red-600 text-white" : "border-zinc-700 text-zinc-500 hover:border-red-600/50"}`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+          <div className="bg-zinc-950 p-4 border border-red-900/30 rounded-lg">
+            <span className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2 block">Recommended: {titleAfterOptions[selectedOption].label}</span>
+            <p className="text-white font-bold text-lg">{titleAfterOptions[selectedOption].title}</p>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 export default function Strategy() {
   const [activeId, setActiveId] = useState("youtube");
@@ -185,7 +269,9 @@ export default function Strategy() {
                     <h4 className="text-white font-bold uppercase tracking-wide mb-4 group-hover:text-red-500 transition-colors text-sm flex items-center gap-2">
                       <FileText className="w-4 h-4 text-zinc-600" /> {module.title}
                     </h4>
-                    {module.content}
+                    {typeof module.content === "string" && module.content === "title-engineering-interactive"
+                      ? <TitleEngineeringInteractive />
+                      : module.content}
                   </div>
                 ))}
               </div>
