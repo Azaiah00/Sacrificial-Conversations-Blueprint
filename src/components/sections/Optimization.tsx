@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Zap, Shield, Target, TrendingUp } from "lucide-react";
+import Image from "next/image";
 
 const valuePillars = [
   {
@@ -50,7 +50,14 @@ export default function Optimization() {
               <h2 className="text-3xl font-bold text-white uppercase tracking-tight">The Couture House <br />Value Engine</h2>
             </div>
             <div className="hidden sm:block">
-               <span className="text-zinc-600 text-[10px] uppercase font-mono">Proprietary Framework v4.0</span>
+               <div className="relative w-12 h-12 opacity-80">
+                 <Image 
+                   src="/assets/silvre-logo.png" 
+                   alt="Couture House Logo" 
+                   fill 
+                   className="object-contain"
+                 />
+               </div>
             </div>
           </div>
           
