@@ -105,8 +105,7 @@ export default function ShortsCarousel({ embedded = false, onShortClick }: Short
                   muted
                   loop
                   playsInline
-                  autoPlay={false}
-                  {...(activeId === item.id && !embedded ? { autoPlay: true } : {})}
+                  autoPlay={!embedded && activeId === item.id}
                   onMouseEnter={(e) => {
                     if (!embedded) e.currentTarget.play();
                   }}
