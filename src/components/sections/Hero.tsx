@@ -48,17 +48,9 @@ export default function Hero() {
           </h1>
           
           <p className="text-base sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed font-light px-2 sm:px-0">
-            A forensic diagnostic and capability showcase: we demonstrate how <span className="text-white font-semibold">Sacrificial Conversations</span> can be positioned from an invisible archive toward a dominant digital authority—no guarantees, only infrastructure.
+            A forensic diagnostic and capability showcase: we demonstrate how <span className="text-white font-semibold">Sacrificial Conversations</span> can be positioned from an invisible archive toward a dominant digital authority.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <button 
-              onClick={() => document.getElementById('audit')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 sm:px-10 sm:py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-sm sm:text-lg tracking-wide uppercase transition-all shadow-[0_0_30px_-10px_rgba(220,38,38,0.5)] hover:shadow-[0_0_50px_-10px_rgba(220,38,38,0.7)] transform hover:-translate-y-1 w-full sm:w-auto text-center"
-            >
-              Start The Diagnostic
-            </button>
-          </div>
         </motion.div>
       </div>
       
