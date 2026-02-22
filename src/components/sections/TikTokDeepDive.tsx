@@ -127,12 +127,6 @@ export default function TikTokDeepDive() {
                   <h4 className="text-2xl font-bold text-white mb-6 text-center">Anatomy of a High-Retention Post</h4>
                   <ViralClipTimeline />
                 </div>
-
-                <div className="text-center max-w-2xl mx-auto pt-8">
-                  <p className="text-zinc-400 text-lg leading-relaxed italic">
-                    &quot;I have the editing skills, the strategic insight, and the drive to make Sacrificial Conversations a leader in the niche. Let&apos;s start building.&quot;
-                  </p>
-                </div>
               </motion.div>
             )}
           </AnimatePresence>

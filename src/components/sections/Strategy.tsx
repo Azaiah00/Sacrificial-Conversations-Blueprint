@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Youtube, Zap, Users, ChevronRight, FileText, Smartphone } from "lucide-react";
+import { Youtube, Users, ChevronRight, FileText } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -67,45 +67,6 @@ const strategies = [
               <h5 className="text-white font-bold mb-2">04. Tags & Hashtags</h5>
               <p className="text-red-500">#NashvilleMayor2027 #JoyStyles #AntiochTN #NashvillePolitics</p>
             </div>
-          </div>
-        )
-      }
-    ]
-  },
-  {
-    id: "tiktok",
-    title: "TikTok Growth Engine",
-    subtitle: "Hero-to-Micro Supply Chain",
-    icon: Smartphone,
-    description: "The modern consumer does not search for podcasts; the podcast must intercept them. We treat your creative output as a highly engineered supply chain.",
-    modules: [
-      {
-        title: "Hook Engineering",
-        content: (
-          <div className="grid grid-cols-1 gap-3">
-            <div className="bg-zinc-950 p-3 border-l-2 border-red-600">
-              <p className="text-xs text-zinc-500 uppercase mb-1">The Specificity Effect</p>
-              <p className="text-white text-sm">"If you are a Nashville creative tired of sacrificing your master ownership..."</p>
-            </div>
-            <div className="bg-zinc-950 p-3 border-l-2 border-zinc-700">
-              <p className="text-xs text-zinc-500 uppercase mb-1">POV Framework</p>
-              <p className="text-white text-sm">"POV: You finally stopped asking for a seat at the table and bought the building."</p>
-            </div>
-            <div className="bg-zinc-950 p-3 border-l-2 border-zinc-700">
-              <p className="text-xs text-zinc-500 uppercase mb-1">Timeframe Tension</p>
-              <p className="text-white text-sm">"He lost everything in 2024. What he built in the next 6 months will completely shock you."</p>
-            </div>
-          </div>
-        )
-      },
-      {
-        title: "AI Technology Stack",
-        content: (
-          <div className="flex flex-wrap gap-2">
-            <span className="px-3 py-1 bg-zinc-800 text-white text-xs font-mono rounded-full border border-zinc-700">OpusClip (Extraction)</span>
-            <span className="px-3 py-1 bg-zinc-800 text-white text-xs font-mono rounded-full border border-zinc-700">Choppity (Nuance)</span>
-            <span className="px-3 py-1 bg-zinc-800 text-white text-xs font-mono rounded-full border border-zinc-700">Submagic (Visuals)</span>
-            <span className="px-3 py-1 bg-zinc-800 text-white text-xs font-mono rounded-full border border-zinc-700">CapCut Pro (Polish)</span>
           </div>
         )
       }
