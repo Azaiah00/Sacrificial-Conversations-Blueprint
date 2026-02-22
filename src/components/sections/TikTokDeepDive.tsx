@@ -5,22 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import TikTokAuditRadar from "../tiktok/TikTokAuditRadar";
 import ContentMixChart from "../tiktok/ContentMixChart";
 import ViralClipTimeline from "../tiktok/ViralClipTimeline";
-import GrowthChart from "../tiktok/GrowthChart";
 
 export default function TikTokDeepDive() {
   const [activeTab, setActiveTab] = useState("audit");
-  const [postsPerWeek, setPostsPerWeek] = useState(3);
-
-  const calculateGrowth = (posts: number) => {
-    let base = 2000;
-    const growthRate = 1.1 + (posts * 0.05);
-    let total = 0;
-    for (let i = 0; i < 6; i++) {
-      base = base * growthRate;
-      total = base;
-    }
-    return Math.round(total).toLocaleString();
-  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-black">
@@ -139,38 +126,6 @@ export default function TikTokDeepDive() {
                 <div>
                   <h4 className="text-2xl font-bold text-white mb-6 text-center">Anatomy of a High-Retention Post</h4>
                   <ViralClipTimeline />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-zinc-800">
-                  <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800">
-                    <h5 className="text-red-500 font-bold uppercase tracking-widest mb-4">Projected Impact</h5>
-                    <div className="space-y-6">
-                      <div>
-                        <label className="block text-xs text-zinc-500 uppercase mb-2">Posting Consistency</label>
-                        <input
-                          type="range"
-                          min="1"
-                          max="7"
-                          value={postsPerWeek}
-                          onChange={(e) => setPostsPerWeek(parseInt(e.target.value))}
-                          className="w-full h-2 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-red-600"
-                        />
-                        <div className="flex justify-between text-xs text-zinc-400 mt-2">
-                          <span>1 Post/Week</span>
-                          <span className="text-white font-bold">{postsPerWeek} Posts/Week</span>
-                          <span>Daily</span>
-                        </div>
-                      </div>
-                      <div className="p-4 bg-black border border-zinc-800 rounded-lg text-center">
-                        <span className="text-zinc-500 text-xs uppercase block mb-1">Proj. Monthly Views (Month 6)</span>
-                        <span className="text-4xl font-mono text-green-500 font-bold">{calculateGrowth(postsPerWeek)}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-black p-6 rounded-xl border border-zinc-800">
-                    <h5 className="text-zinc-500 font-bold uppercase tracking-widest mb-4 text-xs">Growth Trajectory</h5>
-                    <GrowthChart postsPerWeek={postsPerWeek} />
-                  </div>
                 </div>
 
                 <div className="text-center max-w-2xl mx-auto pt-8">

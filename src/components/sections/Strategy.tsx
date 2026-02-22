@@ -25,17 +25,17 @@ const strategies = [
               <span className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 1: News/Controversy</span>
               <p className="text-white font-bold text-lg">"Joy Styles Exposes NES Power Outage Failures & 2027 Mayoral Run | Ep. 67"</p>
             </div>
-            <div className="bg-zinc-950 p-4 border border-zinc-800 rounded-lg opacity-80">
-              <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 2: Community Focused</span>
-              <p className="text-zinc-300 font-medium">"New Chinatown & Super Target Coming to Antioch? Joy Styles Reveals All"</p>
+            <div className="bg-zinc-950 p-4 border border-red-900/30 rounded-lg">
+              <span className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 2: Community Focused</span>
+              <p className="text-white font-bold text-lg">"New Chinatown & Super Target Coming to Antioch? Joy Styles Reveals All"</p>
             </div>
-            <div className="bg-zinc-950 p-4 border border-zinc-800 rounded-lg opacity-60">
-              <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 3: Leadership/Inspirational</span>
-              <p className="text-zinc-400 font-medium">"\"Nashville Is Ready\": Why Joy Styles is Running for Mayor 2027 | Sacrificial Conversations"</p>
+            <div className="bg-zinc-950 p-4 border border-red-900/30 rounded-lg">
+              <span className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 3: Leadership/Inspirational</span>
+              <p className="text-white font-bold text-lg">"\"Nashville Is Ready\": Why Joy Styles is Running for Mayor 2027 | Sacrificial Conversations"</p>
             </div>
-            <div className="bg-zinc-950 p-4 border border-zinc-800 rounded-lg opacity-40">
-              <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 4: The \"Question\" Hook</span>
-              <p className="text-zinc-500 font-medium">"Who is to Blame for the Nashville Ice Storm Blackout? Councilwoman Joy Styles Speaks Out"</p>
+            <div className="bg-zinc-950 p-4 border border-red-900/30 rounded-lg">
+              <span className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 4: The \"Question\" Hook</span>
+              <p className="text-white font-bold text-lg">"Who is to Blame for the Nashville Ice Storm Blackout? Councilwoman Joy Styles Speaks Out"</p>
             </div>
           </div>
         )
