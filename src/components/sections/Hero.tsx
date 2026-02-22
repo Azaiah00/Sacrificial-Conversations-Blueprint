@@ -30,7 +30,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-zinc-800 bg-zinc-900/50 backdrop-blur-sm mb-8">
             <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
             <span className="text-zinc-400 text-xs font-bold tracking-widest uppercase">
-              Confidential Service Blueprint
+              Service Introduction · Capability Showcase
             </span>
           </div>
           
@@ -48,7 +48,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-base sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed font-light px-2 sm:px-0">
-            A forensic diagnostic and strategic showcase of our capabilities to transform <span className="text-white font-semibold">Sacrificial Conversations</span> from an invisible archive into a dominant digital authority.
+            A forensic diagnostic and capability showcase: we demonstrate how <span className="text-white font-semibold">Sacrificial Conversations</span> can be positioned from an invisible archive toward a dominant digital authority—no guarantees, only infrastructure.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

@@ -92,7 +92,7 @@ export default function Optimization() {
           <div className="mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">The Viral Short <br />Anatomy</h2>
              <p className="text-zinc-400 font-light leading-relaxed border-l-2 border-red-600 pl-4">
-               Shorts are not just shorter videos. They are a distinct neurological experience. We engineer them for <span className="text-white font-semibold">retention velocity</span>.
+               Shorts are not just shorter videos. They are a distinct neurological experience. We engineer them for <span className="text-white font-semibold">retention velocity</span>—including the <span className="text-white font-semibold">3-Second Ultimatum</span> and <span className="text-white font-semibold">Dynamic Subtitling</span> so the algorithm and the viewer stay locked.
              </p>
           </div>
 
@@ -101,14 +101,14 @@ export default function Optimization() {
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-red-600 font-bold text-lg sm:text-xl group-hover:bg-red-600 group-hover:text-white transition-colors flex-shrink-0">01</div>
               <div>
                 <h4 className="text-white font-bold uppercase tracking-wide mb-1">The 3-Second Ultimatum</h4>
-                <p className="text-zinc-500 text-sm">Must begin in media res. No intros. No "Hello." Start with the most provocative statement.</p>
+                <p className="text-zinc-500 text-sm">Must begin in media res. No intros. No &quot;Hello.&quot; Start with the most provocative statement. First three seconds decide swipe or watch.</p>
               </div>
             </div>
             <div className="flex gap-4 items-start group">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-red-600 font-bold text-lg sm:text-xl group-hover:bg-red-600 group-hover:text-white transition-colors flex-shrink-0">02</div>
               <div>
                 <h4 className="text-white font-bold uppercase tracking-wide mb-1">Dynamic Subtitling</h4>
-                <p className="text-zinc-500 text-sm">Bold, high-contrast, flashing captions. Highlight 1-3 words at a time to lock eyes.</p>
+                <p className="text-zinc-500 text-sm">Bold, high-contrast, flashing captions. Highlight 1–3 words at a time to lock eyes and boost retention.</p>
               </div>
             </div>
             <div className="flex gap-4 items-start group">
@@ -118,6 +118,26 @@ export default function Optimization() {
                 <p className="text-zinc-500 text-sm">Hard-coded "Related Video" link funneling traffic to the long-form archive.</p>
               </div>
             </div>
+          </div>
+
+          {/* Thumbnail Architect — Joy Styles checklist */}
+          <div className="mt-12 pt-8 border-t border-zinc-800">
+            <h4 className="text-white font-bold uppercase tracking-wide mb-4">Thumbnail Architect</h4>
+            <p className="text-zinc-500 text-xs mb-4">Joy Styles–specific recommendations for maximum CTR and local discoverability.</p>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-center gap-2 text-zinc-400">
+                <span className="w-1.5 h-1.5 bg-red-600 rounded-full flex-shrink-0" />
+                <span><span className="text-white font-semibold">Split screen:</span> Guest + key quote or headline (e.g. &quot;2027 Mayor Run&quot;).</span>
+              </li>
+              <li className="flex items-center gap-2 text-zinc-400">
+                <span className="w-1.5 h-1.5 bg-red-600 rounded-full flex-shrink-0" />
+                <span><span className="text-white font-semibold">ActBlue link:</span> Visible in end card or pinned comment; thumbnail can tease &quot;Support Joy&quot; CTA.</span>
+              </li>
+              <li className="flex items-center gap-2 text-zinc-400">
+                <span className="w-1.5 h-1.5 bg-red-600 rounded-full flex-shrink-0" />
+                <span><span className="text-white font-semibold">Local SEO:</span> Text overlay with &quot;Nashville,&quot; &quot;Antioch,&quot; or &quot;NES&quot; for search and suggested videos.</span>
+              </li>
+            </ul>
           </div>
 
           {/* New Shorts Strategy Section */}

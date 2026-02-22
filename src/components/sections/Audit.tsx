@@ -42,7 +42,7 @@ export default function Audit() {
         <span className="text-red-600 font-bold uppercase tracking-[0.2em] text-sm mb-4 block">Phase I: The Reality</span>
         <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6 sm:mb-8 tracking-tight uppercase">Forensic Diagnostic <br />Assessment</h2>
         <p className="text-zinc-400 max-w-3xl mx-auto text-base sm:text-xl leading-relaxed font-light px-2 sm:px-0">
-          A granular review of the content's inherent value against its digital execution, utilizing the <span className="text-white font-semibold">Joy Styles (Ep. 67)</span> episode as a primary case study.
+          A granular review of the content&apos;s inherent value against its digital execution. <span className="text-white font-semibold">Joy Styles (Ep. 67)</span> is the primary case study—we highlight the gap between &quot;Podcast Episode&quot; packaging and &quot;Breaking News&quot; positioning.
         </p>
       </div>
 

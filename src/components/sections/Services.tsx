@@ -39,7 +39,7 @@ const services = [
       "Guest Affiliate Distribution Kits",
       "Content Calendar & Production Planning",
       "Cross-Platform Funnel Optimization",
-      "Quarterly Growth & ROI Reporting"
+      "Quarterly Performance & Growth Reporting"
     ]
   }
 ];
@@ -99,7 +99,7 @@ export default function Services() {
         <div className="relative z-10 max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-6 sm:mb-8 uppercase tracking-tighter">Partner With Us</h2>
           <p className="text-white/80 text-lg sm:text-2xl mb-8 sm:mb-12 font-light max-w-2xl mx-auto px-2 sm:px-0">
-            We don&apos;t just promise growth. We build the infrastructure that makes it inevitable.
+            We build the infrastructure that enables growth—capabilities and architecture, not guarantees.
           </p>
           <button className="bg-black text-white hover:bg-zinc-900 font-bold py-4 px-8 sm:py-6 sm:px-12 text-base sm:text-xl uppercase tracking-widest transition-all shadow-2xl hover:scale-105 border border-zinc-800 w-full sm:w-auto">
             Initialize Partnership
