@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import TikTokAuditRadar from "../tiktok/TikTokAuditRadar";
 import ContentMixChart from "../tiktok/ContentMixChart";
@@ -17,7 +18,7 @@ export default function TikTokDeepDive() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
               <span className="text-red-600 font-bold text-xs uppercase tracking-widest mb-1 block">Interactive Module</span>
-              <h3 className="text-3xl font-bold text-white uppercase tracking-tight">TikTok Growth Engine</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">TikTok Growth Engine</h3>
             </div>
             <div className="flex space-x-1 bg-black p-1 rounded-lg border border-zinc-800 w-full sm:w-auto">
               {['audit', 'strategy', 'execution'].map((tab) => (
@@ -126,6 +127,38 @@ export default function TikTokDeepDive() {
                 <div>
                   <h4 className="text-2xl font-bold text-white mb-6 text-center">Anatomy of a High-Retention Post</h4>
                   <ViralClipTimeline />
+                </div>
+
+                <div className="pt-12 border-t border-zinc-800">
+                  <h4 className="text-2xl font-bold text-white mb-4 text-center">The Profile Grid Effect</h4>
+                  <p className="text-zinc-400 text-center max-w-3xl mx-auto mb-10 leading-relaxed">
+                    TikTok thumbnails are critical for your profile&apos;s overall aesthetic. A cohesive visual identity not only signals authority but captivates viewers the moment they visit your page, turning casual scrollers into binge-watchers.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="bg-zinc-900/30 p-6 rounded-2xl border border-zinc-800 flex flex-col items-center">
+                      <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest mb-4">Current Trajectory</span>
+                      <div className="relative w-full aspect-[9/16] max-w-[300px] shadow-2xl rounded-lg overflow-hidden border border-zinc-800">
+                        <Image 
+                          src="/assets/unnamed.png" 
+                          alt="Current TikTok Profile Grid Example" 
+                          fill 
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div className="bg-zinc-900/30 p-6 rounded-2xl border border-zinc-800 flex flex-col items-center">
+                      <span className="text-red-500 font-mono text-xs uppercase tracking-widest mb-4">Visual Authority</span>
+                      <div className="relative w-full aspect-[9/16] max-w-[300px] shadow-2xl rounded-lg overflow-hidden border border-red-900/30">
+                        <Image 
+                          src="/assets/unnamed.webp" 
+                          alt="Optimized TikTok Profile Grid Example" 
+                          fill 
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             )}
