@@ -140,7 +140,7 @@ export default function TikTokDeepDive() {
                       <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest mb-4">Standalone Thumbnail</span>
                       <div className="relative w-full aspect-[9/16] max-w-[300px] shadow-2xl rounded-lg overflow-hidden border border-zinc-800">
                         <Image 
-                          src="/assets/unnamed.png" 
+                          src="/assets/unnamed.webp" 
                           alt="Standalone TikTok Thumbnail" 
                           fill 
                           className="object-cover"
@@ -151,7 +151,7 @@ export default function TikTokDeepDive() {
                       <span className="text-red-500 font-mono text-xs uppercase tracking-widest mb-4">Visual Authority</span>
                       <div className="relative w-full aspect-[9/16] max-w-[300px] shadow-2xl rounded-lg overflow-hidden border border-red-900/30">
                         <Image 
-                          src="/assets/unnamed.webp" 
+                          src="/assets/unnamed.png" 
                           alt="Optimized TikTok Profile Grid Example" 
                           fill 
                           className="object-cover"
