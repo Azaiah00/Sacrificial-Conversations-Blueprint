@@ -48,7 +48,7 @@ export default function Services() {
     <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-black border-t border-zinc-900">
       <div className="mb-20">
         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest mb-2 block">Our Capabilities</span>
-        <h2 className="text-4xl md:text-6xl font-bold text-white uppercase tracking-tight">Service Architecture</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white uppercase tracking-tight">Service Architecture</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -71,7 +71,7 @@ export default function Services() {
               </div>
 
               <h3 className="text-2xl font-bold text-white uppercase tracking-wide mb-4">{service.title}</h3>
-              <p className="text-zinc-400 mb-8 leading-relaxed h-20">{service.description}</p>
+              <p className="text-zinc-400 mb-8 leading-relaxed h-auto md:h-20">{service.description}</p>
 
               <ul className="space-y-4">
                 {service.features.map((feature, idx) => (
@@ -92,15 +92,15 @@ export default function Services() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="relative overflow-hidden text-center py-32 px-6 bg-red-600 mt-8"
+        className="relative overflow-hidden text-center py-16 sm:py-32 px-4 sm:px-6 bg-red-600 mt-8"
       >
         <div className="absolute inset-0 bg-[url('/assets/noise.svg')] opacity-20 mix-blend-multiply" />
         <div className="relative z-10 max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 uppercase tracking-tighter">Partner With Us</h2>
-          <p className="text-white/80 text-2xl mb-12 font-light max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-6 sm:mb-8 uppercase tracking-tighter">Partner With Us</h2>
+          <p className="text-white/80 text-lg sm:text-2xl mb-8 sm:mb-12 font-light max-w-2xl mx-auto px-2 sm:px-0">
             We don&apos;t just promise growth. We build the infrastructure that makes it inevitable.
           </p>
-          <button className="bg-black text-white hover:bg-zinc-900 font-bold py-6 px-12 text-xl uppercase tracking-widest transition-all shadow-2xl hover:scale-105 border border-zinc-800">
+          <button className="bg-black text-white hover:bg-zinc-900 font-bold py-4 px-8 sm:py-6 sm:px-12 text-base sm:text-xl uppercase tracking-widest transition-all shadow-2xl hover:scale-105 border border-zinc-800 w-full sm:w-auto">
             Initialize Partnership
           </button>
         </div>

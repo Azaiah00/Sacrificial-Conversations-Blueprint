@@ -124,7 +124,7 @@ export default function Strategy() {
     <section ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-black">
       <div className="strategy-header mb-16 border-l-4 border-red-600 pl-6 opacity-0">
         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest mb-2 block">Phase II: The Solution</span>
-        <h2 className="text-4xl md:text-6xl font-bold text-white uppercase tracking-tight">The Algorithmic <br />Imperative</h2>
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white uppercase tracking-tight">The Algorithmic <br />Imperative</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -153,7 +153,7 @@ export default function Strategy() {
         </div>
 
         {/* Content Area */}
-        <div className="lg:col-span-8 bg-zinc-900 border border-zinc-800 p-8 md:p-12 relative overflow-hidden min-h-[600px]">
+        <div className="lg:col-span-8 bg-zinc-900 border border-zinc-800 p-5 sm:p-8 md:p-12 relative overflow-hidden min-h-0 sm:min-h-[600px]">
           <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 rounded-full blur-[100px]" />
           
           <AnimatePresence mode="wait">
@@ -170,12 +170,12 @@ export default function Strategy() {
                   <activeStrategy.icon className="w-8 h-8 text-red-600" />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold text-white uppercase tracking-tight">{activeStrategy.title}</h3>
+                  <h3 className="text-xl sm:text-3xl font-bold text-white uppercase tracking-tight">{activeStrategy.title}</h3>
                   <p className="text-red-500 font-mono text-sm uppercase tracking-widest">{activeStrategy.subtitle}</p>
                 </div>
               </div>
 
-              <p className="text-xl text-zinc-300 mb-10 font-light leading-relaxed border-l-2 border-zinc-700 pl-6">
+              <p className="text-base sm:text-xl text-zinc-300 mb-8 sm:mb-10 font-light leading-relaxed border-l-2 border-zinc-700 pl-4 sm:pl-6">
                 {activeStrategy.description}
               </p>
 

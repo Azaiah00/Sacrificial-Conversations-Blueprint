@@ -48,7 +48,8 @@ export default function ViralClipTimeline() {
 
   return (
     <div className="w-full">
-      <div className="flex w-full h-16 rounded-lg overflow-hidden mb-6 shadow-lg border border-zinc-800">
+      {/* Desktop: horizontal bar */}
+      <div className="hidden sm:flex w-full h-16 rounded-lg overflow-hidden mb-6 shadow-lg border border-zinc-800">
         {segments.map((seg) => (
           <div
             key={seg.id}
@@ -62,7 +63,20 @@ export default function ViralClipTimeline() {
         ))}
       </div>
 
-      <div className="bg-zinc-900 p-6 rounded-xl border border-zinc-800 min-h-[140px]">
+      {/* Mobile: stacked buttons */}
+      <div className="sm:hidden grid grid-cols-2 gap-2 mb-6">
+        {segments.map((seg) => (
+          <button
+            key={seg.id}
+            onClick={() => setActiveSegment(seg)}
+            className={`${activeSegment.id === seg.id ? seg.color : 'bg-zinc-800'} ${activeSegment.id === seg.id ? (seg.textColor || 'text-white') : 'text-zinc-400'} p-3 text-xs font-bold uppercase tracking-widest transition-colors rounded-md border border-zinc-700`}
+          >
+            {seg.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="bg-zinc-900 p-4 sm:p-6 rounded-xl border border-zinc-800 min-h-[120px] sm:min-h-[140px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSegment.id}

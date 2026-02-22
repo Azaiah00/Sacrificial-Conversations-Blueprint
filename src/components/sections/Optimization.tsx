@@ -40,13 +40,13 @@ export default function Optimization() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         
         {/* Left: Value Proposition / The Couture House Edge */}
-        <div className="bg-black p-10 border border-zinc-800 relative overflow-hidden">
+        <div className="bg-black p-6 sm:p-10 border border-zinc-800 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/10 rounded-full blur-[64px]" />
           
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between mb-8 sm:mb-12">
             <div>
               <span className="text-red-600 font-mono text-xs uppercase tracking-widest mb-2 block">Our Methodology</span>
-              <h2 className="text-3xl font-bold text-white uppercase tracking-tight">The Couture House <br />Value Engine</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight">The Couture House <br />Value Engine</h2>
             </div>
             <div className="hidden sm:block">
                <div className="relative w-12 h-12 opacity-80">
@@ -90,7 +90,7 @@ export default function Optimization() {
         {/* Right: Viral Anatomy */}
         <div className="flex flex-col justify-center">
           <div className="mb-8">
-             <h2 className="text-3xl font-bold text-white uppercase tracking-tight mb-4">The Viral Short <br />Anatomy</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-tight mb-4">The Viral Short <br />Anatomy</h2>
              <p className="text-zinc-400 font-light leading-relaxed border-l-2 border-red-600 pl-4">
                Shorts are not just shorter videos. They are a distinct neurological experience. We engineer them for <span className="text-white font-semibold">retention velocity</span>.
              </p>
@@ -98,21 +98,21 @@ export default function Optimization() {
 
           <div className="space-y-6">
             <div className="flex gap-4 items-start group">
-              <div className="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-red-600 font-bold text-xl group-hover:bg-red-600 group-hover:text-white transition-colors">01</div>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-red-600 font-bold text-lg sm:text-xl group-hover:bg-red-600 group-hover:text-white transition-colors flex-shrink-0">01</div>
               <div>
                 <h4 className="text-white font-bold uppercase tracking-wide mb-1">The 3-Second Ultimatum</h4>
                 <p className="text-zinc-500 text-sm">Must begin in media res. No intros. No "Hello." Start with the most provocative statement.</p>
               </div>
             </div>
             <div className="flex gap-4 items-start group">
-              <div className="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-red-600 font-bold text-xl group-hover:bg-red-600 group-hover:text-white transition-colors">02</div>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-red-600 font-bold text-lg sm:text-xl group-hover:bg-red-600 group-hover:text-white transition-colors flex-shrink-0">02</div>
               <div>
                 <h4 className="text-white font-bold uppercase tracking-wide mb-1">Dynamic Subtitling</h4>
                 <p className="text-zinc-500 text-sm">Bold, high-contrast, flashing captions. Highlight 1-3 words at a time to lock eyes.</p>
               </div>
             </div>
             <div className="flex gap-4 items-start group">
-              <div className="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-red-600 font-bold text-xl group-hover:bg-red-600 group-hover:text-white transition-colors">03</div>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-red-600 font-bold text-lg sm:text-xl group-hover:bg-red-600 group-hover:text-white transition-colors flex-shrink-0">03</div>
               <div>
                 <h4 className="text-white font-bold uppercase tracking-wide mb-1">The Conversion Bridge</h4>
                 <p className="text-zinc-500 text-sm">Hard-coded "Related Video" link funneling traffic to the long-form archive.</p>

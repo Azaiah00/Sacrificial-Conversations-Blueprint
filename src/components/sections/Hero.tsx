@@ -34,7 +34,7 @@ export default function Hero() {
             </span>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight tracking-tighter uppercase relative">
+          <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold text-white mb-6 sm:mb-8 leading-tight tracking-tighter uppercase relative">
             The Digital <br />
             <span className="text-red-600 relative inline-block">
               Paradigm Shift
@@ -47,20 +47,20 @@ export default function Hero() {
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+          <p className="text-base sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed font-light px-2 sm:px-0">
             A forensic diagnostic and strategic showcase of our capabilities to transform <span className="text-white font-semibold">Sacrificial Conversations</span> from an invisible archive into a dominant digital authority.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <button 
               onClick={() => document.getElementById('audit')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-10 py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-lg tracking-wide uppercase transition-all shadow-[0_0_30px_-10px_rgba(220,38,38,0.5)] hover:shadow-[0_0_50px_-10px_rgba(220,38,38,0.7)] transform hover:-translate-y-1"
+              className="px-8 py-4 sm:px-10 sm:py-5 bg-red-600 hover:bg-red-700 text-white font-bold text-sm sm:text-lg tracking-wide uppercase transition-all shadow-[0_0_30px_-10px_rgba(220,38,38,0.5)] hover:shadow-[0_0_50px_-10px_rgba(220,38,38,0.7)] transform hover:-translate-y-1 w-full sm:w-auto text-center"
             >
               Start The Diagnostic
             </button>
             <button 
               onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-10 py-5 bg-transparent border border-zinc-700 hover:border-white text-zinc-400 hover:text-white font-bold text-lg tracking-wide uppercase transition-all"
+              className="px-8 py-4 sm:px-10 sm:py-5 bg-transparent border border-zinc-700 hover:border-white text-zinc-400 hover:text-white font-bold text-sm sm:text-lg tracking-wide uppercase transition-all w-full sm:w-auto text-center"
             >
               View Our Services
             </button>

@@ -40,8 +40,8 @@ export default function Audit() {
     <section ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-zinc-950 border-y border-zinc-900">
       <div className="text-center mb-20">
         <span className="text-red-600 font-bold uppercase tracking-[0.2em] text-sm mb-4 block">Phase I: The Reality</span>
-        <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight uppercase">Forensic Diagnostic <br />Assessment</h2>
-        <p className="text-zinc-400 max-w-3xl mx-auto text-xl leading-relaxed font-light">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-6 sm:mb-8 tracking-tight uppercase">Forensic Diagnostic <br />Assessment</h2>
+        <p className="text-zinc-400 max-w-3xl mx-auto text-base sm:text-xl leading-relaxed font-light px-2 sm:px-0">
           A granular review of the content's inherent value against its digital execution, utilizing the <span className="text-white font-semibold">Joy Styles (Ep. 67)</span> episode as a primary case study.
         </p>
       </div>
@@ -99,7 +99,7 @@ export default function Audit() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-black p-10 border border-zinc-800 relative overflow-hidden"
+          className="bg-black p-6 sm:p-10 border border-zinc-800 relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 w-full h-full bg-[url('/assets/grid.svg')] opacity-20 pointer-events-none" />
           <div className="flex justify-between items-center mb-8 border-b border-zinc-800 pb-4">
