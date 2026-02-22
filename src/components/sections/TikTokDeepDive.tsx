@@ -137,11 +137,11 @@ export default function TikTokDeepDive() {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="bg-zinc-900/30 p-6 rounded-2xl border border-zinc-800 flex flex-col items-center">
-                      <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest mb-4">Current Trajectory</span>
+                      <span className="text-zinc-500 font-mono text-xs uppercase tracking-widest mb-4">Standalone Thumbnail</span>
                       <div className="relative w-full aspect-[9/16] max-w-[300px] shadow-2xl rounded-lg overflow-hidden border border-zinc-800">
                         <Image 
                           src="/assets/unnamed.png" 
-                          alt="Current TikTok Profile Grid Example" 
+                          alt="Standalone TikTok Thumbnail" 
                           fill 
                           className="object-cover"
                         />
