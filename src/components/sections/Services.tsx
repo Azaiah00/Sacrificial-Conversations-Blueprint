@@ -6,6 +6,7 @@ import { Youtube, Smartphone, Users, ArrowRight, BarChart3, PenTool, ChevronDown
 import TikTokAuditRadar from "../tiktok/TikTokAuditRadar";
 import ContentMixChart from "../tiktok/ContentMixChart";
 import ViralClipTimeline from "../tiktok/ViralClipTimeline";
+import GrowthChart from "../tiktok/GrowthChart";
 
 const services = [
   {
@@ -245,11 +246,16 @@ export default function Services() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex flex-col justify-center">
-                    <p className="text-zinc-400 text-lg leading-relaxed">
-                      "I have the editing skills, the strategic insight, and the drive to make Sacrificial Conversations a leader in the niche. Let's start building."
-                    </p>
+                  <div className="bg-black p-6 rounded-xl border border-zinc-800">
+                    <h5 className="text-zinc-500 font-bold uppercase tracking-widest mb-4 text-xs">Growth Trajectory</h5>
+                    <GrowthChart postsPerWeek={postsPerWeek} />
                   </div>
+                </div>
+                
+                <div className="text-center max-w-2xl mx-auto pt-8">
+                  <p className="text-zinc-400 text-lg leading-relaxed italic">
+                    "I have the editing skills, the strategic insight, and the drive to make Sacrificial Conversations a leader in the niche. Let's start building."
+                  </p>
                 </div>
               </motion.div>
             )}
