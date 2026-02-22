@@ -2,75 +2,82 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, AlertCircle } from "lucide-react";
+import { Zap, Shield, Target, TrendingUp } from "lucide-react";
 
-const checklistItems = [
-  { id: 1, text: "Split Screen: Joy Styles + Headline", weight: 1.5 },
-  { id: 2, text: "Headline: 'THE TRUTH ABOUT NES' (Big/Readable)", weight: 1.5 },
-  { id: 3, text: "ActBlue Link: Top of Description (No Googling)", weight: 1.0 },
-  { id: 4, text: "Local SEO: Tagged 'Nashville, TN' in upload", weight: 1.2 },
-  { id: 5, text: "Shorts: Linked to Full Video (Related Tab)", weight: 1.5 },
-  { id: 6, text: "First 3s: No 'Hello'. Start with Conflict.", weight: 1.5 }
+const valuePillars = [
+  {
+    id: 1,
+    title: "Retention Engineering",
+    icon: Zap,
+    description: "We don't just edit; we manipulate the viewer's dopamine loop to ensure they stay until the CTA.",
+    metrics: ["90%+ Retention Rate", "High-Velocity Cuts"]
+  },
+  {
+    id: 2,
+    title: "Algorithmic Indexing",
+    icon: Target,
+    description: "Every title and description is architected to be indexed by YouTube's recommendation engine.",
+    metrics: ["SEO-Optimized Metadata", "Curiosity Gap Titles"]
+  },
+  {
+    id: 3,
+    title: "Brand Sovereignty",
+    icon: Shield,
+    description: "Protecting the integrity of your message while maximizing its reach across all digital frontiers.",
+    metrics: ["Consistent Visual ID", "Quality Over Quantity"]
+  },
+  {
+    id: 4,
+    title: "Conversion Funnels",
+    icon: TrendingUp,
+    description: "Turning passive viewers into active community members and subscribers through strategic bridges.",
+    metrics: ["High CTR Thumbnails", "Shorts-to-Longform Funnel"]
+  }
 ];
 
 export default function Optimization() {
-  const [checkedItems, setCheckedItems] = useState<number[]>([]);
-  const [ctrScore, setCtrScore] = useState(2.1);
-
-  const toggleCheck = (id: number, weight: number) => {
-    if (checkedItems.includes(id)) {
-      setCheckedItems(prev => prev.filter(item => item !== id));
-      setCtrScore(prev => Number((prev - weight).toFixed(1)));
-    } else {
-      setCheckedItems(prev => [...prev, id]);
-      setCtrScore(prev => Number((prev + weight).toFixed(1)));
-    }
-  };
-
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-zinc-950 border-t border-zinc-900">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         
-        {/* Left: Thumbnail Simulator */}
+        {/* Left: Value Proposition / The Couture House Edge */}
         <div className="bg-black p-10 border border-zinc-800 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/10 rounded-full blur-[64px]" />
           
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold text-white uppercase tracking-tight">Thumbnail <br />Architect</h2>
-            <div className="flex flex-col items-end">
-               <span className="text-red-600 font-mono text-xs uppercase tracking-widest">Interactive Tool</span>
-               <span className="text-zinc-600 text-[10px] uppercase">v2.4.0</span>
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <span className="text-red-600 font-mono text-xs uppercase tracking-widest mb-2 block">Our Methodology</span>
+              <h2 className="text-3xl font-bold text-white uppercase tracking-tight">The Couture House <br />Value Engine</h2>
+            </div>
+            <div className="hidden sm:block">
+               <span className="text-zinc-600 text-[10px] uppercase font-mono">Proprietary Framework v4.0</span>
             </div>
           </div>
           
-          <div className="space-y-3 mb-8">
-            {checklistItems.map((item) => (
+          <div className="grid grid-cols-1 gap-6">
+            {valuePillars.map((pillar) => (
               <div 
-                key={item.id}
-                onClick={() => toggleCheck(item.id, item.weight)}
-                className={`flex items-center justify-between p-4 border transition-all cursor-pointer group ${checkedItems.includes(item.id) ? 'bg-zinc-900 border-red-600' : 'bg-black border-zinc-800 hover:border-zinc-600'}`}
+                key={pillar.id}
+                className="bg-zinc-900/30 border border-zinc-800 p-6 hover:border-red-600/50 transition-all group"
               >
-                <span className={`font-mono text-sm uppercase tracking-wide transition-colors ${checkedItems.includes(item.id) ? 'text-white' : 'text-zinc-500 group-hover:text-zinc-300'}`}>{item.text}</span>
-                <div className={`h-5 w-5 border flex items-center justify-center transition-colors ${checkedItems.includes(item.id) ? 'bg-red-600 border-red-600' : 'border-zinc-700 bg-black'}`}>
-                  {checkedItems.includes(item.id) && <Check className="w-3 h-3 text-white" />}
+                <div className="flex items-start gap-4">
+                  <div className="p-3 bg-black border border-zinc-800 group-hover:border-red-600 transition-colors">
+                    <pillar.icon className="w-5 h-5 text-red-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold uppercase tracking-wide mb-2 group-hover:text-red-500 transition-colors">{pillar.id}. {pillar.title}</h4>
+                    <p className="text-zinc-400 text-sm leading-relaxed mb-4">{pillar.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {pillar.metrics.map((metric, idx) => (
+                        <span key={idx} className="text-[10px] font-mono uppercase tracking-wider bg-black px-2 py-1 text-zinc-500 border border-zinc-800">
+                          {metric}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
-          </div>
-          
-          <div className="p-6 bg-zinc-900 border border-zinc-800 flex justify-between items-center">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-zinc-500 mb-1">Projected CTR</p>
-              <p className="text-xs text-zinc-600">Base Rate: 2.1%</p>
-            </div>
-            <motion.div 
-              key={ctrScore}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className={`text-5xl font-bold font-mono ${ctrScore > 6 ? 'text-green-500' : ctrScore > 4 ? 'text-amber-500' : 'text-red-600'}`}
-            >
-              {ctrScore}%
-            </motion.div>
           </div>
         </div>
 
