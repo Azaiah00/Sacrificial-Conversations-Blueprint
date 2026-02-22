@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Youtube, Smartphone, Users, ArrowRight } from "lucide-react";
 
@@ -106,9 +107,19 @@ export default function Services() {
         </div>
       </motion.div>
 
-      <footer className="mt-20 border-t border-zinc-900 pt-12 flex flex-col md:flex-row justify-between items-center text-zinc-600 text-xs uppercase tracking-widest font-mono">
-        <p>© 2026 Couture House Co.</p>
-        <p>Confidential Service Blueprint // Sacrificial Conversations</p>
+      <footer className="mt-20 border-t border-zinc-900 pt-12 flex flex-col items-center text-center gap-8">
+        <div className="relative w-24 h-24 sm:w-28 sm:h-28 opacity-90">
+          <Image
+            src="/assets/silvre-logo.png"
+            alt="Couture House"
+            fill
+            className="object-contain"
+          />
+        </div>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 text-zinc-600 text-xs uppercase tracking-widest font-mono">
+          <p>© 2026 Couture House Co.</p>
+          <p>Confidential Service Blueprint // Sacrificial Conversations</p>
+        </div>
       </footer>
     </section>
   );
