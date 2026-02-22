@@ -49,7 +49,9 @@ export default function GrowthChart({ postsPerWeek }: GrowthChartProps) {
           <Tooltip 
             contentStyle={{ backgroundColor: '#000000', borderColor: '#27272a', color: '#ffffff', fontFamily: 'var(--font-mono)', fontSize: '12px' }}
             itemStyle={{ color: '#ffffff' }}
-            formatter={(value: number) => [value.toLocaleString(), undefined]}
+            formatter={(value: number | undefined) =>
+              value == null ? ['', undefined] : [value.toLocaleString(), undefined]
+            }
           />
           <Legend wrapperStyle={{ paddingTop: '10px', fontFamily: 'var(--font-mono)', fontSize: '12px' }} />
           <Line 
