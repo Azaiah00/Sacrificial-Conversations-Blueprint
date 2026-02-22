@@ -23,11 +23,19 @@ const strategies = [
           <div className="space-y-4">
             <div className="bg-zinc-950 p-4 border border-red-900/30 rounded-lg">
               <span className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 1: News/Controversy</span>
-              <p className="text-white font-bold text-lg">"Joy Styles Exposes NES Power Outage Failures & 2027 Mayoral Run"</p>
+              <p className="text-white font-bold text-lg">"Joy Styles Exposes NES Power Outage Failures & 2027 Mayoral Run | Ep. 67"</p>
             </div>
-            <div className="bg-zinc-950 p-4 border border-zinc-800 rounded-lg opacity-60">
+            <div className="bg-zinc-950 p-4 border border-zinc-800 rounded-lg opacity-80">
               <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 2: Community Focused</span>
               <p className="text-zinc-300 font-medium">"New Chinatown & Super Target Coming to Antioch? Joy Styles Reveals All"</p>
+            </div>
+            <div className="bg-zinc-950 p-4 border border-zinc-800 rounded-lg opacity-60">
+              <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 3: Leadership/Inspirational</span>
+              <p className="text-zinc-400 font-medium">"\"Nashville Is Ready\": Why Joy Styles is Running for Mayor 2027 | Sacrificial Conversations"</p>
+            </div>
+            <div className="bg-zinc-950 p-4 border border-zinc-800 rounded-lg opacity-40">
+              <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 4: The \"Question\" Hook</span>
+              <p className="text-zinc-500 font-medium">"Who is to Blame for the Nashville Ice Storm Blackout? Councilwoman Joy Styles Speaks Out"</p>
             </div>
           </div>
         )
@@ -35,11 +43,31 @@ const strategies = [
       {
         title: "SEO Description Architecture",
         content: (
-          <ul className="space-y-2 text-sm text-zinc-400">
-            <li className="flex gap-2"><span className="text-red-500 font-bold">01.</span> <span className="text-white">The Hook Paragraph:</span> Summarize core conflict (NES outage, Mayoral run).</li>
-            <li className="flex gap-2"><span className="text-red-500 font-bold">02.</span> <span className="text-white">Timestamps:</span> "22:00 - THE TRUTH: What happened with the Ice Storm?"</li>
-            <li className="flex gap-2"><span className="text-red-500 font-bold">03.</span> <span className="text-white">Backend Tags:</span> "Nashville Mayor 2027", "Antioch TN", "District 32".</li>
-          </ul>
+          <div className="space-y-6 text-sm text-zinc-400">
+            <div>
+              <h5 className="text-white font-bold mb-2">01. The Hook & Summary</h5>
+              <p className="italic border-l-2 border-red-600 pl-3">"In this explosive episode... we sit down with District 32 Councilwoman... Joy Styles. She gives us the exclusive scoop on what really went wrong during the recent Nashville ice storm..."</p>
+            </div>
+            <div>
+              <h5 className="text-white font-bold mb-2">02. Key Topics/Timestamps</h5>
+              <ul className="space-y-1 font-mono text-xs">
+                <li>0:00 - Intro: Joy Styles Returns!</li>
+                <li>2:26 - ANNOUNCEMENT: Running for Nashville Mayor 2027</li>
+                <li>22:00 - THE TRUTH: What happened with the Ice Storm & NES Power Outages?</li>
+                <li>47:46 - Chinatown in Antioch: Food, Culture & Business</li>
+                <li>51:28 - Super Target Coming to Century Farms!</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="text-white font-bold mb-2">03. Links & Call to Action</h5>
+              <p className="mb-2">🗳️ Support Joy Styles for Mayor: [ActBlue Link]</p>
+              <p>🎧 Listen to Sacrificial Conversations: [Spotify/Apple Links]</p>
+            </div>
+            <div>
+              <h5 className="text-white font-bold mb-2">04. Tags & Hashtags</h5>
+              <p className="text-red-500">#NashvilleMayor2027 #JoyStyles #AntiochTN #NashvillePolitics</p>
+            </div>
+          </div>
         )
       }
     ]
@@ -62,6 +90,10 @@ const strategies = [
             <div className="bg-zinc-950 p-3 border-l-2 border-zinc-700">
               <p className="text-xs text-zinc-500 uppercase mb-1">POV Framework</p>
               <p className="text-white text-sm">"POV: You finally stopped asking for a seat at the table and bought the building."</p>
+            </div>
+            <div className="bg-zinc-950 p-3 border-l-2 border-zinc-700">
+              <p className="text-xs text-zinc-500 uppercase mb-1">Timeframe Tension</p>
+              <p className="text-white text-sm">"He lost everything in 2024. What he built in the next 6 months will completely shock you."</p>
             </div>
           </div>
         )

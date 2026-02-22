@@ -106,6 +106,28 @@ export default function Optimization() {
               </div>
             </div>
           </div>
+
+          {/* New Shorts Strategy Section */}
+          <div className="mt-12 pt-8 border-t border-zinc-800">
+            <h4 className="text-white font-bold uppercase tracking-wide mb-4 flex items-center gap-2">
+              <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
+              Joy Styles Shorts Strategy
+            </h4>
+            <div className="space-y-3">
+              <div className="bg-zinc-900/50 p-3 border-l-2 border-red-600">
+                <span className="text-xs text-zinc-500 uppercase block mb-1">Clip 1: Ice Storm Rant (22:42)</span>
+                <p className="text-white text-sm font-medium">"Why Nashville Lost Power for 11 Days"</p>
+              </div>
+              <div className="bg-zinc-900/50 p-3 border-l-2 border-zinc-700">
+                <span className="text-xs text-zinc-500 uppercase block mb-1">Clip 2: Chinatown Details (47:52)</span>
+                <p className="text-white text-sm font-medium">"Nashville is finally getting a Chinatown!"</p>
+              </div>
+              <div className="bg-zinc-900/50 p-3 border-l-2 border-zinc-700">
+                <span className="text-xs text-zinc-500 uppercase block mb-1">Clip 3: Super Target (51:28)</span>
+                <p className="text-white text-sm font-medium">"Super Target coming to Antioch!"</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
