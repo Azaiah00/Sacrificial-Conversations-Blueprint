@@ -3,9 +3,8 @@ import Hero from "@/components/sections/Hero";
 import Audit from "@/components/sections/Audit";
 import Strategy from "@/components/sections/Strategy";
 import Optimization from "@/components/sections/Optimization";
-import Roadmap from "@/components/sections/Roadmap";
 import Deliverables from "@/components/sections/Deliverables";
-import Projections from "@/components/sections/Projections";
+import Services from "@/components/sections/Services";
 
 export default function Home() {
   return (
@@ -25,16 +24,12 @@ export default function Home() {
         <Optimization />
       </div>
 
-      <div id="roadmap">
-        <Roadmap />
-      </div>
-      
       <div id="deliverables">
         <Deliverables />
       </div>
       
-      <div id="projections">
-        <Projections />
+      <div id="services">
+        <Services />
       </div>
     </main>
   );

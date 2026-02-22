@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Eye, Search, Zap, Users, ChevronRight } from "lucide-react";
+import { Youtube, Zap, Users, ChevronRight, FileText, Smartphone } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -11,42 +11,72 @@ gsap.registerPlugin(ScrollTrigger);
 
 const strategies = [
   {
-    id: "packaging",
-    title: "Visual Packaging",
-    subtitle: "The 0.3-Second Rule",
-    icon: Eye,
-    description: "The thumbnail is the primary psychological trigger. If it fails, the content is invisible.",
-    tactics: [
-      { title: "High-Emotion Faces", desc: "Faces must occupy 40-50% of the canvas. Expressions must be intense (shock, joy, concern) to trigger mirror neurons." },
-      { title: "Contrast Theory", desc: "Backgrounds must be manipulated to force the subject to 'pop'. No dark-on-dark." },
-      { title: "Minimalist Typography", desc: "Max 3-5 words. Sans-serif, heavy weight. Never duplicate the title." },
-      { title: "A/B Testing Infrastructure", desc: "Simultaneous deployment of 3 thumbnail variations per episode to let data dictate design." }
+    id: "youtube",
+    title: "YouTube Newsroom",
+    subtitle: "Title Engineering & SEO",
+    icon: Youtube,
+    description: "We pivot your packaging from 'Podcast Episode' to 'Breaking Local News'. YouTube audiences click on conflict and exclusive insight.",
+    modules: [
+      {
+        title: "Title Engineering",
+        content: (
+          <div className="space-y-4">
+            <div className="bg-zinc-950 p-4 border border-red-900/30 rounded-lg">
+              <span className="text-red-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 1: News/Controversy</span>
+              <p className="text-white font-bold text-lg">"Joy Styles Exposes NES Power Outage Failures & 2027 Mayoral Run"</p>
+            </div>
+            <div className="bg-zinc-950 p-4 border border-zinc-800 rounded-lg opacity-60">
+              <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest mb-2 block">Option 2: Community Focused</span>
+              <p className="text-zinc-300 font-medium">"New Chinatown & Super Target Coming to Antioch? Joy Styles Reveals All"</p>
+            </div>
+          </div>
+        )
+      },
+      {
+        title: "SEO Description Architecture",
+        content: (
+          <ul className="space-y-2 text-sm text-zinc-400">
+            <li className="flex gap-2"><span className="text-red-500 font-bold">01.</span> <span className="text-white">The Hook Paragraph:</span> Summarize core conflict (NES outage, Mayoral run).</li>
+            <li className="flex gap-2"><span className="text-red-500 font-bold">02.</span> <span className="text-white">Timestamps:</span> "22:00 - THE TRUTH: What happened with the Ice Storm?"</li>
+            <li className="flex gap-2"><span className="text-red-500 font-bold">03.</span> <span className="text-white">Backend Tags:</span> "Nashville Mayor 2027", "Antioch TN", "District 32".</li>
+          </ul>
+        )
+      }
     ]
   },
   {
-    id: "seo",
-    title: "Semantic Indexing",
-    subtitle: "SEO & Metadata Architecture",
-    icon: Search,
-    description: "We must feed the algorithm exactly what it needs to categorize the content perfectly.",
-    tactics: [
-      { title: "The Curiosity Gap", desc: "Titles must invoke a question. 'Ep 63' is dead. Use 'The Hidden Truth About City Equity'." },
-      { title: "Timestamp Navigation", desc: "Non-negotiable. Increases AVD and indexes as individual Google search results." },
-      { title: "Manual Captions", desc: "A dense text file for the algorithm to read. Auto-captions are insufficient for complex topics." },
-      { title: "Hashtag Clusters", desc: "3-5 hyper-relevant tags (e.g., #NashvillePolitics) to avoid spam penalties." }
-    ]
-  },
-  {
-    id: "shorts",
-    title: "Short-Form Velocity",
-    subtitle: "The Hero-to-Micro Engine",
-    icon: Zap,
-    description: "Shorts are the top-of-funnel discovery engine. We will implement a 'Hero-to-Micro' workflow.",
-    tactics: [
-      { title: "5 Shorts Per Episode", desc: "Extract 3-5 distinct micro-narratives from every long-form recording." },
-      { title: "Vertical Engineering", desc: "Stacked split-screen for dialogue. Active speaker tracking. No lazy cropping." },
-      { title: "Dynamic Captioning", desc: "Bold, high-contrast, flashing captions to lock attention in muted environments." },
-      { title: "The Conversion Bridge", desc: "Hard-coded 'Related Video' links funneling viewers back to the long-form episode." }
+    id: "tiktok",
+    title: "TikTok Growth Engine",
+    subtitle: "Hero-to-Micro Supply Chain",
+    icon: Smartphone,
+    description: "The modern consumer does not search for podcasts; the podcast must intercept them. We treat your creative output as a highly engineered supply chain.",
+    modules: [
+      {
+        title: "Hook Engineering",
+        content: (
+          <div className="grid grid-cols-1 gap-3">
+            <div className="bg-zinc-950 p-3 border-l-2 border-red-600">
+              <p className="text-xs text-zinc-500 uppercase mb-1">The Specificity Effect</p>
+              <p className="text-white text-sm">"If you are a Nashville creative tired of sacrificing your master ownership..."</p>
+            </div>
+            <div className="bg-zinc-950 p-3 border-l-2 border-zinc-700">
+              <p className="text-xs text-zinc-500 uppercase mb-1">POV Framework</p>
+              <p className="text-white text-sm">"POV: You finally stopped asking for a seat at the table and bought the building."</p>
+            </div>
+          </div>
+        )
+      },
+      {
+        title: "AI Technology Stack",
+        content: (
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1 bg-zinc-800 text-white text-xs font-mono rounded-full border border-zinc-700">OpusClip (Extraction)</span>
+            <span className="px-3 py-1 bg-zinc-800 text-white text-xs font-mono rounded-full border border-zinc-700">Choppity (Nuance)</span>
+            <span className="px-3 py-1 bg-zinc-800 text-white text-xs font-mono rounded-full border border-zinc-700">Submagic (Visuals)</span>
+            <span className="px-3 py-1 bg-zinc-800 text-white text-xs font-mono rounded-full border border-zinc-700">CapCut Pro (Polish)</span>
+          </div>
+        )
+      }
     ]
   },
   {
@@ -54,18 +84,30 @@ const strategies = [
     title: "Community Engineering",
     subtitle: "Omnichannel Ecosystem",
     icon: Users,
-    description: "Transforming passive consumption into active algorithmic participation.",
-    tactics: [
-      { title: "Engineered CTAs", desc: "Specific prompts ('What is one action you can take?') to drive comment velocity." },
-      { title: "Community Tab Weaponization", desc: "Daily polls and behind-the-scenes content to maintain relevance between uploads." },
-      { title: "Affiliate Distribution Kits", desc: "Pre-packaged assets for guests (Joy Styles, T.R.A.N.E.) to share effortlessly." },
-      { title: "Live Integration", desc: "Leveraging UMC events for digital premieres to merge physical and digital audiences." }
+    description: "Transforming passive consumption into active algorithmic participation. We digitize your profound real-world synergy.",
+    modules: [
+      {
+        title: "Engineered CTAs",
+        content: (
+          <p className="text-zinc-400 text-sm leading-relaxed">
+            Instead of "Like and Subscribe," we use specific prompts: <span className="text-white italic">"What is one small action you can take this week to improve equity in Antioch? Let us know in the comments."</span> This drives comment velocity.
+          </p>
+        )
+      },
+      {
+        title: "Affiliate Distribution Kits",
+        content: (
+          <p className="text-zinc-400 text-sm leading-relaxed">
+            We provide guests like <span className="text-white">Joy Styles</span> with a pre-packaged digital kit: Raw YouTube link, 3 vertical Shorts, and custom thumbnails. Minimizing friction for them to share.
+          </p>
+        )
+      }
     ]
   }
 ];
 
 export default function Strategy() {
-  const [activeId, setActiveId] = useState("packaging");
+  const [activeId, setActiveId] = useState("youtube");
   const activeStrategy = strategies.find(s => s.id === activeId)!;
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -144,15 +186,13 @@ export default function Strategy() {
                 {activeStrategy.description}
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {activeStrategy.tactics.map((tactic, idx) => (
+              <div className="grid grid-cols-1 gap-6">
+                {activeStrategy.modules.map((module, idx) => (
                   <div key={idx} className="bg-black p-6 border border-zinc-800 hover:border-red-900/50 transition-colors group">
-                    <h4 className="text-white font-bold uppercase tracking-wide mb-3 group-hover:text-red-500 transition-colors text-sm">
-                      <span className="text-zinc-600 mr-2">0{idx + 1}.</span> {tactic.title}
+                    <h4 className="text-white font-bold uppercase tracking-wide mb-4 group-hover:text-red-500 transition-colors text-sm flex items-center gap-2">
+                      <FileText className="w-4 h-4 text-zinc-600" /> {module.title}
                     </h4>
-                    <p className="text-zinc-400 text-sm leading-relaxed">
-                      {tactic.desc}
-                    </p>
+                    {module.content}
                   </div>
                 ))}
               </div>

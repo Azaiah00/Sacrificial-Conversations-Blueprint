@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import AuditRadarChart from "../charts/RadarChart";
-import { CheckCircle2, AlertTriangle, XCircle, Search } from "lucide-react";
+import { CheckCircle2, AlertTriangle, XCircle, Search, TrendingUp } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -42,7 +42,7 @@ export default function Audit() {
         <span className="text-red-600 font-bold uppercase tracking-[0.2em] text-sm mb-4 block">Phase I: The Reality</span>
         <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight uppercase">Forensic Diagnostic <br />Assessment</h2>
         <p className="text-zinc-400 max-w-3xl mx-auto text-xl leading-relaxed font-light">
-          A granular review of the content's inherent value against its digital execution, exposing critical vulnerabilities in the current operational state.
+          A granular review of the content's inherent value against its digital execution, utilizing the <span className="text-white font-semibold">Joy Styles (Ep. 67)</span> episode as a primary case study.
         </p>
       </div>
 
@@ -55,7 +55,7 @@ export default function Audit() {
               <div>
                 <h3 className="text-2xl font-bold text-white mb-3 uppercase tracking-wide">The Cultural Moat</h3>
                 <p className="text-zinc-400 leading-relaxed">
-                  <span className="text-white font-semibold">Core Strength:</span> Deep integration with Nashville's civic and musical ecosystem (UMC, 104.1 Tab Radio). High-caliber guests like <span className="text-green-400">Joy Styles</span> and <span className="text-green-400">T.R.A.N.E. Spitta</span> provide an intrinsic competitive advantage that cannot be replicated.
+                  <span className="text-white font-semibold">Core Strength:</span> Deep integration with Nashville's civic and musical ecosystem. The Joy Styles interview contains explosive content about the <span className="text-green-400">NES Power Outage</span>, <span className="text-green-400">2027 Mayoral Race</span>, and <span className="text-green-400">Antioch Development</span>.
                 </p>
               </div>
             </div>
@@ -66,14 +66,14 @@ export default function Audit() {
             <div className="flex items-start gap-6">
               <XCircle className="w-8 h-8 text-red-600 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
               <div>
-                <h3 className="text-2xl font-bold text-white mb-3 uppercase tracking-wide">The Invisible Archive</h3>
+                <h3 className="text-2xl font-bold text-white mb-3 uppercase tracking-wide">The "Gap"</h3>
                 <p className="text-zinc-400 leading-relaxed">
-                  <span className="text-white font-semibold">Critical Failure:</span> High-value content is being deposited as a storage mechanism rather than an attention magnet. 
+                  <span className="text-white font-semibold">Critical Failure:</span> The current packaging positions this as a "Podcast Episode" rather than "Breaking News."
                   <br /><br />
-                  <span className="text-red-500 font-mono text-sm block mb-2">&gt; Ep 63 (Joy Styles): 56 Views</span>
-                  <span className="text-red-500 font-mono text-sm block">&gt; Ep 64 (Dr. King): 17 Views</span>
+                  <span className="text-red-500 font-mono text-sm block mb-2">&gt; Current Title: "Conversation with..." (Passive)</span>
+                  <span className="text-red-500 font-mono text-sm block">&gt; Missed Opportunity: "Joy Styles Exposes NES Failures" (Active)</span>
                   <br />
-                  The algorithm is suppressing reach due to unoptimized packaging.
+                  YouTube audiences click on conflict and news, not just conversations.
                 </p>
               </div>
             </div>
@@ -82,11 +82,11 @@ export default function Audit() {
           {/* Warning */}
           <div ref={(el) => { if (el) cardsRef.current[2] = el }} className="bg-zinc-900/50 p-8 rounded-none border-l-4 border-amber-500 hover:bg-zinc-900 transition-colors group opacity-0">
             <div className="flex items-start gap-6">
-              <AlertTriangle className="w-8 h-8 text-amber-500 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
+              <TrendingUp className="w-8 h-8 text-amber-500 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
               <div>
-                <h3 className="text-2xl font-bold text-white mb-3 uppercase tracking-wide">Algorithmic Penalty</h3>
+                <h3 className="text-2xl font-bold text-white mb-3 uppercase tracking-wide">The Pivot</h3>
                 <p className="text-zinc-400 leading-relaxed">
-                  <span className="text-white font-semibold">Current Status:</span> The channel lacks the structural hooks, thumbnail psychology, and metadata required to intercept user intent. The "0.3 Second Rule" is being violated on every upload.
+                  <span className="text-white font-semibold">Strategic Action:</span> We must pivot the packaging from "Podcast" to "Exclusive Insight." This bridges the gap between politically active Nashville residents and the faith-based WFTB 104.1 audience.
                 </p>
               </div>
             </div>
@@ -106,7 +106,7 @@ export default function Audit() {
             <h3 className="text-xl font-bold text-white uppercase tracking-wider flex items-center gap-2">
               <Search className="w-5 h-5 text-red-600" /> Channel Health Matrix
             </h3>
-            <span className="text-xs font-mono text-zinc-500">DIAGNOSTIC_V1.0</span>
+            <span className="text-xs font-mono text-zinc-500">DIAGNOSTIC_V2.0</span>
           </div>
           
           <div className="relative z-10">

@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import { Check, AlertCircle } from "lucide-react";
 
 const checklistItems = [
-  { id: 1, text: "Face occupies >40% of canvas", weight: 1.5 },
-  { id: 2, text: "High-Emotion Expression (Shock/Joy)", weight: 1.5 },
-  { id: 3, text: "High Contrast Background", weight: 1.0 },
-  { id: 4, text: "Typography < 5 words", weight: 1.2 },
-  { id: 5, text: "Title creates 'Curiosity Gap'", weight: 1.5 },
-  { id: 6, text: "First 3s Hook (No Intro)", weight: 1.5 }
+  { id: 1, text: "Split Screen: Joy Styles + Headline", weight: 1.5 },
+  { id: 2, text: "Headline: 'THE TRUTH ABOUT NES' (Big/Readable)", weight: 1.5 },
+  { id: 3, text: "ActBlue Link: Top of Description (No Googling)", weight: 1.0 },
+  { id: 4, text: "Local SEO: Tagged 'Nashville, TN' in upload", weight: 1.2 },
+  { id: 5, text: "Shorts: Linked to Full Video (Related Tab)", weight: 1.5 },
+  { id: 6, text: "First 3s: No 'Hello'. Start with Conflict.", weight: 1.5 }
 ];
 
 export default function Optimization() {
@@ -87,15 +87,15 @@ export default function Optimization() {
             <div className="flex gap-4 items-start group">
               <div className="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-red-600 font-bold text-xl group-hover:bg-red-600 group-hover:text-white transition-colors">01</div>
               <div>
-                <h4 className="text-white font-bold uppercase tracking-wide mb-1">The Hook (0-3s)</h4>
-                <p className="text-zinc-500 text-sm">Must begin in media res. No intros. No "Hello." Immediate conflict.</p>
+                <h4 className="text-white font-bold uppercase tracking-wide mb-1">The 3-Second Ultimatum</h4>
+                <p className="text-zinc-500 text-sm">Must begin in media res. No intros. No "Hello." Start with the most provocative statement.</p>
               </div>
             </div>
             <div className="flex gap-4 items-start group">
               <div className="w-12 h-12 bg-zinc-900 border border-zinc-800 flex items-center justify-center text-red-600 font-bold text-xl group-hover:bg-red-600 group-hover:text-white transition-colors">02</div>
               <div>
-                <h4 className="text-white font-bold uppercase tracking-wide mb-1">Vertical Engineering</h4>
-                <p className="text-zinc-500 text-sm">Stacked split-screen. Active speaker tracking. 9:16 native resolution.</p>
+                <h4 className="text-white font-bold uppercase tracking-wide mb-1">Dynamic Subtitling</h4>
+                <p className="text-zinc-500 text-sm">Bold, high-contrast, flashing captions. Highlight 1-3 words at a time to lock eyes.</p>
               </div>
             </div>
             <div className="flex gap-4 items-start group">

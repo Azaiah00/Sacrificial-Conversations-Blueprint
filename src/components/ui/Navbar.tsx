@@ -8,8 +8,7 @@ const navItems = [
   { name: "Diagnostic", target: "audit" },
   { name: "Strategy", target: "strategy" },
   { name: "Visuals", target: "deliverables" },
-  { name: "Roadmap", target: "roadmap" },
-  { name: "ROI", target: "projections" },
+  { name: "Services", target: "services" },
 ];
 
 export default function Navbar() {

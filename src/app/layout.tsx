@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-y-scroll">
       <body
         className={`${inter.variable} ${oswald.variable} antialiased bg-black text-white selection:bg-red-600 selection:text-white`}
       >
