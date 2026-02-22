@@ -13,7 +13,7 @@ const data = [
 
 export default function AuditRadarChart() {
   return (
-    <div className="w-full h-[450px] relative">
+    <div className="w-full h-[280px] sm:h-[350px] lg:h-[450px] relative">
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="75%" data={data}>
           <defs>

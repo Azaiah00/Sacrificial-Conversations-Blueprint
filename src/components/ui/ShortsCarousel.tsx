@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export const SHORTS_LIST = [
   { id: 1, src: "/assets/shorts/crisis-leadership.mp4", label: "Crisis Leadership: What Nashville Needs NOW!" },
@@ -21,6 +21,33 @@ interface ShortsCarouselProps {
 export default function ShortsCarousel({ embedded = false, onShortClick }: ShortsCarouselProps) {
   const [paused, setPaused] = useState(false);
   const [activeId, setActiveId] = useState<number | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!embedded || !containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target.querySelector("video");
+          if (video) {
+            if (entry.isIntersecting) {
+              video.play().catch(() => {});
+            } else {
+              video.pause();
+              video.currentTime = 0;
+            }
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    const items = containerRef.current.querySelectorAll(".short-item");
+    items.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, [embedded]);
 
   const handleClick = (item: ShortItem) => {
     if (embedded && onShortClick) {
@@ -45,46 +72,56 @@ export default function ShortsCarousel({ embedded = false, onShortClick }: Short
       )}
 
       <div
-        className={`relative overflow-hidden rounded-xl border border-zinc-800 bg-black ${
-          embedded ? "flex-1 min-h-0 aspect-[9/16] w-full max-w-[280px] sm:max-w-[320px] mx-auto" : "h-[420px] sm:h-[500px]"
+        ref={containerRef}
+        className={`relative rounded-xl border border-zinc-800 bg-black ${
+          embedded 
+            ? "flex-1 w-full max-w-[280px] sm:max-w-[320px] mx-auto overflow-y-auto snap-y snap-mandatory scrollbar-hide" 
+            : "h-[420px] sm:h-[500px] overflow-hidden"
         }`}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => { setPaused(false); setActiveId(null); }}
       >
         <div
-          className="absolute left-0 right-0 top-0 flex flex-col"
-          style={{
-            height: embedded ? "1000%" : "auto",
+          className={embedded ? "flex flex-col min-h-full" : "absolute left-0 right-0 top-0 flex flex-col"}
+          style={!embedded ? {
+            height: "auto",
             animation: "scrollUp 40s linear infinite",
             animationPlayState: paused ? "paused" : "running",
-          }}
+          } : undefined}
         >
-          {[...SHORTS_LIST, ...SHORTS_LIST].map((item, index) => (
+          {([...SHORTS_LIST, ...(embedded ? [] : SHORTS_LIST)]).map((item, index) => (
             <div
               key={`short-${item.id}-${index}`}
-              className="flex-shrink-0 overflow-hidden bg-zinc-900 cursor-pointer border-b border-zinc-800 last:border-b-0 group w-full"
-              style={embedded ? { height: "10%" } : undefined}
+              className={`short-item flex-shrink-0 overflow-hidden bg-zinc-900 cursor-pointer border-b border-zinc-800 last:border-b-0 group w-full ${
+                embedded ? "h-full snap-start" : ""
+              }`}
+              style={embedded ? { height: "100%", minHeight: "100%" } : undefined}
               onClick={() => handleClick(item)}
             >
-              <div className={`relative w-full bg-black ${embedded ? "h-full aspect-[9/16] mx-auto max-w-full" : "aspect-[9/16] max-h-[280px] sm:max-h-[320px] mx-auto"}`}>
+              <div className={`relative w-full h-full bg-black ${embedded ? "" : "aspect-[9/16] max-h-[280px] sm:max-h-[320px] mx-auto"}`}>
                 <video
                   src={item.src}
                   className="w-full h-full object-cover"
                   muted
                   loop
                   playsInline
+                  autoPlay={false}
                   {...(activeId === item.id && !embedded ? { autoPlay: true } : {})}
-                  onMouseEnter={(e) => e.currentTarget.play()}
+                  onMouseEnter={(e) => {
+                    if (!embedded) e.currentTarget.play();
+                  }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.pause();
-                    if (activeId !== item.id) e.currentTarget.currentTime = 0;
+                    if (!embedded) {
+                      e.currentTarget.pause();
+                      if (activeId !== item.id) e.currentTarget.currentTime = 0;
+                    }
                   }}
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-gradient-to-t from-black/90 to-transparent">
                   <p className="text-white text-[10px] sm:text-xs font-bold uppercase tracking-wide line-clamp-2">{item.label}</p>
                 </div>
                 {embedded && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-colors">
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-colors pointer-events-none">
                     <span className="opacity-0 group-hover:opacity-100 text-white text-xs font-mono uppercase bg-red-600/90 px-3 py-1.5 transition-opacity">
                       Tap to expand
                     </span>

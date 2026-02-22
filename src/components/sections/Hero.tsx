@@ -19,7 +19,7 @@ export default function Hero() {
       </div>
 
       {/* Red Glow Effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-600/10 rounded-full blur-[128px] animate-pulse pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] md:w-[800px] md:h-[800px] bg-red-600/10 rounded-full blur-[80px] sm:blur-[100px] md:blur-[128px] animate-pulse pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
         <motion.div
@@ -34,7 +34,7 @@ export default function Hero() {
             </span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-8xl font-bold text-white mb-6 sm:mb-8 leading-tight tracking-tighter uppercase relative">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-8xl font-bold text-white mb-5 sm:mb-8 leading-tight tracking-tighter uppercase relative px-1">
             The Digital <br />
             <span className="text-red-600 relative inline-block">
               Paradigm Shift

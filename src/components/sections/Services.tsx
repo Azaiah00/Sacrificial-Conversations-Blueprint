@@ -46,13 +46,13 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-black border-t border-zinc-900">
-      <div className="mb-20">
+    <section id="services" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 bg-black border-t border-zinc-900">
+      <div className="mb-10 sm:mb-20">
         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest mb-2 block">Our Capabilities</span>
-        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white uppercase tracking-tight">Service Architecture</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white uppercase tracking-tight">Service Architecture</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
         {services.map((service, index) => (
           <motion.div
             key={service.id}
@@ -60,7 +60,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
             viewport={{ once: true }}
-            className={`bg-zinc-900/50 border border-zinc-800 p-8 hover:border-red-600/50 transition-colors group relative overflow-hidden ${service.interactive ? 'ring-2 ring-red-900/20' : ''}`}
+            className={`bg-zinc-900/50 border border-zinc-800 p-6 sm:p-8 hover:border-red-600/50 transition-colors group relative overflow-hidden ${service.interactive ? 'ring-2 ring-red-900/20' : ''}`}
           >
             <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
               <service.icon className="w-24 h-24 text-red-600" />
@@ -71,8 +71,8 @@ export default function Services() {
                 <service.icon className="w-6 h-6 text-white group-hover:text-red-600 transition-colors" />
               </div>
 
-              <h3 className="text-2xl font-bold text-white uppercase tracking-wide mb-4">{service.title}</h3>
-              <p className="text-zinc-400 mb-8 leading-relaxed h-auto md:h-20">{service.description}</p>
+              <h3 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wide mb-3 sm:mb-4">{service.title}</h3>
+              <p className="text-zinc-400 mb-6 sm:mb-8 leading-relaxed h-auto md:h-20 text-sm sm:text-base">{service.description}</p>
 
               <ul className="space-y-4">
                 {service.features.map((feature, idx) => (
@@ -99,7 +99,7 @@ export default function Services() {
         <div className="relative z-10 max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-6 sm:mb-8 uppercase tracking-tighter">Partner With Us</h2>
           <p className="text-white/80 text-lg sm:text-2xl mb-8 sm:mb-12 font-light max-w-2xl mx-auto px-2 sm:px-0">
-            We build the infrastructure that enables growth—capabilities and architecture, not guarantees.
+            We build the infrastructure that enables growth—capabilities and architecture.
           </p>
           <button className="bg-black text-white hover:bg-zinc-900 font-bold py-4 px-8 sm:py-6 sm:px-12 text-base sm:text-xl uppercase tracking-widest transition-all shadow-2xl hover:scale-105 border border-zinc-800 w-full sm:w-auto">
             Initialize Partnership

@@ -65,7 +65,7 @@ export default function Navbar() {
             <div className="w-10 h-10 bg-red-600 flex items-center justify-center text-white font-bold text-xl skew-x-[-10deg] group-hover:bg-white group-hover:text-black transition-colors">
               <span className="skew-x-[10deg]">SC</span>
             </div>
-            <span className="font-bold text-lg sm:text-xl tracking-tighter text-white uppercase font-display group-hover:text-red-600 transition-colors">
+            <span className="font-bold text-sm sm:text-lg md:text-xl tracking-tighter text-white uppercase font-display group-hover:text-red-600 transition-colors">
               Sacrificial<span className="text-red-600 group-hover:text-white">Conversations</span>
             </span>
           </div>
@@ -86,10 +86,10 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Mobile hamburger */}
-          <div className="md:hidden">
+          {/* Mobile hamburger: min 44px touch target for accessibility */}
+          <div className="md:hidden flex items-center justify-center">
             <button 
-              className="text-zinc-400 hover:text-white transition-colors"
+              className="text-zinc-400 hover:text-white transition-colors p-3 -m-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >

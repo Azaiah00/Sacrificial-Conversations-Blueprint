@@ -36,8 +36,8 @@ const valuePillars = [
 
 export default function Optimization() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-zinc-950 border-t border-zinc-900">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 bg-zinc-950 border-t border-zinc-900">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16">
         
         {/* Left: Value Proposition / The Couture House Edge */}
         <div className="bg-black p-6 sm:p-10 border border-zinc-800 relative overflow-hidden">

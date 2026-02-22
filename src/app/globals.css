@@ -87,6 +87,16 @@ body::-webkit-scrollbar-button {
   display: none !important;
 }
 
+/* Thinner scrollbar on small screens to save space */
+@media (max-width: 640px) {
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   text-transform: uppercase;
@@ -103,4 +113,12 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes scrollUp {
   0% { transform: translateY(0); }
   100% { transform: translateY(-50%); }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

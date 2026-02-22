@@ -205,20 +205,20 @@ export default function Strategy() {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-black">
-      <div className="strategy-header mb-16 border-l-4 border-red-600 pl-6 opacity-0">
+    <section ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 bg-black">
+      <div className="strategy-header mb-8 sm:mb-16 border-l-4 border-red-600 pl-4 sm:pl-6 opacity-0">
         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest mb-2 block">Phase II: The Solution</span>
-        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white uppercase tracking-tight">The Algorithmic <br />Imperative</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white uppercase tracking-tight">The Algorithmic <br />Imperative</h2>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Navigation Rail */}
-        <div className="lg:col-span-4 space-y-2 sticky top-24 self-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
+        {/* Navigation Rail: full-width on mobile, sticky sidebar on lg */}
+        <div className="lg:col-span-4 space-y-2 lg:sticky lg:top-24 self-start">
           {strategies.map((s) => (
             <button
               key={s.id}
               onClick={() => setActiveId(s.id)}
-              className={`w-full text-left p-6 border-l-2 transition-all duration-300 group ${
+              className={`w-full text-left p-4 sm:p-6 border-l-2 transition-all duration-300 group min-h-[48px] sm:min-h-0 ${
                 activeId === s.id 
                   ? "bg-zinc-900 border-red-600" 
                   : "bg-black border-zinc-800 hover:bg-zinc-900/50 hover:border-zinc-600"
@@ -237,7 +237,7 @@ export default function Strategy() {
         </div>
 
         {/* Content Area */}
-        <div className="lg:col-span-8 bg-zinc-900 border border-zinc-800 p-5 sm:p-8 md:p-12 relative overflow-hidden min-h-0 sm:min-h-[600px]">
+        <div className="lg:col-span-8 bg-zinc-900 border border-zinc-800 p-4 sm:p-6 md:p-8 lg:p-12 relative overflow-hidden min-h-[280px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px]">
           <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/5 rounded-full blur-[100px]" />
           
           <AnimatePresence mode="wait">

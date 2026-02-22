@@ -17,6 +17,12 @@ export const metadata: Metadata = {
   description: "Comprehensive Strategic Blueprint for the YouTube Optimization and Audience Expansion of the Sacrificial Conversations Podcast.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
