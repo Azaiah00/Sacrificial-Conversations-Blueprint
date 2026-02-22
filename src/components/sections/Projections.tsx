@@ -63,7 +63,7 @@ export default function Projections() {
         viewport={{ once: true }}
         className="relative overflow-hidden text-center py-32 px-6 bg-red-600"
       >
-        <div className="absolute inset-0 bg-[url('/assets/noise.png')] opacity-20 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[url('/assets/noise.svg')] opacity-20 mix-blend-multiply" />
         <div className="relative z-10 max-w-4xl mx-auto">
           <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 uppercase tracking-tighter">Ready to Elevate?</h2>
           <p className="text-white/80 text-2xl mb-12 font-light max-w-2xl mx-auto">

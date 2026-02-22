@@ -1,8 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eye, Search, Zap, Users, ChevronRight } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const strategies = [
   {
@@ -62,17 +67,34 @@ const strategies = [
 export default function Strategy() {
   const [activeId, setActiveId] = useState("packaging");
   const activeStrategy = strategies.find(s => s.id === activeId)!;
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      ".strategy-header",
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".strategy-header",
+          start: "top 80%",
+        },
+      }
+    );
+  }, { scope: containerRef });
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-black">
-      <div className="mb-16 border-l-4 border-red-600 pl-6">
+    <section ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-black">
+      <div className="strategy-header mb-16 border-l-4 border-red-600 pl-6 opacity-0">
         <span className="text-zinc-500 font-mono text-sm uppercase tracking-widest mb-2 block">Phase II: The Solution</span>
         <h2 className="text-4xl md:text-6xl font-bold text-white uppercase tracking-tight">The Algorithmic <br />Imperative</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Navigation Rail */}
-        <div className="lg:col-span-4 space-y-2">
+        <div className="lg:col-span-4 space-y-2 sticky top-24 self-start">
           {strategies.map((s) => (
             <button
               key={s.id}

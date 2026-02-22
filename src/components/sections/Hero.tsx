@@ -2,16 +2,24 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const HeroScene = dynamic(() => import("../3d/HeroScene"), { ssr: false });
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-black">
       {/* Dynamic Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-900 via-black to-black z-0 opacity-50" />
-      <div className="absolute inset-0 bg-[url('/assets/noise.png')] opacity-20 mix-blend-overlay z-0 pointer-events-none" />
+      <div className="absolute inset-0 bg-[url('/assets/noise.svg')] opacity-20 mix-blend-overlay z-0 pointer-events-none" />
       
+      {/* 3D Scene */}
+      <div className="absolute inset-0 z-0 opacity-60">
+        <HeroScene />
+      </div>
+
       {/* Red Glow Effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-600/10 rounded-full blur-[128px] animate-pulse" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-red-600/10 rounded-full blur-[128px] animate-pulse pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
         <motion.div
@@ -26,9 +34,17 @@ export default function Hero() {
             </span>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight tracking-tighter uppercase">
+          <h1 className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight tracking-tighter uppercase relative">
             The Digital <br />
-            <span className="text-red-600">Paradigm Shift</span>
+            <span className="text-red-600 relative inline-block">
+              Paradigm Shift
+              <motion.span 
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="absolute bottom-2 left-0 h-2 bg-red-600/30 -z-10"
+              />
+            </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-12 leading-relaxed font-light">

@@ -1,12 +1,43 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import AuditRadarChart from "../charts/RadarChart";
 import { CheckCircle2, AlertTriangle, XCircle, Search } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Audit() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useGSAP(() => {
+    cardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.fromTo(
+          card,
+          { opacity: 0, x: -50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            delay: index * 0.2,
+            scrollTrigger: {
+              trigger: card,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      }
+    });
+  }, { scope: containerRef });
+
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-zinc-950 border-y border-zinc-900">
+    <section ref={containerRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-zinc-950 border-y border-zinc-900">
       <div className="text-center mb-20">
         <span className="text-red-600 font-bold uppercase tracking-[0.2em] text-sm mb-4 block">Phase I: The Reality</span>
         <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight uppercase">Forensic Diagnostic <br />Assessment</h2>
@@ -16,15 +47,9 @@ export default function Audit() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20">
-        <motion.div 
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="space-y-10"
-        >
+        <div className="space-y-10">
           {/* Pros */}
-          <div className="bg-zinc-900/50 p-8 rounded-none border-l-4 border-green-500 hover:bg-zinc-900 transition-colors group">
+          <div ref={(el) => { if (el) cardsRef.current[0] = el }} className="bg-zinc-900/50 p-8 rounded-none border-l-4 border-green-500 hover:bg-zinc-900 transition-colors group opacity-0">
             <div className="flex items-start gap-6">
               <CheckCircle2 className="w-8 h-8 text-green-500 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
               <div>
@@ -37,7 +62,7 @@ export default function Audit() {
           </div>
 
           {/* Cons */}
-          <div className="bg-zinc-900/50 p-8 rounded-none border-l-4 border-red-600 hover:bg-zinc-900 transition-colors group">
+          <div ref={(el) => { if (el) cardsRef.current[1] = el }} className="bg-zinc-900/50 p-8 rounded-none border-l-4 border-red-600 hover:bg-zinc-900 transition-colors group opacity-0">
             <div className="flex items-start gap-6">
               <XCircle className="w-8 h-8 text-red-600 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
               <div>
@@ -55,7 +80,7 @@ export default function Audit() {
           </div>
 
           {/* Warning */}
-          <div className="bg-zinc-900/50 p-8 rounded-none border-l-4 border-amber-500 hover:bg-zinc-900 transition-colors group">
+          <div ref={(el) => { if (el) cardsRef.current[2] = el }} className="bg-zinc-900/50 p-8 rounded-none border-l-4 border-amber-500 hover:bg-zinc-900 transition-colors group opacity-0">
             <div className="flex items-start gap-6">
               <AlertTriangle className="w-8 h-8 text-amber-500 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
               <div>
@@ -66,7 +91,7 @@ export default function Audit() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Radar Chart Section */}
         <motion.div 
