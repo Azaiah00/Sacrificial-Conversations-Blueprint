@@ -58,12 +58,6 @@ export default function Hero() {
             >
               Start The Diagnostic
             </button>
-            <button 
-              onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-4 sm:px-10 sm:py-5 bg-transparent border border-zinc-700 hover:border-white text-zinc-400 hover:text-white font-bold text-sm sm:text-lg tracking-wide uppercase transition-all w-full sm:w-auto text-center"
-            >
-              View Our Services
-            </button>
           </div>
         </motion.div>
       </div>
