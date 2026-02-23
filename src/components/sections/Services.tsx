@@ -101,9 +101,6 @@ export default function Services() {
           <p className="text-white/80 text-lg sm:text-2xl mb-8 sm:mb-12 font-light max-w-2xl mx-auto px-2 sm:px-0">
             We build the infrastructure that enables growth—capabilities and architecture.
           </p>
-          <button className="bg-black text-white hover:bg-zinc-900 font-bold py-4 px-8 sm:py-6 sm:px-12 text-base sm:text-xl uppercase tracking-widest transition-all shadow-2xl hover:scale-105 border border-zinc-800 w-full sm:w-auto">
-            Initialize Partnership
-          </button>
         </div>
       </motion.div>
 
@@ -154,15 +151,17 @@ export default function Services() {
             </div>
           ))}
         </div>
-        {/* Pay via Stripe — links to hosted checkout */}
-        <a
-          href="https://buy.stripe.com/eVqcN5cGi4vm1J69AP73G00"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center mt-8 sm:mt-10 bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 sm:py-5 sm:px-12 text-base sm:text-lg uppercase tracking-widest transition-all shadow-lg hover:scale-[1.02] border-0 w-full sm:w-auto"
-        >
-          Pay here — $500/month
-        </a>
+        {/* Pay via Stripe — centered on screen */}
+        <div className="flex justify-center mt-8 sm:mt-10">
+          <a
+            href="https://buy.stripe.com/eVqcN5cGi4vm1J69AP73G00"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 sm:py-5 sm:px-12 text-base sm:text-lg uppercase tracking-widest transition-all shadow-lg hover:scale-[1.02] border-0 w-full sm:w-auto max-w-xs sm:max-w-none"
+          >
+            Pay here
+          </a>
+        </div>
       </motion.div>
 
       <footer className="mt-20 border-t border-zinc-900 pt-12 flex flex-col items-center text-center gap-8">
