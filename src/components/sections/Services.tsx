@@ -135,13 +135,12 @@ export default function Services() {
             { title: "Posting strategy", desc: "Clear guidance on when and what to post: schedule, format, and cadence so your content works with the algorithm." },
             { title: "Discoverability pack", desc: "Captions, hashtags, keywords, and focus suggestions plus what's trending so you get found more." },
             { title: "Unified visual identity", desc: "YouTube and TikTok refreshed for a consistent, on-brand look that grabs attention and looks professional." },
-            { title: "1 animated video per week", desc: "One polished animated piece (intro, promo, or key-message) each week to use across platforms." },
+            { title: "1 video per week (animated/promo)", desc: "One polished animated or promo piece each week to use across platforms." },
             { title: "Weekly static promos", desc: "A set number of static ads each week for Stories, Facebook, and feed to promote the podcast." },
             { title: "Thumbnail design", desc: "Thumbnail creation for YouTube long-form and TikTok clips so every post is built to convert." },
-            { title: "7 high-converting clips per week", desc: "We turn your weekly Monday podcast into 7 short-form clips and advise exactly when to post them for maximum reach." },
+            { title: "5 high-converting clips per week", desc: "We turn your weekly Monday podcast into 5 short-form clips and advise exactly when to post them for maximum reach." },
             { title: "10 clips per month (Saturday show)", desc: "Your monthly Saturday couples podcast becomes 10 short-form clips, with posting guidance so each one performs." },
             { title: "Open line — no hesitation", desc: "Reach out anytime. No scheduling, no waiting—we're here when you need us." },
-            { title: "Copy support", desc: "Up to a few social captions or post copy per month so posts are on-message and on-brand." },
           ].map((item, idx) => (
             <div
               key={idx}
@@ -155,6 +154,15 @@ export default function Services() {
             </div>
           ))}
         </div>
+        {/* Pay via Stripe — links to hosted checkout */}
+        <a
+          href="https://buy.stripe.com/eVqcN5cGi4vm1J69AP73G00"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center mt-8 sm:mt-10 bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 sm:py-5 sm:px-12 text-base sm:text-lg uppercase tracking-widest transition-all shadow-lg hover:scale-[1.02] border-0 w-full sm:w-auto"
+        >
+          Pay here — $500/month
+        </a>
       </motion.div>
 
       <footer className="mt-20 border-t border-zinc-900 pt-12 flex flex-col items-center text-center gap-8">
