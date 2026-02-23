@@ -107,6 +107,56 @@ export default function Services() {
         </div>
       </motion.div>
 
+      {/* $500/mo Package — What's included in the partnership */}
+      <motion.div
+        id="package"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="border-t border-zinc-900 py-12 sm:py-24"
+      >
+        <div className="mb-8 sm:mb-12">
+          <span className="text-red-600 font-bold uppercase tracking-[0.2em] text-sm mb-2 block">Proposed Partnership</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-tight mb-2">
+            Sacrificial Conversations — Monthly Package
+          </h2>
+          <p className="text-zinc-400 text-sm sm:text-base max-w-2xl">
+            What&apos;s included in your $500/mo partnership.
+          </p>
+        </div>
+        <div className="mb-10">
+          <span className="text-4xl sm:text-5xl font-bold text-white">$500</span>
+          <span className="text-xl sm:text-2xl text-zinc-400 font-mono uppercase tracking-wider ml-2">/month</span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          {[
+            { title: "Content intelligence", desc: "Every recorded episode run through our analytics so we identify high-impact moments and data-backed opportunities." },
+            { title: "Posting strategy", desc: "Clear guidance on when and what to post: schedule, format, and cadence so your content works with the algorithm." },
+            { title: "Discoverability pack", desc: "Captions, hashtags, keywords, and focus suggestions plus what's trending so you get found more." },
+            { title: "Unified visual identity", desc: "YouTube and TikTok refreshed for a consistent, on-brand look that grabs attention and looks professional." },
+            { title: "1 animated video per week", desc: "One polished animated piece (intro, promo, or key-message) each week to use across platforms." },
+            { title: "Weekly static promos", desc: "A set number of static ads each week for Stories, Facebook, and feed to promote the podcast." },
+            { title: "Thumbnail design", desc: "Thumbnail creation for YouTube long-form and TikTok clips so every post is built to convert." },
+            { title: "7 high-converting clips per week", desc: "We turn your weekly Monday podcast into 7 short-form clips and advise exactly when to post them for maximum reach." },
+            { title: "10 clips per month (Saturday show)", desc: "Your monthly Saturday couples podcast becomes 10 short-form clips, with posting guidance so each one performs." },
+            { title: "Open line — no hesitation", desc: "Reach out anytime. No scheduling, no waiting—we're here when you need us." },
+            { title: "Copy support", desc: "Up to a few social captions or post copy per month so posts are on-message and on-brand." },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="flex items-start gap-3 border-l-2 border-zinc-800 pl-4 py-2 hover:border-red-600/50 transition-colors"
+            >
+              <ArrowRight className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
+              <div>
+                <h3 className="text-white font-bold uppercase tracking-wide text-sm sm:text-base mb-1">{item.title}</h3>
+                <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
       <footer className="mt-20 border-t border-zinc-900 pt-12 flex flex-col items-center text-center gap-8">
         <div className="relative w-24 h-24 sm:w-28 sm:h-28 opacity-90">
           <Image
