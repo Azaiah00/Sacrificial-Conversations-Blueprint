@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Youtube, Smartphone, Users, ArrowRight } from "lucide-react";
+import { Youtube, Smartphone, Users, ArrowRight, CheckCircle2 } from "lucide-react";
 
 const services = [
   {
@@ -151,16 +151,12 @@ export default function Services() {
             </div>
           ))}
         </div>
-        {/* Pay via Stripe — centered on screen */}
+        {/* Paid status — Stripe link saved in stored-links/stripe-payment-link.md for next month */}
         <div className="flex justify-center mt-8 sm:mt-10">
-          <a
-            href="https://buy.stripe.com/eVqcN5cGi4vm1J69AP73G00"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-red-600 hover:bg-red-500 text-white font-bold py-4 px-8 sm:py-5 sm:px-12 text-base sm:text-lg uppercase tracking-widest transition-all shadow-lg hover:scale-[1.02] border-0 w-full sm:w-auto max-w-xs sm:max-w-none"
-          >
-            Pay here
-          </a>
+          <span className="inline-flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold py-4 px-8 sm:py-5 sm:px-12 text-base sm:text-lg uppercase tracking-widest border-0 w-full sm:w-auto max-w-xs sm:max-w-none rounded-sm">
+            <CheckCircle2 className="w-6 h-6 flex-shrink-0" strokeWidth={2.5} />
+            Paid
+          </span>
         </div>
       </motion.div>
 
