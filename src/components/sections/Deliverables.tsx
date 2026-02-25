@@ -3,19 +3,35 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ZoomIn, ChevronLeft, ChevronRight, Download, ChevronDown } from "lucide-react";
 import ShortsCarousel, { SHORTS_LIST, type ShortItem } from "@/components/ui/ShortsCarousel";
 import BannerRotator from "@/components/ui/BannerRotator";
 import LogoRotator from "@/components/ui/LogoRotator";
 
+/** Downloadable asset: URL and label for the client. */
+const DOWNLOAD_ASSETS = {
+  banner: [
+    { url: "/assets/yt-banner-1.jpeg", label: "Banner 1" },
+    { url: "/assets/yt-banner-2.jpeg", label: "Banner 2" },
+    { url: "/assets/yt-banner-3.jpeg", label: "Banner 3" },
+    { url: "/assets/yt-banner-4.jpeg", label: "Banner 4" },
+  ],
+  logo: [
+    { url: "/assets/new-logo-concept.png", label: "Logo concept" },
+    { url: "/assets/logo-example-1.jpeg", label: "Logo example 1" },
+    { url: "/assets/logo-example-2.jpeg", label: "Logo example 2" },
+  ],
+  shorts: SHORTS_LIST.map((s, i) => ({ url: s.src, label: s.label || `Short ${i + 1}` })),
+};
+
 const deliverables = [
-  { id: 1, title: "The New Standard", subtitle: "Banner Architecture", type: "Branding", image: "/assets/new-banner-concept.png", colSpan: "md:col-span-2 md:row-span-2" },
-  { id: 2, title: "High-Emotion Trigger", subtitle: "Thumbnail Variant A", type: "Packaging", image: "/assets/high-emotion-trigger-sc-thumbail-variation.jpeg", colSpan: "" },
-  { id: 3, title: "Social Disruptor", subtitle: "Instagram/FB Ad", type: "Marketing", image: "/assets/social-disruptor.jpeg", colSpan: "" },
-  { id: 4, title: "Vertical Velocity", subtitle: "Shorts Template", type: "Production", image: "/assets/shorts-mockup.png", colSpan: "md:row-span-2" },
-  { id: 5, title: "Video trailer", subtitle: "Video Trailer", type: "Advertising", image: "/assets/video-poster.png", video: "/assets/demo-SC-intro-vid.mp4", colSpan: "md:row-span-2" },
-  { id: 6, title: "Event Activation", subtitle: "Flyer Design", type: "Print/Digital", image: "/assets/event-activation.jpeg", colSpan: "" },
-  { id: 7, title: "Brand Identity", subtitle: "Logo System", type: "Branding", image: "/assets/new-logo-concept.png", colSpan: "" },
+  { id: 1, title: "The New Standard", subtitle: "Banner Architecture", type: "Branding", image: "/assets/new-banner-concept.png", colSpan: "md:col-span-2 md:row-span-2", downloadAssets: DOWNLOAD_ASSETS.banner },
+  { id: 2, title: "High-Emotion Trigger", subtitle: "Thumbnail Variant A", type: "Packaging", image: "/assets/high-emotion-trigger-sc-thumbail-variation.jpeg", colSpan: "", downloadAssets: [{ url: "/assets/high-emotion-trigger-sc-thumbail-variation.jpeg", label: "High-Emotion Trigger thumbnail" }] },
+  { id: 3, title: "Social Disruptor", subtitle: "Instagram/FB Ad", type: "Marketing", image: "/assets/social-disruptor.jpeg", colSpan: "", downloadAssets: [{ url: "/assets/social-disruptor.jpeg", label: "Social Disruptor ad" }] },
+  { id: 4, title: "Vertical Velocity", subtitle: "Shorts Template", type: "Production", image: "/assets/shorts-mockup.png", colSpan: "md:row-span-2", downloadAssets: DOWNLOAD_ASSETS.shorts },
+  { id: 5, title: "Video trailer", subtitle: "Video Trailer", type: "Advertising", image: "/assets/video-poster.png", video: "/assets/demo-SC-intro-vid.mp4", colSpan: "md:row-span-2", downloadAssets: [{ url: "/assets/demo-SC-intro-vid.mp4", label: "Video trailer" }, { url: "/assets/video-poster.png", label: "Video poster" }] },
+  { id: 6, title: "Event Activation", subtitle: "Flyer Design", type: "Print/Digital", image: "/assets/event-activation.jpeg", colSpan: "", downloadAssets: [{ url: "/assets/event-activation.jpeg", label: "Event Activation flyer" }] },
+  { id: 7, title: "Brand Identity", subtitle: "Logo System", type: "Branding", image: "/assets/new-logo-concept.png", colSpan: "", downloadAssets: DOWNLOAD_ASSETS.logo },
 ];
 
 export default function Deliverables() {
@@ -24,6 +40,9 @@ export default function Deliverables() {
   const [currentLogoImage, setCurrentLogoImage] = useState("/assets/new-logo-concept.png");
   const [selectedShort, setSelectedShort] = useState<ShortItem | null>(null);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [openDownloadId, setOpenDownloadId] = useState<number | null>(null);
+  /** Which deliverable opened the image lightbox — so we can show its download links. */
+  const [selectedImageItemId, setSelectedImageItemId] = useState<number | null>(null);
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 bg-zinc-950 border-t border-zinc-900">
@@ -52,11 +71,13 @@ export default function Deliverables() {
             viewport={{ once: true }}
             className={`relative group cursor-pointer overflow-hidden bg-black border border-zinc-900 ${item.colSpan} ${item.id === 4 ? "flex flex-col items-center justify-start p-0" : ""} ${item.id === 5 ? "flex flex-col items-center justify-center p-2 sm:p-3" : ""}`}
             onClick={(e) => {
+              setOpenDownloadId(null);
               if (item.id === 4) return;
               if (item.id === 5 && "video" in item && item.video) {
                 setSelectedVideo(item.video);
                 return;
               }
+              setSelectedImageItemId(item.id);
               if (item.id === 1) setSelectedImage(currentBannerImage);
               else if (item.id === 7) setSelectedImage(currentLogoImage);
               else setSelectedImage(item.image);
@@ -109,44 +130,129 @@ export default function Deliverables() {
                   <h3 className="text-white font-bold text-base sm:text-lg md:text-xl uppercase tracking-wide mb-0.5 sm:mb-1">{item.title}</h3>
                   <p className="text-zinc-500 text-[10px] sm:text-xs uppercase tracking-widest font-mono group-hover:text-zinc-300 transition-colors">{item.subtitle}</p>
                 </div>
-                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-red-600 p-2.5 sm:p-2 rounded-none min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center">
-                    <ZoomIn className="w-4 h-4 text-white" />
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-end gap-2" onClick={(e) => e.stopPropagation()}>
+                  <div className="flex items-center gap-1.5">
+                    {item.downloadAssets.length === 1 ? (
+                      <a
+                        href={item.downloadAssets[0].url}
+                        download={item.downloadAssets[0].url.split("/").pop() || "download"}
+                        className="bg-emerald-600 hover:bg-emerald-500 p-2.5 sm:p-2 rounded-none min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center transition-colors"
+                        title="Download"
+                      >
+                        <Download className="w-4 h-4 text-white" />
+                      </a>
+                    ) : (
+                      <div className="relative">
+                        <button
+                          type="button"
+                          onClick={() => setOpenDownloadId(openDownloadId === item.id ? null : item.id)}
+                          className="bg-emerald-600 hover:bg-emerald-500 p-2.5 sm:p-2 rounded-none min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center transition-colors"
+                          title="Download assets"
+                        >
+                          <Download className="w-4 h-4 text-white" />
+                          <ChevronDown className="w-3 h-3 text-white ml-0.5 hidden sm:block" />
+                        </button>
+                        {openDownloadId === item.id && (
+                          <div className="absolute top-full right-0 mt-1 w-48 max-h-64 overflow-y-auto bg-zinc-900 border border-zinc-700 shadow-xl z-10 rounded-sm py-1">
+                            {item.downloadAssets.map((asset, i) => (
+                              <a
+                                key={i}
+                                href={asset.url}
+                                download={asset.url.split("/").pop() || "download"}
+                                className="block px-3 py-2 text-xs text-zinc-300 hover:bg-zinc-800 hover:text-white truncate"
+                              >
+                                {asset.label}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    <div className="bg-red-600 p-2.5 sm:p-2 rounded-none min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center cursor-pointer" onClick={(e) => { e.stopPropagation(); setSelectedImageItemId(item.id); if (item.id === 1) setSelectedImage(currentBannerImage); else if (item.id === 7) setSelectedImage(currentLogoImage); else setSelectedImage(item.image); }}>
+                      <ZoomIn className="w-4 h-4 text-white" />
+                    </div>
                   </div>
                 </div>
               </>
             )}
             {item.id === 4 && (
-              <div className="absolute bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
-                <span className="text-red-600 text-[10px] font-bold uppercase tracking-[0.2em] block">{item.type}</span>
-                <h3 className="text-white font-bold text-sm sm:text-xl uppercase tracking-wide">{item.title}</h3>
-                <p className="text-zinc-500 text-[10px] sm:text-xs uppercase tracking-widest font-mono">{item.subtitle}</p>
-              </div>
+              <>
+                <div className="absolute bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
+                  <span className="text-red-600 text-[10px] font-bold uppercase tracking-[0.2em] block">{item.type}</span>
+                  <h3 className="text-white font-bold text-sm sm:text-xl uppercase tracking-wide">{item.title}</h3>
+                  <p className="text-zinc-500 text-[10px] sm:text-xs uppercase tracking-widest font-mono">{item.subtitle}</p>
+                </div>
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" onClick={(e) => e.stopPropagation()}>
+                  <div className="relative">
+                    <button
+                      type="button"
+                      onClick={() => setOpenDownloadId(openDownloadId === item.id ? null : item.id)}
+                      className="bg-emerald-600 hover:bg-emerald-500 p-2.5 sm:p-2 rounded-none min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center transition-colors"
+                      title="Download shorts"
+                    >
+                      <Download className="w-4 h-4 text-white" />
+                      <ChevronDown className="w-3 h-3 text-white ml-0.5 hidden sm:block" />
+                    </button>
+                    {openDownloadId === item.id && (
+                      <div className="absolute top-full right-0 mt-1 w-56 max-h-64 overflow-y-auto bg-zinc-900 border border-zinc-700 shadow-xl z-20 rounded-sm py-1">
+                        {item.downloadAssets.map((asset, i) => (
+                          <a key={i} href={asset.url} download={asset.url.split("/").pop() || "download"} className="block px-3 py-2 text-xs text-zinc-300 hover:bg-zinc-800 hover:text-white line-clamp-2">
+                            {asset.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </>
             )}
           </motion.div>
         ))}
       </div>
 
-      {/* Lightbox for images */}
-      {selectedImage && (
-        <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-3 sm:p-4" onClick={() => setSelectedImage(null)}>
-          <button type="button" className="absolute top-4 right-4 sm:top-8 sm:right-8 text-zinc-500 hover:text-white transition-colors group z-10 min-w-[44px] min-h-[44px] flex items-center justify-center p-2" onClick={() => setSelectedImage(null)} aria-label="Close">
-            <X className="w-8 h-8 sm:w-10 sm:h-10 group-hover:rotate-90 transition-transform duration-300" />
-          </button>
-          
-          <div className="relative max-w-7xl w-full max-h-[85vh] aspect-video border border-zinc-800 bg-zinc-900" onClick={(e) => e.stopPropagation()}>
-            <Image
-              src={selectedImage}
-              alt="Preview"
-              fill
-              className="object-contain"
-            />
-            <div className="absolute bottom-0 left-0 w-full bg-black/50 backdrop-blur-md p-4 border-t border-zinc-800">
-              <span className="text-zinc-400 text-xs font-mono uppercase tracking-widest">Preview</span>
+      {/* Lightbox for images — with per-asset download links */}
+      {selectedImage && (() => {
+        const openItem = selectedImageItemId != null ? deliverables.find((d) => d.id === selectedImageItemId) : null;
+        const assets = openItem?.downloadAssets ?? [];
+        return (
+          <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-3 sm:p-4" onClick={() => { setSelectedImage(null); setSelectedImageItemId(null); }}>
+            <button type="button" className="absolute top-4 right-4 sm:top-8 sm:right-8 text-zinc-500 hover:text-white transition-colors group z-10 min-w-[44px] min-h-[44px] flex items-center justify-center p-2" onClick={() => { setSelectedImage(null); setSelectedImageItemId(null); }} aria-label="Close">
+              <X className="w-8 h-8 sm:w-10 sm:h-10 group-hover:rotate-90 transition-transform duration-300" />
+            </button>
+
+            <div className="relative max-w-7xl w-full max-h-[85vh] aspect-video border border-zinc-800 bg-zinc-900" onClick={(e) => e.stopPropagation()}>
+              <Image
+                src={selectedImage}
+                alt="Preview"
+                fill
+                className="object-contain"
+              />
+              <div className="absolute bottom-0 left-0 w-full bg-black/70 backdrop-blur-md p-4 border-t border-zinc-800 flex flex-wrap items-center gap-3">
+                <span className="text-zinc-400 text-xs font-mono uppercase tracking-widest">Preview</span>
+                {assets.length > 0 && (
+                  <span className="text-zinc-500 text-xs">|</span>
+                )}
+                {assets.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-zinc-400 text-xs font-mono uppercase tracking-widest">Download:</span>
+                    {assets.map((asset, i) => (
+                      <a
+                        key={i}
+                        href={asset.url}
+                        download={asset.url.split("/").pop() || "download"}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium uppercase tracking-wide transition-colors"
+                      >
+                        <Download className="w-3.5 h-3.5" />
+                        {asset.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* Fullscreen Shorts modal: 9:16 video, prev/next arrows to view all one by one */}
       {selectedShort && (() => {
@@ -195,7 +301,7 @@ export default function Deliverables() {
             )}
 
             <div
-              className="w-full h-full sm:h-auto sm:max-h-[90vh] flex flex-col items-center justify-center"
+              className="w-full h-full sm:h-auto sm:max-h-[90vh] flex flex-col items-center justify-center relative"
               style={{ aspectRatio: "9/16", maxWidth: "min(100vw, calc(90vh * 9 / 16))" }}
               onClick={(e) => e.stopPropagation()}
             >
@@ -214,40 +320,73 @@ export default function Deliverables() {
               <p className="text-zinc-500 text-[10px] sm:text-xs font-mono mt-1">
                 {currentIndex + 1} / {SHORTS_LIST.length}
               </p>
+              <div className="mt-3 px-4 w-full max-w-md flex flex-wrap items-center justify-center gap-2">
+                <span className="text-zinc-400 text-[10px] font-mono uppercase tracking-widest w-full text-center sm:w-auto">Download any short:</span>
+                {SHORTS_LIST.map((s, i) => (
+                  <a
+                    key={s.id}
+                    href={s.src}
+                    download={s.src.split("/").pop() || "short.mp4"}
+                    className={`inline-flex items-center gap-1 px-2 py-1.5 text-[10px] font-medium uppercase tracking-wide transition-colors ${s.id === selectedShort.id ? "bg-emerald-600 text-white" : "bg-zinc-700 hover:bg-zinc-600 text-zinc-300"}`}
+                  >
+                    <Download className="w-3 h-3" />
+                    {i + 1}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         );
       })()}
 
-      {/* Fullscreen Video trailer modal: 9:16, plays when cell is clicked */}
-      {selectedVideo && (
-        <div
-          className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center p-0 sm:p-4"
-          onClick={() => setSelectedVideo(null)}
-        >
-          <button
-            className="absolute top-4 right-4 sm:top-8 sm:right-8 z-20 p-2 rounded-full bg-zinc-800/90 hover:bg-zinc-700 text-white transition-colors"
-            onClick={() => setSelectedVideo(null)}
-            aria-label="Close"
-          >
-            <X className="w-6 h-6 sm:w-8 sm:h-8" />
-          </button>
+      {/* Fullscreen Video trailer modal: 9:16 + download each asset */}
+      {selectedVideo && (() => {
+        const videoItem = deliverables.find((d) => d.id === 5);
+        const videoAssets = videoItem?.downloadAssets ?? [];
+        return (
           <div
-            className="w-full h-full sm:h-auto sm:max-h-[90vh] flex flex-col items-center justify-center"
-            style={{ aspectRatio: "9/16", maxWidth: "min(100vw, calc(90vh * 9 / 16))" }}
-            onClick={(e) => e.stopPropagation()}
+            className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center p-0 sm:p-4"
+            onClick={() => setSelectedVideo(null)}
           >
-            <video
-              src={selectedVideo}
-              className="w-full h-full object-contain bg-black rounded-none sm:rounded-xl border-0 sm:border border-zinc-800"
-              controls
-              autoPlay
-              playsInline
-              muted={false}
-            />
+            <button
+              className="absolute top-4 right-4 sm:top-8 sm:right-8 z-20 p-2 rounded-full bg-zinc-800/90 hover:bg-zinc-700 text-white transition-colors"
+              onClick={() => setSelectedVideo(null)}
+              aria-label="Close"
+            >
+              <X className="w-6 h-6 sm:w-8 sm:h-8" />
+            </button>
+            <div
+              className="w-full h-full sm:h-auto sm:max-h-[90vh] flex flex-col items-center justify-center"
+              style={{ aspectRatio: "9/16", maxWidth: "min(100vw, calc(90vh * 9 / 16))" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <video
+                src={selectedVideo}
+                className="w-full h-full object-contain bg-black rounded-none sm:rounded-xl border-0 sm:border border-zinc-800"
+                controls
+                autoPlay
+                playsInline
+                muted={false}
+              />
+              {videoAssets.length > 0 && (
+                <div className="absolute bottom-0 left-0 right-0 p-3 bg-black/70 backdrop-blur-md border-t border-zinc-800 flex flex-wrap items-center justify-center gap-2">
+                  {videoAssets.map((asset, i) => (
+                    <a
+                      key={i}
+                      href={asset.url}
+                      download={asset.url.split("/").pop() || "download"}
+                      className="inline-flex items-center gap-1.5 px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium uppercase tracking-wide transition-colors"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      {asset.label}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
     </section>
   );
 }
