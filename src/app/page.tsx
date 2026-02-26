@@ -1,4 +1,5 @@
 import Navbar from "@/components/ui/Navbar";
+import ScrollToHash from "@/components/ui/ScrollToHash";
 import Hero from "@/components/sections/Hero";
 import Audit from "@/components/sections/Audit";
 import Strategy from "@/components/sections/Strategy";
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white selection:bg-red-600 selection:text-white">
       <Navbar />
+      <ScrollToHash />
       <Hero />
 
       <div id="audit">

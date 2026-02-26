@@ -77,7 +77,7 @@ const WEEKLY_CONTENT: ContentPost[] = [
       },
       {
         platform: "Facebook",
-        caption: "Have you ever felt like the world was moving too fast for you to keep up? Now imagine that feeling after being locked away for a decade...",
+        caption: "Have you ever felt like the world was moving too fast for you to keep up? Now imagine that feeling after being locked away for a decade.\nIn this clip, we talk about the heartbreaking reality of 'Institutionalization.' It's not just about doing the time; it's about coming home to a world you don't recognize anymore—where even a smartphone feels like an alien object.\nSometimes, the sacrifice isn't staying out of trouble; it's swallowing your pride to ask for help in a world that forgot you.",
         hashtags: "#SacrificialConversations #PrisonReform #SecondChances",
         cta: "Drop a ❤️ if you believe everyone deserves a second chance at navigating life.",
         postingTime: "8:00 AM (Morning devotional/coffee crowd)"
@@ -122,10 +122,10 @@ const WEEKLY_CONTENT: ContentPost[] = [
       },
       {
         platform: "Facebook",
-        caption: "\"I thank God for my freedom.\" 🙏 Monica shares a terrifying moment of realization during a prison ministry lunch...",
+        caption: "\"I thank God for my freedom.\" 🙏\nWe often drive past prisons and don't think twice. But have you ever walked inside? In this clip, Monica shares a terrifying moment of realization during a prison ministry lunch. She walked behind the gate, the door slammed—Clap... Do-Doom—and suddenly, the reality of 'Losing Freedom' wasn't just a concept. It was a feeling.\nIt made us ask: How much do we take our daily liberty for granted?\nCatch the full Sacrificial Conversations episode on WFTB 104.1 or YouTube.",
         hashtags: "#SacrificialConversations #Gratitude #Freedom #WFTB",
         cta: "Tag someone who needs a reminder to be grateful for their freedom today. ❤️",
-        postingTime: "7:30 AM – 9:30 AM"
+        postingTime: "7:30 AM – 9:30 AM (The \"Coffee & Jesus\" crowd)"
       }
     ]
   },
@@ -241,11 +241,13 @@ export default function WeeklyContentSection() {
         </div>
       </div>
 
-      {/* Static Flyers Section (3:4) — 1 col mobile, 2 sm, 3 lg */}
+      {/* Digital Flyers Section (3:4) — 1 col mobile, 2 sm, 3 lg */}
       <div className="mb-14 sm:mb-20">
         <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
           <Layout className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">Static Assets (3:4)</h3>
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">
+            Digital Flyers <span className="text-red-600 font-normal normal-case text-sm sm:text-base tracking-normal">Use for social media posts to promote the latest podcast</span>
+          </h3>
           <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
         </div>
         
