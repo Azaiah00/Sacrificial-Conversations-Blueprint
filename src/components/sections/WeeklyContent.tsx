@@ -89,7 +89,12 @@ const WEEKLY_CONTENT: ContentPost[] = [
   {
     id: "clip-1",
     type: "video",
-      {
+    aspectRatio: "9/16",
+    title: "Prison to Freedom: Readjusting to Life After Incarceration",
+    thumbnail: "/assets/shorts/thmubnail-tiktok-1.webp",
+    assetUrl: "/assets/shorts/Prison to Freedom_ Readjusting to Life After Incarceration.mp4",
+    thumbnailAssetUrl: "/assets/shorts/thmubnail-tiktok-1.webp",
+    instructions: [
         platform: "TikTok",
         caption: "Imagine waking up 10 years later and the world is completely different. 😳",
         hashtags: "#PrisonTok, #LifeAfterLockup, #PrisonReform, #FYP, #RealTalk",
