@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const HeroScene = dynamic(() => import("../3d/HeroScene"), { ssr: false });
 
@@ -50,6 +51,20 @@ export default function Hero() {
           <p className="text-base sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed font-light px-2 sm:px-0">
             A forensic diagnostic and capability showcase: we demonstrate how <span className="text-white font-semibold">Sacrificial Conversations</span> can be positioned from an invisible archive toward a dominant digital authority.
           </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <Link 
+              href="/weekly-content" 
+              className="px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold text-sm sm:text-base uppercase tracking-widest border border-red-600 transition-all hover:scale-105 shadow-[0_0_20px_rgba(220,38,38,0.3)]"
+            >
+              Weekly Content
+            </Link>
+          </motion.div>
           
         </motion.div>
       </div>
