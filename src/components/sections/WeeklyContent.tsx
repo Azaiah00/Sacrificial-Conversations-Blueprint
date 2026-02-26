@@ -284,7 +284,7 @@ export default function WeeklyContentSection() {
                         {step.content}
                       </pre>
                       <button 
-                        onClick={() => onCopy(step.content, `${item.id}-step-${idx}`)}
+                        onClick={() => copyToClipboard(step.content, `${item.id}-step-${idx}`)}
                         className="absolute top-2 right-2 px-3 py-1 bg-zinc-800 hover:bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest transition-colors"
                       >
                         {copiedId === `${item.id}-step-${idx}` ? "Copied!" : "Copy"}
