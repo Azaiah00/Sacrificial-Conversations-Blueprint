@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Film, Layout, CheckCircle2, X, Play } from "lucide-react";
+import { Download, Film, Layout, CheckCircle2, X, Play, Youtube } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
