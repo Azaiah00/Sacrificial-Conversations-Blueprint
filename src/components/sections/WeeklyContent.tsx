@@ -95,6 +95,7 @@ const WEEKLY_CONTENT: ContentPost[] = [
     assetUrl: "/assets/shorts/Prison to Freedom_ Readjusting to Life After Incarceration.mp4",
     thumbnailAssetUrl: "/assets/shorts/thmubnail-tiktok-1.webp",
     instructions: [
+      {
         platform: "TikTok",
         caption: "Imagine waking up 10 years later and the world is completely different. 😳",
         hashtags: "#PrisonTok, #LifeAfterLockup, #PrisonReform, #FYP, #RealTalk",
