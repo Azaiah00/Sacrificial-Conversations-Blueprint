@@ -14,6 +14,7 @@ interface ContentPost {
   assetUrl?: string;
   /** When set, thumbnail image is also offered as a separate download (e.g. for shorts). */
   thumbnailAssetUrl?: string;
+  isNew?: boolean;
   caption?: string;
   hashtags?: string;
   platform?: string;
@@ -38,9 +39,53 @@ interface ContentPost {
 }
 
 const WEEKLY_CONTENT: ContentPost[] = [
-  // 2 Video Clips (9:16)
+  // 3 Video Clips (9:16)
   {
-    id: "clip-1",
+    id: "clip-3",
+    type: "video",
+    aspectRatio: "9/16",
+    title: "Helping Ex-Inmates Succeed: First Steps After Prison",
+    thumbnail: "/assets/shorts/Helping Ex-Inmates Succeed_ First Steps After Prison.mp4",
+    assetUrl: "/assets/shorts/Helping Ex-Inmates Succeed_ First Steps After Prison.mp4",
+    thumbnailAssetUrl: "/assets/shorts/Helping Ex-Inmates Succeed_ First Steps After Prison.mp4",
+    isNew: true,
+    instructions: [
+      {
+        platform: "TikTok",
+        caption: "If the mindset doesn't change, the location doesn't matter. 💯 The hardest prison to escape is the one in your mind.",
+        hashtags: "#prisonreform #lifeafterlockup #fyp #motivation #prisontiktok",
+        sound: "Use a trending, low-fi instrumental or \"sad piano\" backing track at 1-10% volume to underscore the emotion without drowning out the speech.",
+        postingTime: "4:00 PM - 7:00 PM (When people are off work and scrolling).",
+        thumbnailStrategy: "Upload delivered thumbnail"
+      },
+      {
+        platform: "Instagram Reels",
+        caption: "It’s a controversial take, but is it the truth? 👇\nTeddy asks how to keep a young man from feeling like \"prison is better than freedom.\" The answer isn't what you expect. It starts with owning the mistake.\nDrop a 🔥 if you agree that accountability is the key to a fresh start.",
+        hashtags: "#prisonministry #faithwalk #personalgrowth #mindsetshift #freshstart #nashville #sacrificialconversations #wftb #prison #motivation",
+        strategyNote: "Limit to 10-15 highly relevant tags. Place them in the first comment, not the caption, to keep the aesthetic clean. Comment 'FREEDOM' if you’re grateful for yours today. 👇",
+        sound: "Use a trending sound backing track at 1-10% volume to underscore the emotion without drowning out the speech.",
+        postingTime: "11:00 AM (Lunch break crowd) or 8:00 PM",
+        thumbnailStrategy: "Upload delivered thumbnail"
+      },
+      {
+        platform: "YouTube Shorts",
+        caption: "The Sound That Means Your Freedom is GONE 🔒 #Shorts #Prison\n\nDescription: The sound that changes everything... 🔒\nWe drive past prisons every day, but have you ever walked INSIDE? In this clip from Sacrificial Conversations, Monica breaks down the terrifying reality of hearing the gate lock behind her. It’s a sound—\"Do-Doom\"—that signifies the total loss of freedom.\nIt’s easy to take your liberty for granted until you feel the weight of that door.\n🎙️ From the Episode: \"Behind Bars: The Daily Fears of Losing Freedom\" 📻 Listen Live: Mondays on WFTB 104.1 TabNashville 👉 Watch the Full Discussion: Click the \"Created from...\" link above the title!",
+        hashtags: "#SacrificialConversations #TeddyAndMonica #WFTB1041 #PrisonLife #Inmate #Jail #Motivation #Inspiration #Christianity #Society #Culture",
+        pinnedComment: "\"Do we do enough to help people readjust, or are we setting them up to fail? Let's talk about it. 👇\"",
+        postingTime: "3:30 PM – 5:30 PM (Catching the post-work rush)",
+        thumbnailStrategy: "You cannot upload a custom thumbnail for Shorts on mobile easily yet, but you can select a frame. Strategy: Pick the frame where the guest looks the most emotional or confused (around the 0:42 mark when he talks about the flip phone).",
+        audienceSettings: "Is this video made for kids? Select NO. Why: If you select \"Yes,\" comments are disabled, and you lose the notification bell. This kills viral potential. Age Restriction: Select NO (unless there is explicit cursing/violence, which this clip is clean enough for general audiences).",
+        relatedVideo: "Look for the setting: \"Related Video\" (Right side on Desktop, or \"Edit\" on Mobile). Action: Link this Short to the Long-Form Episode of this interview. Why: This creates a button on the Short that says \"Created from...\" or links viewers directly to the full 1-hour show. This is how you grow the main channel."
+      },
+      {
+        platform: "Facebook",
+        caption: "\"I really want this young man to come out of prison and do the best he can...\"\nIt’s the prayer of every parent, friend, and spouse waiting on a loved one to come home. But how do we ensure they don't go back?\nOn this week's Sacrificial Conversations, we discussed the painful reality of reentry. It’s not just about finding a job. It’s about looking in the mirror and saying, \"I am here because of choices I made.\" Only then can you make new choices.\nTrue freedom starts with the sacrifice of Pride.\nWatch the full conversation on YouTube. 🎙️https://www.youtube.com/@SacrificialConversations",
+        hashtags: "#SacrificialConversations #PrisonReform #SecondChances",
+        cta: "Tag a family member who has been a support system for someone coming home. Let’s honor them today.",
+        postingTime: "7:30 AM – 9:30 AM (The \"Coffee & Jesus\" crowd)."
+      }
+    ]
+  },
     type: "video",
     aspectRatio: "9/16",
     title: "Prison to Freedom: Readjusting to Life After Incarceration",
@@ -412,8 +457,14 @@ function ContentCard({ item, onCopy, copiedId, onPreview }: { item: ContentPost;
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
-      className="flex flex-col bg-zinc-900/30 border border-zinc-800 group hover:border-red-600/50 active:border-red-600/50 transition-all duration-300 rounded-sm overflow-hidden"
+      className="flex flex-col bg-zinc-900/30 border border-zinc-800 group hover:border-red-600/50 active:border-red-600/50 transition-all duration-300 rounded-sm overflow-hidden relative"
     >
+      {/* New Badge */}
+      {item.isNew && (
+        <div className="absolute top-3 right-3 z-20 bg-emerald-500 text-black text-[10px] sm:text-[9px] font-black uppercase tracking-tighter px-2 py-1 rounded-sm shadow-xl border border-emerald-400/50 animate-pulse">
+          New
+        </div>
+      )}
       {/* Tap/click to open fullscreen preview — view before download */}
       <button
         type="button"
