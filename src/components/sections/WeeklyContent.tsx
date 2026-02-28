@@ -133,6 +133,51 @@ const WEEKLY_CONTENT: ContentPost[] = [
     ]
   },
   {
+    id: "clip-5",
+    type: "video",
+    aspectRatio: "9/16",
+    title: "Officer's Mindset: Understanding the Inmate's Daily Reality",
+    thumbnail: "",
+    assetUrl: "/assets/shorts/Officer's Mindset_ Understanding the Inmate's Daily Reality.mp4",
+    isNew: true,
+    instructions: [
+      {
+        platform: "TikTok",
+        caption: "When the loud guy goes quiet... watch your back. 🚩🤫 The silence is often more dangerous than the noise.",
+        hashtags: "#correctionalofficer #prisonlife  #psychology #inmatelife #fyp",
+        sound: "Use a tense, cinematic \"suspense\" sound or a deep bass rumble (e.g., \"Blade Runner\" synth style). Volume at 15% to build tension without overpowering Officer Whitfield’s voice.",
+        postingTime: "8:00 PM – 10:00 PM (\"Night Shift\" / True Crime scrolling hours).",
+        thumbnailStrategy: "Use delivered thumbnail"
+      },
+      {
+        platform: "Instagram Reels",
+        caption: "Is it a \"Bad Day\" or a \"Plot\"? 🚩👇\nMonica asks a fair question: Can't an inmate just wake up on the wrong side of the bed?\nOfficer Whitfield drops a hard truth: In a 6x8 cell, a shift in personality isn't just a mood swing—it’s often a warning sign.\nWhen you are counting the cracks in the wall to stay sane, silence speaks volumes.\nDrop a 🧱 in the comments if you could handle 24 hours in that kind of isolation.",
+        hashtags: "#prisonreform #correctionaloffcer #mentalhealth #solitary #mindgames #nashville #sacrificialconversations #wftb #realitycheck",
+        strategyNote: "The hook here is the debate between Empathy (Monica) and Safety (Whitfield). Pin a comment that asks: \"Would you survive the mental game of prison?\"",
+        sound: "\"Spooky/Tense Ambient\" or minimal instrumental.",
+        postingTime: "12:00 PM (Lunch break) or 6:00 PM.",
+        thumbnailStrategy: "Use delivered thumbnail"
+      },
+      {
+        platform: "YouTube Shorts",
+        caption: "The #1 Red Flag in Prison? SILENCE. 🤫🔒 #Shorts\n\nDescription: Why do officers fear the quiet ones? 🔒\nOfficer Whitfield explains to Teddy & Monica why a sudden personality shift—from laughing yesterday to silence today—is the biggest threat indicator behind bars. It’s not just a \"bad day\"; it's a sign they are breaking down or plotting up.\nThe mental toll of \"counting cracks on the wall\" changes everything.\n🎙️ From the Episode: \"Officer's Mindset: Understanding the Inmate's Daily Reality\"\n📻 Listen Live: Mondays on WFTB 104.1 TabNashville\n👉 Watch the Full Discussion: Click the \"Created from...\" link above the title!",
+        hashtags: "#SacrificialConversations #PrisonStories #CorrectionalOfficer #Psychology #Inmate #Jail #WFTB1041 #MentalHealth #Behavior",
+        pinnedComment: "\"Do we underestimate the mental toll of confinement, or is this officer just being safe? Tell us your take. 👇\"",
+        postingTime: "4:00 PM – 6:00 PM EST.",
+        thumbnailStrategy: "Select the frame at 0:36 (Whitfield looking intense, describing counting the tiles).",
+        audienceSettings: "Is this video made for kids? Select NO. Age Restriction: Select NO.",
+        relatedVideo: "Link this Short to the full-length interview on your channel. Why: This clip hooks the true crime/psychology fans; the full video keeps them for the spiritual conversation."
+      },
+      {
+        platform: "Facebook",
+        caption: "\"Imagine walking into your closet, locking the door, and staying there for years...\"\nOn this week's Sacrificial Conversations, Officer Whitfield painted a haunting picture of the inmate's reality. It's not just about the loss of physical freedom; it's the mental sacrifice.\nHe says, \"I can count the cracks on the wall... I know how many tiles are on the floor.\"\nWhen your world shrinks to the size of a bathroom, your mind starts to play tricks on you. As believers, we are called to visit the prisoner—but do we ever stop to consider the mental battle they fight every single morning?\nLet's pray for peace of mind for those behind the walls, and safety for the officers walking the beat.\nWatch the full powerful conversation here. 🎙️ [Link to YouTube]",
+        hashtags: "#SacrificialConversations",
+        cta: "Have you ever felt trapped in a situation where you started counting the cracks in the walls? Share your testimony of how God brought you out. 👇",
+        postingTime: "8:00 PM (Evening reflection time)."
+      }
+    ]
+  },
+  {
     id: "clip-1",
     type: "video",
     aspectRatio: "9/16",
