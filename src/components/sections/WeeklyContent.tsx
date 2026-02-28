@@ -91,8 +91,9 @@ const WEEKLY_CONTENT: ContentPost[] = [
     type: "video",
     aspectRatio: "9/16",
     title: "Stay Free: Life Lessons from Incarceration",
-    thumbnail: "",
+    thumbnail: "/assets/shorts/stay-free.jpg",
     assetUrl: "/assets/shorts/Stay Free_ Life Lessons from Incarceration.mp4",
+    thumbnailAssetUrl: "/assets/shorts/stay-free.jpg",
     isNew: true,
     instructions: [
       {
