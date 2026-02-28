@@ -39,7 +39,7 @@ interface ContentPost {
 }
 
 const WEEKLY_CONTENT: ContentPost[] = [
-  // 3 Video Clips (9:16)
+  // 4 Video Clips (9:16) — clip-3 and clip-4 marked "New" at top
   {
     id: "clip-3",
     type: "video",
@@ -83,6 +83,51 @@ const WEEKLY_CONTENT: ContentPost[] = [
         hashtags: "#SacrificialConversations #PrisonReform #SecondChances",
         cta: "Tag a family member who has been a support system for someone coming home. Let’s honor them today.",
         postingTime: "7:30 AM – 9:30 AM (The \"Coffee & Jesus\" crowd)."
+      }
+    ]
+  },
+  {
+    id: "clip-4",
+    type: "video",
+    aspectRatio: "9/16",
+    title: "Stay Free: Life Lessons from Incarceration",
+    thumbnail: "",
+    assetUrl: "/assets/shorts/Stay Free_ Life Lessons from Incarceration.mp4",
+    isNew: true,
+    instructions: [
+      {
+        platform: "TikTok",
+        caption: "When the prayer is deep but the reality check is DEEPER. 💀 \"Don't get locked up.\" Sometimes the best advice is the simplest. 💯",
+        hashtags: "#prisontok #prisontiktok #realtalk #viral #fyp",
+        sound: "Use a trending \"suspense\" sound or low-fi beat at 5% volume. Crucial: Ensure the audio cuts to total silence right before he says \"Don't get locked up\" for comedic emphasis.",
+        postingTime: "7:30 PM - 9:30 PM (Peak entertainment scrolling time).",
+        thumbnailStrategy: "Upload delivered thumbnail"
+      },
+      {
+        platform: "Instagram Reels",
+        caption: "\"Stay Free.\" Two words that carry a lifetime of weight. 🕊️\nMonica is praying for a spiritual renewal of the mind (which is needed! 🙏🏾), but our guest dropped the most practical bar of the year: \"Don't get locked up.\" Drop a 🔓 if you are protecting your peace and your freedom today!",
+        hashtags: "#prisonreform #mindset #lifelessons #prison #stayfree #nashville #sacrificialconversations #wftb #gospelradio #podcastclips #gratitude #wisdom #godisgood",
+        strategyNote: "Limit to 10-15 highly relevant tags. Place them in the first comment, not the caption, to keep the aesthetic clean.",
+        sound: "Use a trending instrumental backing track at 3-5% volume. Do not overpower his voice.",
+        postingTime: "12:00 PM (Lunch break) or 6:00 PM (Commute home).",
+        thumbnailStrategy: "Upload delivered thumbnail"
+      },
+      {
+        platform: "YouTube Shorts",
+        caption: "The Most Honest Prison Advice You Will Ever Hear 😳 #Shorts\n\nDescription: Everyone complicates life advice... until you ask someone on the inside. 🔒 In this viral moment from Sacrificial Conversations, Monica prays for the spiritual renewal of inmates, but the guest offers a hilarious (and painful) reality check about the value of freedom. Sometimes the sacrifice isn't deep—it's just making the choice to Stay Free. 🎙️ From the Episode: \"Life Lessons from Incarceration\" 📻 Listen Live: Mondays on WFTB 104.1 TabNashville 👉 Watch the Full Discussion: Click the \"Created from...\" link above the title!",
+        hashtags: "#SacrificialConversations #TeddyAndMonica #WFTB1041 #PrisonLife #RealTalk #FunnyMoments #Wisdom #StayFree #Inspiration #Truth",
+        pinnedComment: "\"He didn't stutter! 🤷🏾‍♂️ Who agrees with the guest? Let us know below! 👇\"",
+        postingTime: "4:00 PM – 6:00 PM (Catching the post-work rush).",
+        thumbnailStrategy: "You cannot upload a custom thumbnail for Shorts on mobile easily yet. Strategy: Select the frame at 0:25 where the Guest looks deadpan at the camera after saying his line.",
+        audienceSettings: "Is this video made for kids? Select NO. Why: If you select \"Yes,\" comments are disabled, and you lose the notification bell. This kills viral potential. Age Restriction: Select NO.",
+        relatedVideo: "Look for the setting: \"Related Video\" (Right side on Desktop, or \"Edit\" on Mobile). Action: Link this Short to the Long-Form Episode of this interview. Why: This creates a button on the Short that says \"Created from...\" or links viewers directly to the full show. This is how you grow the main channel."
+      },
+      {
+        platform: "Facebook",
+        caption: "\"We often over-complicate the path to freedom.\" Monica is right—we must pray that God renews the minds of those behind bars so they can return to society whole. Spiritual warfare is real. 🙏🏾 But sometimes, we need the \"Street Truth\" to go along with the \"Spirit Truth.\" As our guest said from the inside: \"Stay Free.\" Value your liberty today, family. Don't trade your freedom for a moment of anger, a bad decision, or pride. The sacrifice isn't worth it. Watch the full conversation on YouTube: 🎙️ https://www.youtube.com/@SacrificialConversations",
+        hashtags: "#SacrificialConversations #PrisonReform #StayFree",
+        cta: "Tag a young person who needs to hear this simple truth today. 👇",
+        postingTime: "1:00 PM – 3:00 PM (When Facebook engagement is highest for video content)."
       }
     ]
   },
@@ -473,13 +518,19 @@ function ContentCard({ item, onCopy, copiedId, onPreview }: { item: ContentPost;
         onClick={() => onPreview(item)}
         className={`relative overflow-hidden bg-black w-full text-left cursor-pointer touch-manipulation ${item.aspectRatio === "9/16" ? "aspect-[9/16]" : "aspect-[3/4]"}`}
       >
-        <Image
-          src={item.thumbnail}
-          alt={item.title}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover opacity-80 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300"
-        />
+        {item.thumbnail ? (
+          <Image
+            src={item.thumbnail}
+            alt={item.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover opacity-80 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 text-zinc-500 text-xs font-mono uppercase tracking-widest px-4 text-center">
+            Thumbnail coming soon
+          </div>
+        )}
         {/* Platform Badge — readable on all screens */}
         <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 pointer-events-none">
           <span className="px-2 py-1.5 sm:py-1 bg-black/70 backdrop-blur-md border border-zinc-700 text-[10px] sm:text-[10px] font-bold text-white uppercase tracking-widest rounded-sm max-w-[85%] truncate">
