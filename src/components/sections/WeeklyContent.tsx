@@ -45,9 +45,9 @@ const WEEKLY_CONTENT: ContentPost[] = [
     type: "video",
     aspectRatio: "9/16",
     title: "Helping Ex-Inmates Succeed: First Steps After Prison",
-    thumbnail: "/assets/shorts/Helping Ex-Inmates Succeed_ First Steps After Prison.mp4",
+    thumbnail: "/assets/shorts/helping%20ex%20inmates%20succeed.jpg",
     assetUrl: "/assets/shorts/Helping Ex-Inmates Succeed_ First Steps After Prison.mp4",
-    thumbnailAssetUrl: "/assets/shorts/Helping Ex-Inmates Succeed_ First Steps After Prison.mp4",
+    thumbnailAssetUrl: "/assets/shorts/helping%20ex%20inmates%20succeed.jpg",
     isNew: true,
     instructions: [
       {
@@ -463,7 +463,7 @@ function ContentCard({ item, onCopy, copiedId, onPreview }: { item: ContentPost;
     >
       {/* New Badge */}
       {item.isNew && (
-        <div className="absolute top-3 right-3 z-20 bg-emerald-500 text-black text-[10px] sm:text-[9px] font-black uppercase tracking-tighter px-2 py-1 rounded-sm shadow-xl border border-emerald-400/50 animate-pulse">
+        <div className="absolute top-3 right-3 z-20 bg-emerald-500 text-black text-sm sm:text-base font-black uppercase tracking-tighter px-3 py-1.5 rounded-sm shadow-xl border-2 border-emerald-400/50 animate-pulse">
           New
         </div>
       )}
