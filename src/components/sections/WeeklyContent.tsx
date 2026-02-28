@@ -137,8 +137,9 @@ const WEEKLY_CONTENT: ContentPost[] = [
     type: "video",
     aspectRatio: "9/16",
     title: "Officer's Mindset: Understanding the Inmate's Daily Reality",
-    thumbnail: "",
+    thumbnail: "/assets/shorts/officer's-mindset-thumbnail.jpg",
     assetUrl: "/assets/shorts/Officer's Mindset_ Understanding the Inmate's Daily Reality.mp4",
+    thumbnailAssetUrl: "/assets/shorts/officer's-mindset-thumbnail.jpg",
     isNew: true,
     instructions: [
       {
