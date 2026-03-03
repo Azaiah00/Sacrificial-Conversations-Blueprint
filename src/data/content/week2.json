@@ -8,8 +8,13 @@
       "type": "longform",
       "aspectRatio": "16/9",
       "title": "YouTube Long-Form Optimization (Week 2)",
-      "thumbnail": "/assets/placeholder-thumbnail.jpg",
-      "thumbnailAssetUrl": "/assets/placeholder-thumbnail.jpg",
+      "thumbnail": "/assets/week%202%20media/first.jpg",
+      "thumbnailAssetUrl": "/assets/week%202%20media/first.jpg",
+      "thumbnailOptions": [
+        "/assets/week%202%20media/first.jpg",
+        "/assets/week%202%20media/second.webp",
+        "/assets/week%202%20media/thrid.jpeg"
+      ],
       "longformSteps": [
         {
           "step": "Step 1: Keyword-Rich Title Options (Provide 4)",

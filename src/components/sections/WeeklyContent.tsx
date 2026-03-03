@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Film, Layout, CheckCircle2, X, Play, Youtube, ChevronDown, Clock } from "lucide-react";
+import { Download, Film, Layout, CheckCircle2, X, Play, Youtube, ChevronDown, Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -14,6 +14,8 @@ export interface ContentPost {
   assetUrl?: string;
   /** When set, thumbnail image is also offered as a separate download (e.g. for shorts). */
   thumbnailAssetUrl?: string;
+  /** Optional list of multiple thumbnail choices (e.g. several YouTube options). */
+  thumbnailOptions?: string[];
   isNew?: boolean;
   caption?: string;
   hashtags?: string;
@@ -142,56 +144,7 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
           </div>
           
           {longforms.map((item) => (
-            <div key={item.id} className="bg-zinc-900/30 border border-zinc-800 p-4 sm:p-6 lg:p-10 rounded-sm mb-8 last:mb-0">
-              <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
-                <div className="w-full lg:w-1/3 flex-shrink-0">
-                  <p className="text-zinc-400 text-xs font-mono uppercase tracking-widest mb-2">Optional thumbnail for your video — download below if you want to use it</p>
-                  <div className="aspect-video relative border border-zinc-800 bg-black overflow-hidden rounded-sm">
-                    {item.thumbnail ? (
-                      <Image src={item.thumbnail} alt={item.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
-                    ) : (
-                      <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 text-zinc-500 text-xs font-mono uppercase tracking-widest px-4 text-center">
-                        Thumbnail coming soon
-                      </div>
-                    )}
-                  </div>
-                  <h4 className="text-white font-bold uppercase tracking-widest mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl">{item.title}</h4>
-                  <p className="text-zinc-500 text-xs sm:text-sm mt-2 font-mono uppercase tracking-widest">Target: YouTube Algorithm</p>
-                  {/* Optional: download thumbnail for YouTube upload */}
-                  {item.thumbnailAssetUrl && (
-                    <a
-                      href={item.thumbnailAssetUrl}
-                      download={item.thumbnailAssetUrl.split("/").pop() || "thumbnail.jpeg"}
-                      className="inline-flex items-center gap-2 mt-3 min-h-[44px] px-4 py-2 bg-zinc-800 hover:bg-red-600 text-white text-xs font-bold uppercase tracking-widest transition-colors rounded-sm"
-                    >
-                      <Download className="w-4 h-4" />
-                      Download thumbnail
-                    </a>
-                  )}
-                </div>
-                
-                <div className="flex-1 min-w-0 space-y-6 sm:space-y-8">
-                  {item.longformSteps?.map((step, idx) => (
-                    <div key={idx} className="border-l-2 border-red-600 pl-4 sm:pl-6 py-2">
-                      <h5 className="text-red-600 font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">{step.step}</h5>
-                      <p className="text-zinc-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold mb-3">{step.action}</p>
-                      <div className="relative group">
-                        <pre className="bg-zinc-950 p-3 sm:p-4 border border-zinc-800 text-zinc-300 text-[11px] sm:text-xs leading-relaxed whitespace-pre-wrap font-mono overflow-x-auto rounded-sm">
-                          {step.content}
-                        </pre>
-                        <button 
-                          onClick={() => copyToClipboard(step.content, `${item.id}-step-${idx}`)}
-                          className="absolute top-2 right-2 min-h-[44px] min-w-[44px] sm:min-w-0 sm:min-h-0 px-4 py-3 sm:px-3 sm:py-1.5 bg-zinc-800 hover:bg-red-600 text-white text-xs sm:text-[10px] font-bold uppercase tracking-widest transition-colors rounded-sm flex items-center justify-center"
-                          aria-label="Copy to clipboard"
-                        >
-                          {copiedId === `${item.id}-step-${idx}` ? "Copied!" : "Copy"}
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <LongformCard key={item.id} item={item} copiedId={copiedId} onCopy={copyToClipboard} />
           ))}
         </div>
       )}
@@ -285,6 +238,122 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
         )}
       </AnimatePresence>
     </section>
+  );
+}
+
+function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId: string | null; onCopy: (text: string, id: string) => void }) {
+  const thumbnails = (item.thumbnailOptions && item.thumbnailOptions.length > 0
+    ? item.thumbnailOptions
+    : item.thumbnailAssetUrl
+      ? [item.thumbnailAssetUrl]
+      : item.thumbnail
+        ? [item.thumbnail]
+        : []);
+
+  const hasThumbnails = thumbnails.length > 0;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const safeIndex = ((activeIndex % (thumbnails.length || 1)) + (thumbnails.length || 1)) % (thumbnails.length || 1);
+  const activeThumbnail = hasThumbnails ? thumbnails[safeIndex] : "";
+
+  const goPrev = () => {
+    if (!hasThumbnails) return;
+    setActiveIndex((prev) => (prev - 1 + thumbnails.length) % thumbnails.length);
+  };
+
+  const goNext = () => {
+    if (!hasThumbnails) return;
+    setActiveIndex((prev) => (prev + 1) % thumbnails.length);
+  };
+
+  return (
+    <div className="bg-zinc-900/30 border border-zinc-800 p-4 sm:p-6 lg:p-10 rounded-sm mb-8 last:mb-0">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
+        <div className="w-full lg:w-1/3 flex-shrink-0">
+          <p className="text-zinc-400 text-xs font-mono uppercase tracking-widest mb-2">
+            Optional thumbnails for your video — use the arrows to preview all options and download the one you like.
+          </p>
+          <div className="aspect-video relative border border-zinc-800 bg-black overflow-hidden rounded-sm flex items-center justify-center">
+            {hasThumbnails ? (
+              <>
+                <Image
+                  src={activeThumbnail}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+                {thumbnails.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        goPrev();
+                      }}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-sm bg-black/60 hover:bg-black/80 text-white"
+                      aria-label="Previous thumbnail option"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        goNext();
+                      }}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-sm bg-black/60 hover:bg-black/80 text-white"
+                      aria-label="Next thumbnail option"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-mono uppercase tracking-widest bg-black/70 text-white px-2 py-1 rounded-sm">
+                      Option {safeIndex + 1} of {thumbnails.length}
+                    </div>
+                  </>
+                )}
+              </>
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 text-zinc-500 text-xs font-mono uppercase tracking-widest px-4 text-center">
+                Thumbnail coming soon
+              </div>
+            )}
+          </div>
+          <h4 className="text-white font-bold uppercase tracking-widest mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl">{item.title}</h4>
+          <p className="text-zinc-500 text-xs sm:text-sm mt-2 font-mono uppercase tracking-widest">Target: YouTube Algorithm</p>
+          {hasThumbnails && (
+            <a
+              href={activeThumbnail}
+              download={activeThumbnail.split("/").pop() || "thumbnail.jpeg"}
+              className="inline-flex items-center gap-2 mt-3 min-h-[44px] px-4 py-2 bg-zinc-800 hover:bg-red-600 text-white text-xs font-bold uppercase tracking-widest transition-colors rounded-sm"
+            >
+              <Download className="w-4 h-4" />
+              Download current thumbnail
+            </a>
+          )}
+        </div>
+
+        <div className="flex-1 min-w-0 space-y-6 sm:space-y-8">
+          {item.longformSteps?.map((step, idx) => (
+            <div key={idx} className="border-l-2 border-red-600 pl-4 sm:pl-6 py-2">
+              <h5 className="text-red-600 font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">{step.step}</h5>
+              <p className="text-zinc-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold mb-3">{step.action}</p>
+              <div className="relative group">
+                <pre className="bg-zinc-950 p-3 sm:p-4 border border-zinc-800 text-zinc-300 text-[11px] sm:text-xs leading-relaxed whitespace-pre-wrap font-mono overflow-x-auto rounded-sm">
+                  {step.content}
+                </pre>
+                <button
+                  onClick={() => onCopy(step.content, `${item.id}-step-${idx}`)}
+                  className="absolute top-2 right-2 min-h-[44px] min-w-[44px] sm:min-w-0 sm:min-h-0 px-4 py-3 sm:px-3 sm:py-1.5 bg-zinc-800 hover:bg-red-600 text-white text-xs sm:text-[10px] font-bold uppercase tracking-widest transition-colors rounded-sm flex items-center justify-center"
+                  aria-label="Copy to clipboard"
+                >
+                  {copiedId === `${item.id}-step-${idx}` ? "Copied!" : "Copy"}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
