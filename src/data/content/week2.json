@@ -8,12 +8,12 @@
       "type": "longform",
       "aspectRatio": "16/9",
       "title": "YouTube Long-Form Optimization (Week 2)",
-      "thumbnail": "/assets/week%202%20media/first.jpg",
-      "thumbnailAssetUrl": "/assets/week%202%20media/first.jpg",
+      "thumbnail": "/assets/week 2 media/first.jpg",
+      "thumbnailAssetUrl": "/assets/week 2 media/first.jpg",
       "thumbnailOptions": [
-        "/assets/week%202%20media/first.jpg",
-        "/assets/week%202%20media/second.webp",
-        "/assets/week%202%20media/thrid.jpeg"
+        "/assets/week 2 media/first.jpg",
+        "/assets/week 2 media/second.webp",
+        "/assets/week 2 media/thrid.jpeg"
       ],
       "longformSteps": [
         {
@@ -29,7 +29,7 @@
         {
           "step": "Step 3: Tags",
           "action": "Copy these into the Tags section at the bottom of the edit page:",
-          "content": "#SacrificialConversations #NateBean #GospelMusic #Nashville #TeddyAndMonica\nFred Sales, 26 min\n#ChristianPodcast\n#FaithBased\n#GospelMusic\n#SpiritualGrowth\n#PodcastClips\n#MinistryLife\n#WorshipLeader\n#ChristianCreative\n#FaithAndCulture\n#NateBean\n#4Given\n#NashvilleChoir\n#GospelArtist"
+          "content": "#SacrificialConversations #NateBean #GospelMusic #Nashville #TeddyAndMonica\n#ChristianPodcast\n#FaithBased\n#GospelMusic\n#SpiritualGrowth\n#PodcastClips\n#MinistryLife\n#WorshipLeader\n#ChristianCreative\n#FaithAndCulture\n#NateBean\n#4Given\n#NashvilleChoir\n#GospelArtist"
         }
       ]
     }
