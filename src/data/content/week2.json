@@ -4,6 +4,146 @@
   "status": "In Progress",
   "content": [
     {
+      "id": "clip-god-bigger",
+      "type": "video",
+      "aspectRatio": "9/16",
+      "title": "God is Bigger Than Church: Expanding Your Faith",
+      "thumbnail": "/assets/week 2 media/god is bigger than church.webp",
+      "assetUrl": "/assets/week 2 media/God is Bigger Than Church_ Expanding Your Faith.mp4",
+      "thumbnailAssetUrl": "/assets/week 2 media/god is bigger than church.webp",
+      "isNew": true,
+      "instructions": [
+        {
+          "platform": "TikTok",
+          "caption": "Are we keeping God in a box? 📦⛪️ Church is A way, but it's not the ONLY way. Stop shrinking God to fit a building.",
+          "hashtags": "#Faithy #Churcht #fyp #Spiritual #SacrificialConversations #WFTB",
+          "sound": "Use an ethereal, cinematic ambient pad (like a slowed-down Hans Zimmer track or a moody worship swell). Keep volume at 10-15% to build emotional weight without drowning out his voice.",
+          "postingTime": "Sunday at 7:00 PM (Post-church reflection time) or Monday at 8:00 AM (to coincide with the live WFTB broadcast).",
+          "thumbnailStrategy": "Select the frame at 0:34 where he puts his hands up emphasizing \"God is not that small.\" Add text overlay: IS CHURCH ENOUGH?"
+        },
+        {
+          "platform": "Instagram Reels",
+          "caption": "The hardest truth for some believers to swallow... 🛑👇 Teddy and Monica's guest just said the quiet part out loud: We are making God as small as our church buildings. Yes, the church is a place to gather, learn, and grow. But if your faith stops at the sanctuary doors, you are missing out on the vastness of who God really is. Drop a 🌍 in the comments if you've experienced God outside the four walls of a church!",
+          "hashtags": "#NashvilleChurch #SacrificialConversations #FaithOverFear #WFTB1041 #SpiritualGrowth #ChurchCulture #Testimony",
+          "strategyNote": "The hook here is the debate between traditional religion and personal relationship. Pin a comment that asks: \"Has the modern church forgotten how big God is?\"",
+          "sound": "Trending emotional acoustic guitar or piano instrumental.",
+          "postingTime": "11:30 AM (Catching the lunch break scrollers) or 7:00 PM.",
+          "thumbnailStrategy": "Use the frame at 0:13 (Looking direct to camera). Text: CHURCH ISN'T THE ONLY ANSWER."
+        },
+        {
+          "platform": "YouTube Shorts",
+          "caption": "Is Your Church LIMITING God? 🤯⛪️ #Shorts\n\nDescription: Why do we try to fit the Creator of the universe into a building? 🌍 On this week's Sacrificial Conversations, we tackle the \"evolution of the church.\" Church is a powerful place to gather and learn, but what happens when we make God only as big as our local congregation? God is not that small! 🎙️ From the Episode: \"Expanding Your Faith Beyond the Four Walls\" 📻 Listen Live: Mondays on WFTB 104.1 TabNashville 👉 Watch the Full Discussion: Click the \"Created from...\" link above the title!",
+          "hashtags": "#SacrificialConversations #Faith #Theology #ChristianPodcast #WFTB1041 #TeddyAndMonica #GodIsGood",
+          "pinnedComment": "\"Are we missing out on God's blessings because we refuse to look outside the church walls? Let's talk about it. 👇\"",
+          "postingTime": "3:00 PM – 5:00 PM EST.",
+          "thumbnailStrategy": "Select the frame at 0:00 (High-contrast split screen).",
+          "audienceSettings": "Is this video made for kids? Select NO. Age Restriction: Select NO.",
+          "relatedVideo": "Action: Link this Short to the full-length interview on your channel. Why: This bold statement hooks people; the full video provides the theological context so they don't just think it's an anti-church rant."
+        },
+        {
+          "platform": "Facebook",
+          "caption": "We love our churches, but have we made God too small? On this week's Sacrificial Conversations on WFTB 104.1, a hard truth was dropped in the studio: 'Church isn't the only answer... unfortunately we make God as big as the church. God is not that small.' It's easy to get comfortable in our usual pews, singing our usual songs, and listening to our usual sermons. Gathering is biblical and beautiful! But when we refuse to embrace the expansive, limit-shattering ways God moves outside the building, we stunt our own spiritual evolution. God is speaking in nature, in our workplaces, in our families, and in the quiet moments of our lives. Let's stop putting a roof over a God who created the stars. Watch the full, eye-opening conversation here. 🎙️ [Link to YouTube]",
+          "hashtags": "#SacrificialConversations #Faith #Church",
+          "shareableQuote": "Unfortunately we make God as big as the church. God is not that small.",
+          "cta": "Where is a place OUTSIDE of a church building where you have felt God's presence the most? Share your testimony below! 👇",
+          "postingTime": "Sunday at 6:00 PM (Evening reflection) or Monday at 9:00 AM."
+        }
+      ]
+    },
+    {
+      "id": "clip-stop-violence",
+      "type": "video",
+      "aspectRatio": "9/16",
+      "title": "Stop Glorifying Violence: Our Powerful Message for Social Media",
+      "thumbnail": "/assets/week 2 media/stop glorifying violence.webp",
+      "assetUrl": "/assets/week 2 media/Stop Glorifying Violence_ Our Powerful Message for Social Media.mp4",
+      "thumbnailAssetUrl": "/assets/week 2 media/stop glorifying violence.webp",
+      "isNew": true,
+      "instructions": [
+        {
+          "platform": "TikTok",
+          "caption": "My son told me this today, and it shook me. 💔 Why are we normalizing this? It's time to shift the algorithm. We have work to do.",
+          "hashtags": "#parenting #christiantiktok #christianpodcast #fyp #nashville",
+          "sound": "A low, emotional cinematic piano instrumental (e.g., Hans Zimmer style \"Time\" slowed down). Keep volume at 10%—just enough to build emotion without overpowering Teddy's voice.",
+          "postingTime": "7:00 PM – 9:00 PM (When parents are unwinding and scrolling, looking for relatable/deep content).",
+          "thumbnailStrategy": "Use the delivered thumbnail with the bold text \"GLORIFYING VIOLENCE IS SICKENING\"."
+        },
+        {
+          "platform": "Instagram Reels",
+          "caption": "Are we part of the problem or the cure? 🛑👇 Teddy had a wake-up call conversation with his son today about what's really going viral. The truth? The world is addicted to destruction. If we aren't actively pushing out life, music, and truth, the algorithm will feed the next generation death. Drop a 🕊️ in the comments if you're committed to sharing positive content this week. Let's change the narrative.",
+          "hashtags": "#faithbased #sacrificialconversations #wftb #tabnashville #christianpodcast #parentingteens #mentalhealth #faith #gospel",
+          "strategyNote": "The hook here is creator/consumer responsibility. Pin a comment that asks: \"What's the most toxic trend you've seen normalized on your feed lately?\"",
+          "sound": "Trending ambient emotional audio or a lo-fi gospel instrumental.",
+          "postingTime": "7:00 AM (Morning commute/reflection time) or 6:00 PM.",
+          "thumbnailStrategy": "Use the delivered thumbnail."
+        },
+        {
+          "platform": "YouTube Shorts",
+          "caption": "What My Son Said About Social Media 💔📱 #Shorts\n\nDescription: Why is the algorithm pushing destruction? Teddy breaks down a powerful conversation with his son about the sickening glorification of violence online. It's time to push back. 🎙️ From the Episode: \"Protecting Peace in a Digital World\" 📻 Listen Live: Mondays on WFTB 104.1 TabNashville 👉 Watch the Full Discussion: Click the \"Created from...\" link above the title!",
+          "hashtags": "#SacrificialConversations #Parenting #MentalHealth #WFTB1041 #Truth",
+          "pinnedComment": "\"Are we doing enough to counter the negativity online, or have we just accepted it? Let us know your thoughts below. 👇\"",
+          "postingTime": "3:00 PM – 5:00 PM EST (Catching the after-school/end-of-workday scroll).",
+          "thumbnailStrategy": "Select the frame at 0:08 (Teddy using his hands to emphasize the point, looking directly toward the mic).",
+          "audienceSettings": "Is this video made for kids? Select NO. (Though it's about kids, it's targeted at adults/parents). Age Restriction: Select NO.",
+          "relatedVideo": "Action: Link this Short to the full-length interview/episode on your channel. Why: This clip hooks the parenting/culture-critique audience; the full video keeps them for the deeper spiritual conversation."
+        },
+        {
+          "platform": "Facebook",
+          "caption": "We had a heartbreaking realization on the show this week... Teddy sat down and shared a conversation he had with his son about the state of social media. When our kids are the ones pointing out how destructive and violent the world has become, we have to stop and listen. Proverbs tells us to guard our hearts, but how do we help our kids guard theirs when their feeds are flooded with negativity? We realized that if we don't actively push out the good—through our music, our videos, and our conversations—the darkness wins by default. We have a responsibility to be the light.",
+          "hashtags": "#SacrificialConversations #Parenting #Faith",
+          "shareableQuote": "If we don't continue to push positive things via music and media, the destructive stuff wins by default.",
+          "cta": "Tag a parent, a creator, or a friend who is fighting to put positive content out into the world. Let's encourage them today! 👇",
+          "postingTime": "8:00 AM (When the older Facebook demographic is checking their morning feed)."
+        }
+      ]
+    },
+    {
+      "id": "clip-music-ministry",
+      "type": "video",
+      "aspectRatio": "9/16",
+      "title": "Music, Ministry & Mental Health: Breaking the Silence",
+      "thumbnail": "/assets/week 2 media/music, ministry & mental health.jpg",
+      "assetUrl": "/assets/week 2 media/Music, Ministry & Mental Health_ Breaking the Silence.mp4",
+      "thumbnailAssetUrl": "/assets/week 2 media/music, ministry & mental health.jpg",
+      "isNew": true,
+      "instructions": [
+        {
+          "platform": "TikTok",
+          "caption": "Serving on Sunday, suffering on Monday. 🗣️ The Gospel industry has a secret, and the silence is costing lives. It's time to merge ministry and mental health. 🙏🧠",
+          "hashtags": "#gospelmusic #mentalhealthawareness #church #mentalhealth #fyp #faith",
+          "sound": "Use an emotional, cinematic piano sound (e.g., a slowed-down worship instrumental or deep ambient drone like Hans Zimmer's \"Time\" style). Volume at 15% to let the raw truth hit hard without overpowering the message.",
+          "postingTime": "7:00 PM – 9:00 PM (This is when people are decompressing and scrolling for deep, reflective, authentic content).",
+          "thumbnailStrategy": "Use uploaded thumbnail"
+        },
+        {
+          "platform": "Instagram Reels",
+          "caption": "Are we praising away the pain, or just hiding it? 🛑👇 The church has been quiet about this for way too long. Our guest drops a massive truth bomb: You can have the Holy Ghost and still need a therapist. You can be bipolar, deal with depression, and still serve. But the pride and the shame? That's what's actually destroying people in the Gospel industry. It's time to make mental health segments as normal as the offering plate. Drop a 🕊️ in the comments if you agree the church needs to talk about this more.",
+          "hashtags": "#mentalhealth #gospel #sacrificialconversations #wftb #nashville #church #healing #mentalhealth #faith",
+          "strategyNote": "The hook here is the taboo of being bipolar/depressed while serving. Pin a comment that asks: \"Have you ever felt pressured to hide your mental health struggles at church?\"",
+          "sound": "Trending somber worship audio or minimal instrumental.",
+          "postingTime": "11:00 AM (Pre-lunch break scrolling) or 5:00 PM.",
+          "thumbnailStrategy": "Use delivered thumbnail (The one with \"MUSIC, MINISTRY & MENTAL HEALTH MERGED\")."
+        },
+        {
+          "platform": "YouTube Shorts",
+          "caption": "The Dark Secret in the Gospel Industry 🤫⛪ #Shorts\n\nDescription: Why are we losing so many talented people in the church? 📉 Because they are too ashamed to ask for help. In this clip, we discuss why the Gospel industry MUST merge music, ministry, and mental health. People are leading worship while battling depression and bipolar disorder—it's time we talk about it. 🎙️ From the Episode: \"Breaking the Silence: Mental Health & Ministry\" 📻 Listen Live: Mondays on WFTB 104.1 TabNashville 👉 Watch the Full Discussion: Click the \"Created from...\" link above the title!",
+          "hashtags": "#SacrificialConversations #GospelMusic #MentalHealth #ChurchLife #WFTB1041 #Faith #Depression",
+          "pinnedComment": "\"Do you think the church does a good job handling mental health, or is there still a massive stigma? Let's talk about it. 👇\"",
+          "postingTime": "4:00 PM – 6:00 PM EST.",
+          "thumbnailStrategy": "Select the frame at 0:26 where he says \"I have friends who are bipolar.\"",
+          "audienceSettings": "Is this video made for kids? Select NO. Age Restriction: Select NO.",
+          "relatedVideo": "Action: Link this Short to the full-length interview on your channel. Why: This clip hooks the church/faith demographic who have felt unseen; the full video gives them the deep spiritual and psychological healing they are looking for."
+        },
+        {
+          "platform": "Facebook",
+          "caption": "Imagine singing songs of deliverance on stage, but feeling completely trapped in your own mind the moment you step off... On this week's Sacrificial Conversations, we tackled one of the most painful, unspoken realities in the church: Mental Health in the Gospel Industry. Our guest said something that should shake every congregation: \"We've lost people because of mental health issues because they were prideful, or too ashamed to ask for help.\" For decades, we've treated mental health struggles as a lack of faith. But the truth is, you can love God, serve faithfully, and still battle depression or bipolar disorder. It's time to stop letting shame steal our brothers and sisters. Let's pray for peace of mind for those serving behind the mic, and let's start making our churches safe spaces for real healing. Watch the full powerful conversation here. 🎙️ [Link to YouTube]",
+          "hashtags": "#SacrificialConversations #MentalHealth #Church",
+          "cta": "Have you ever felt like you had to hide your brokenness to be accepted in ministry? Share your thoughts below—your honesty might free someone else today. 👇",
+          "postingTime": "7:30 AM (Morning devotional scrolling) or 8:00 PM (Evening reflection time)."
+        }
+      ]
+    },
+    {
       "id": "longform-week2",
       "type": "longform",
       "aspectRatio": "16/9",

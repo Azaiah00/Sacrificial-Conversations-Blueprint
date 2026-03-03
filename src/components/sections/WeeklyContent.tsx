@@ -32,6 +32,7 @@ export interface ContentPost {
     pinnedComment?: string;
     audienceSettings?: string;
     relatedVideo?: string;
+    shareableQuote?: string;
   }[];
   longformSteps?: {
     step: string;
@@ -488,6 +489,41 @@ function ContentCard({ item, onCopy, copiedId, onPreview }: { item: ContentPost;
                     <div className="pt-1">
                       <span className="text-[10px] sm:text-[9px] text-zinc-600 uppercase tracking-widest font-bold block mb-1">Thumbnail</span>
                       <p className="text-zinc-500 text-[11px] sm:text-[10px] leading-snug">{inst.thumbnailStrategy}</p>
+                    </div>
+                  )}
+
+                  {inst.strategyNote && (
+                    <div className="pt-1">
+                      <span className="text-[10px] sm:text-[9px] text-zinc-600 uppercase tracking-widest font-bold block mb-1">Strategy Note</span>
+                      <p className="text-amber-500/90 text-[11px] sm:text-[10px] leading-snug">{inst.strategyNote}</p>
+                    </div>
+                  )}
+
+                  {inst.pinnedComment && (
+                    <div className="pt-1">
+                      <span className="text-[10px] sm:text-[9px] text-zinc-600 uppercase tracking-widest font-bold block mb-1">Pinned Comment</span>
+                      <p className="text-zinc-500 text-[11px] sm:text-[10px] leading-snug">{inst.pinnedComment}</p>
+                    </div>
+                  )}
+
+                  {inst.audienceSettings && (
+                    <div className="pt-1">
+                      <span className="text-[10px] sm:text-[9px] text-zinc-600 uppercase tracking-widest font-bold block mb-1">Audience Settings (CRITICAL)</span>
+                      <p className="text-zinc-500 text-[11px] sm:text-[10px] leading-snug">{inst.audienceSettings}</p>
+                    </div>
+                  )}
+
+                  {inst.relatedVideo && (
+                    <div className="pt-1">
+                      <span className="text-[10px] sm:text-[9px] text-zinc-600 uppercase tracking-widest font-bold block mb-1">Related Video (Bridge Strategy)</span>
+                      <p className="text-zinc-500 text-[11px] sm:text-[10px] leading-snug">{inst.relatedVideo}</p>
+                    </div>
+                  )}
+
+                  {inst.shareableQuote && (
+                    <div className="pt-1">
+                      <span className="text-[10px] sm:text-[9px] text-zinc-600 uppercase tracking-widest font-bold block mb-1">Shareable Quote (Graphic Idea)</span>
+                      <p className="text-emerald-400/90 text-[11px] sm:text-[10px] leading-snug italic">{inst.shareableQuote}</p>
                     </div>
                   )}
 
