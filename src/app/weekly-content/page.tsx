@@ -16,7 +16,7 @@ const weekDataMap: Record<string, WeekData> = {
 
 export default function WeeklyContentPage() {
   const [selectedWeekId, setSelectedWeekId] = useState("week-2"); // Default to Week 2
-  const [isSelectorOpen, setIsSelectorOpen] = useState(false);
+  const [isSelectorOpen, setIsSelectorOpen] = useState(true);
 
   // You could also use localStorage or URL params to persist selection
   const currentWeekData = weekDataMap[selectedWeekId];
