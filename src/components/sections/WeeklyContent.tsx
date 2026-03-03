@@ -1,11 +1,11 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Film, Layout, CheckCircle2, X, Play, Youtube } from "lucide-react";
+import { Download, Film, Layout, CheckCircle2, X, Play, Youtube, ChevronDown, Clock } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-interface ContentPost {
+export interface ContentPost {
   id: string;
   type: "video" | "static" | "longform";
   aspectRatio: "9/16" | "3/4" | "16/9";
@@ -38,304 +38,19 @@ interface ContentPost {
   }[];
 }
 
-const WEEKLY_CONTENT: ContentPost[] = [
-  // 4 Video Clips (9:16) — clip-3 and clip-4 marked "New" at top
-  {
-    id: "clip-3",
-    type: "video",
-    aspectRatio: "9/16",
-    title: "Helping Ex-Inmates Succeed: First Steps After Prison",
-    thumbnail: "/assets/shorts/helping%20ex%20inmates%20succeed.jpg",
-    assetUrl: "/assets/shorts/Helping Ex-Inmates Succeed_ First Steps After Prison.mp4",
-    thumbnailAssetUrl: "/assets/shorts/helping%20ex%20inmates%20succeed.jpg",
-    isNew: true,
-    instructions: [
-      {
-        platform: "TikTok",
-        caption: "If the mindset doesn't change, the location doesn't matter. 💯 The hardest prison to escape is the one in your mind.",
-        hashtags: "#prisonreform #lifeafterlockup #fyp #motivation #prisontiktok",
-        sound: "Use a trending, low-fi instrumental or \"sad piano\" backing track at 1-10% volume to underscore the emotion without drowning out the speech.",
-        postingTime: "4:00 PM - 7:00 PM (When people are off work and scrolling).",
-        thumbnailStrategy: "Upload delivered thumbnail"
-      },
-      {
-        platform: "Instagram Reels",
-        caption: "It’s a controversial take, but is it the truth? 👇\nTeddy asks how to keep a young man from feeling like \"prison is better than freedom.\" The answer isn't what you expect. It starts with owning the mistake.\nDrop a 🔥 if you agree that accountability is the key to a fresh start.",
-        hashtags: "#prisonministry #faithwalk #personalgrowth #mindsetshift #freshstart #nashville #sacrificialconversations #wftb #prison #motivation",
-        strategyNote: "Limit to 10-15 highly relevant tags. Place them in the first comment, not the caption, to keep the aesthetic clean. Comment 'FREEDOM' if you’re grateful for yours today. 👇",
-        sound: "Use a trending sound backing track at 1-10% volume to underscore the emotion without drowning out the speech.",
-        postingTime: "11:00 AM (Lunch break crowd) or 8:00 PM",
-        thumbnailStrategy: "Upload delivered thumbnail"
-      },
-      {
-        platform: "YouTube Shorts",
-        caption: "The Sound That Means Your Freedom is GONE 🔒 #Shorts #Prison\n\nDescription: The sound that changes everything... 🔒\nWe drive past prisons every day, but have you ever walked INSIDE? In this clip from Sacrificial Conversations, Monica breaks down the terrifying reality of hearing the gate lock behind her. It’s a sound—\"Do-Doom\"—that signifies the total loss of freedom.\nIt’s easy to take your liberty for granted until you feel the weight of that door.\n🎙️ From the Episode: \"Behind Bars: The Daily Fears of Losing Freedom\" 📻 Listen Live: Mondays on WFTB 104.1 TabNashville 👉 Watch the Full Discussion: Click the \"Created from...\" link above the title!",
-        hashtags: "#SacrificialConversations #TeddyAndMonica #WFTB1041 #PrisonLife #Inmate #Jail #Motivation #Inspiration #Christianity #Society #Culture",
-        pinnedComment: "\"Do we do enough to help people readjust, or are we setting them up to fail? Let's talk about it. 👇\"",
-        postingTime: "3:30 PM – 5:30 PM (Catching the post-work rush)",
-        thumbnailStrategy: "You cannot upload a custom thumbnail for Shorts on mobile easily yet, but you can select a frame. Strategy: Pick the frame where the guest looks the most emotional or confused (around the 0:42 mark when he talks about the flip phone).",
-        audienceSettings: "Is this video made for kids? Select NO. Why: If you select \"Yes,\" comments are disabled, and you lose the notification bell. This kills viral potential. Age Restriction: Select NO (unless there is explicit cursing/violence, which this clip is clean enough for general audiences).",
-        relatedVideo: "Look for the setting: \"Related Video\" (Right side on Desktop, or \"Edit\" on Mobile). Action: Link this Short to the Long-Form Episode of this interview. Why: This creates a button on the Short that says \"Created from...\" or links viewers directly to the full 1-hour show. This is how you grow the main channel."
-      },
-      {
-        platform: "Facebook",
-        caption: "\"I really want this young man to come out of prison and do the best he can...\"\nIt’s the prayer of every parent, friend, and spouse waiting on a loved one to come home. But how do we ensure they don't go back?\nOn this week's Sacrificial Conversations, we discussed the painful reality of reentry. It’s not just about finding a job. It’s about looking in the mirror and saying, \"I am here because of choices I made.\" Only then can you make new choices.\nTrue freedom starts with the sacrifice of Pride.\nWatch the full conversation on YouTube. 🎙️https://www.youtube.com/@SacrificialConversations",
-        hashtags: "#SacrificialConversations #PrisonReform #SecondChances",
-        cta: "Tag a family member who has been a support system for someone coming home. Let’s honor them today.",
-        postingTime: "7:30 AM – 9:30 AM (The \"Coffee & Jesus\" crowd)."
-      }
-    ]
-  },
-  {
-    id: "clip-4",
-    type: "video",
-    aspectRatio: "9/16",
-    title: "Stay Free: Life Lessons from Incarceration",
-    thumbnail: "/assets/shorts/stay-free.jpg",
-    assetUrl: "/assets/shorts/Stay Free_ Life Lessons from Incarceration.mp4",
-    thumbnailAssetUrl: "/assets/shorts/stay-free.jpg",
-    isNew: true,
-    instructions: [
-      {
-        platform: "TikTok",
-        caption: "When the prayer is deep but the reality check is DEEPER. 💀 \"Don't get locked up.\" Sometimes the best advice is the simplest. 💯",
-        hashtags: "#prisontok #prisontiktok #realtalk #viral #fyp",
-        sound: "Use a trending \"suspense\" sound or low-fi beat at 5% volume. Crucial: Ensure the audio cuts to total silence right before he says \"Don't get locked up\" for comedic emphasis.",
-        postingTime: "7:30 PM - 9:30 PM (Peak entertainment scrolling time).",
-        thumbnailStrategy: "Upload delivered thumbnail"
-      },
-      {
-        platform: "Instagram Reels",
-        caption: "\"Stay Free.\" Two words that carry a lifetime of weight. 🕊️\nMonica is praying for a spiritual renewal of the mind (which is needed! 🙏🏾), but our guest dropped the most practical bar of the year: \"Don't get locked up.\" Drop a 🔓 if you are protecting your peace and your freedom today!",
-        hashtags: "#prisonreform #mindset #lifelessons #prison #stayfree #nashville #sacrificialconversations #wftb #gospelradio #podcastclips #gratitude #wisdom #godisgood",
-        strategyNote: "Limit to 10-15 highly relevant tags. Place them in the first comment, not the caption, to keep the aesthetic clean.",
-        sound: "Use a trending instrumental backing track at 3-5% volume. Do not overpower his voice.",
-        postingTime: "12:00 PM (Lunch break) or 6:00 PM (Commute home).",
-        thumbnailStrategy: "Upload delivered thumbnail"
-      },
-      {
-        platform: "YouTube Shorts",
-        caption: "The Most Honest Prison Advice You Will Ever Hear 😳 #Shorts\n\nDescription: Everyone complicates life advice... until you ask someone on the inside. 🔒 In this viral moment from Sacrificial Conversations, Monica prays for the spiritual renewal of inmates, but the guest offers a hilarious (and painful) reality check about the value of freedom. Sometimes the sacrifice isn't deep—it's just making the choice to Stay Free. 🎙️ From the Episode: \"Life Lessons from Incarceration\" 📻 Listen Live: Mondays on WFTB 104.1 TabNashville 👉 Watch the Full Discussion: Click the \"Created from...\" link above the title!",
-        hashtags: "#SacrificialConversations #TeddyAndMonica #WFTB1041 #PrisonLife #RealTalk #FunnyMoments #Wisdom #StayFree #Inspiration #Truth",
-        pinnedComment: "\"He didn't stutter! 🤷🏾‍♂️ Who agrees with the guest? Let us know below! 👇\"",
-        postingTime: "4:00 PM – 6:00 PM (Catching the post-work rush).",
-        thumbnailStrategy: "You cannot upload a custom thumbnail for Shorts on mobile easily yet. Strategy: Select the frame at 0:25 where the Guest looks deadpan at the camera after saying his line.",
-        audienceSettings: "Is this video made for kids? Select NO. Why: If you select \"Yes,\" comments are disabled, and you lose the notification bell. This kills viral potential. Age Restriction: Select NO.",
-        relatedVideo: "Look for the setting: \"Related Video\" (Right side on Desktop, or \"Edit\" on Mobile). Action: Link this Short to the Long-Form Episode of this interview. Why: This creates a button on the Short that says \"Created from...\" or links viewers directly to the full show. This is how you grow the main channel."
-      },
-      {
-        platform: "Facebook",
-        caption: "\"We often over-complicate the path to freedom.\" Monica is right—we must pray that God renews the minds of those behind bars so they can return to society whole. Spiritual warfare is real. 🙏🏾 But sometimes, we need the \"Street Truth\" to go along with the \"Spirit Truth.\" As our guest said from the inside: \"Stay Free.\" Value your liberty today, family. Don't trade your freedom for a moment of anger, a bad decision, or pride. The sacrifice isn't worth it. Watch the full conversation on YouTube: 🎙️ https://www.youtube.com/@SacrificialConversations",
-        hashtags: "#SacrificialConversations #PrisonReform #StayFree",
-        cta: "Tag a young person who needs to hear this simple truth today. 👇",
-        postingTime: "1:00 PM – 3:00 PM (When Facebook engagement is highest for video content)."
-      }
-    ]
-  },
-  {
-    id: "clip-5",
-    type: "video",
-    aspectRatio: "9/16",
-    title: "Officer's Mindset: Understanding the Inmate's Daily Reality",
-    thumbnail: "/assets/shorts/officer's-mindset-thumbnail.jpg",
-    assetUrl: "/assets/shorts/Officer's Mindset_ Understanding the Inmate's Daily Reality.mp4",
-    thumbnailAssetUrl: "/assets/shorts/officer's-mindset-thumbnail.jpg",
-    isNew: true,
-    instructions: [
-      {
-        platform: "TikTok",
-        caption: "When the loud guy goes quiet... watch your back. 🚩🤫 The silence is often more dangerous than the noise.",
-        hashtags: "#correctionalofficer #prisonlife  #psychology #inmatelife #fyp",
-        sound: "Use a tense, cinematic \"suspense\" sound or a deep bass rumble (e.g., \"Blade Runner\" synth style). Volume at 15% to build tension without overpowering Officer Whitfield’s voice.",
-        postingTime: "8:00 PM – 10:00 PM (\"Night Shift\" / True Crime scrolling hours).",
-        thumbnailStrategy: "Use delivered thumbnail"
-      },
-      {
-        platform: "Instagram Reels",
-        caption: "Is it a \"Bad Day\" or a \"Plot\"? 🚩👇\nMonica asks a fair question: Can't an inmate just wake up on the wrong side of the bed?\nOfficer Whitfield drops a hard truth: In a 6x8 cell, a shift in personality isn't just a mood swing—it’s often a warning sign.\nWhen you are counting the cracks in the wall to stay sane, silence speaks volumes.\nDrop a 🧱 in the comments if you could handle 24 hours in that kind of isolation.",
-        hashtags: "#prisonreform #correctionaloffcer #mentalhealth #solitary #mindgames #nashville #sacrificialconversations #wftb #realitycheck",
-        strategyNote: "The hook here is the debate between Empathy (Monica) and Safety (Whitfield). Pin a comment that asks: \"Would you survive the mental game of prison?\"",
-        sound: "\"Spooky/Tense Ambient\" or minimal instrumental.",
-        postingTime: "12:00 PM (Lunch break) or 6:00 PM.",
-        thumbnailStrategy: "Use delivered thumbnail"
-      },
-      {
-        platform: "YouTube Shorts",
-        caption: "The #1 Red Flag in Prison? SILENCE. 🤫🔒 #Shorts\n\nDescription: Why do officers fear the quiet ones? 🔒\nOfficer Whitfield explains to Teddy & Monica why a sudden personality shift—from laughing yesterday to silence today—is the biggest threat indicator behind bars. It’s not just a \"bad day\"; it's a sign they are breaking down or plotting up.\nThe mental toll of \"counting cracks on the wall\" changes everything.\n🎙️ From the Episode: \"Officer's Mindset: Understanding the Inmate's Daily Reality\"\n📻 Listen Live: Mondays on WFTB 104.1 TabNashville\n👉 Watch the Full Discussion: Click the \"Created from...\" link above the title!",
-        hashtags: "#SacrificialConversations #PrisonStories #CorrectionalOfficer #Psychology #Inmate #Jail #WFTB1041 #MentalHealth #Behavior",
-        pinnedComment: "\"Do we underestimate the mental toll of confinement, or is this officer just being safe? Tell us your take. 👇\"",
-        postingTime: "4:00 PM – 6:00 PM EST.",
-        thumbnailStrategy: "Select the frame at 0:36 (Whitfield looking intense, describing counting the tiles).",
-        audienceSettings: "Is this video made for kids? Select NO. Age Restriction: Select NO.",
-        relatedVideo: "Link this Short to the full-length interview on your channel. Why: This clip hooks the true crime/psychology fans; the full video keeps them for the spiritual conversation."
-      },
-      {
-        platform: "Facebook",
-        caption: "\"Imagine walking into your closet, locking the door, and staying there for years...\"\nOn this week's Sacrificial Conversations, Officer Whitfield painted a haunting picture of the inmate's reality. It's not just about the loss of physical freedom; it's the mental sacrifice.\nHe says, \"I can count the cracks on the wall... I know how many tiles are on the floor.\"\nWhen your world shrinks to the size of a bathroom, your mind starts to play tricks on you. As believers, we are called to visit the prisoner—but do we ever stop to consider the mental battle they fight every single morning?\nLet's pray for peace of mind for those behind the walls, and safety for the officers walking the beat.\nWatch the full powerful conversation here. 🎙️ [Link to YouTube]",
-        hashtags: "#SacrificialConversations",
-        cta: "Have you ever felt trapped in a situation where you started counting the cracks in the walls? Share your testimony of how God brought you out. 👇",
-        postingTime: "8:00 PM (Evening reflection time)."
-      }
-    ]
-  },
-  {
-    id: "clip-1",
-    type: "video",
-    aspectRatio: "9/16",
-    title: "Prison to Freedom: Readjusting to Life After Incarceration",
-    thumbnail: "/assets/shorts/thmubnail-tiktok-1.webp",
-    assetUrl: "/assets/shorts/Prison to Freedom_ Readjusting to Life After Incarceration.mp4",
-    thumbnailAssetUrl: "/assets/shorts/thmubnail-tiktok-1.webp",
-    instructions: [
-      {
-        platform: "TikTok",
-        caption: "Imagine waking up 10 years later and the world is completely different. 😳",
-        hashtags: "#PrisonTok, #LifeAfterLockup, #PrisonReform, #FYP, #RealTalk",
-        sound: "Use a trending, low-fi instrumental or \"sad piano\" backing track at 1-10% volume.",
-        postingTime: "7:30 PM - 9:30 PM",
-        thumbnailStrategy: "Upload delivered thumbnail"
-      },
-      {
-        platform: "Instagram Reels",
-        caption: "The hardest part of prison isn't getting locked up... it's getting out. 🔓 Teddy and Monica break down the reality of 'Institutionalization' and why the transition to freedom is a sacrifice of its own. Catch the full conversation on Youtube. Link in Bio!",
-        hashtags: "#SacrificialConversations #MindsetShift #PrisonReform #SecondChances #InspirationDaily #Reentry #SocialJustice #NashvilleTN #GospelRadio #RealTalk #PodcastClips #DeepDive #TruthBomb",
-        strategyNote: "Limit to 10-15 highly relevant tags. Place them in the first comment, not the caption.",
-        sound: "Use a trending sound backing track at 1-10% volume.",
-        postingTime: "11:00 AM - 1:00 PM",
-        thumbnailStrategy: "Upload delivered thumbnail"
-      },
-      {
-        platform: "YouTube Shorts",
-        caption: "Why Inmates Feel Safer in Prison than Outside 🤯",
-        hashtags: "#Shorts #Prison #Truth #PrisonLife #LifeAfterPrison #Inmate #Institutionalization #SacrificialConversations #Podcast #Motivation #Society #Technology #CultureShock #TeddyAndMonica #ChristianTalk",
-        pinnedComment: "\"Do we do enough to help people readjust, or are we setting them up to fail? Let's talk about it. 👇\"",
-        postingTime: "4:00 PM - 6:00 PM",
-        thumbnailStrategy: "Pick the frame where the guest looks the most emotional or confused (around 0:42).",
-        audienceSettings: "Is this video made for kids? Select NO. (Ensures comments/notifications stay on).",
-        relatedVideo: "Link this Short to the Long-Form Episode of this interview."
-      },
-      {
-        platform: "Facebook",
-        caption: "Have you ever felt like the world was moving too fast for you to keep up? Now imagine that feeling after being locked away for a decade.\nIn this clip, we talk about the heartbreaking reality of 'Institutionalization.' It's not just about doing the time; it's about coming home to a world you don't recognize anymore—where even a smartphone feels like an alien object.\nSometimes, the sacrifice isn't staying out of trouble; it's swallowing your pride to ask for help in a world that forgot you.",
-        hashtags: "#SacrificialConversations #PrisonReform #SecondChances",
-        cta: "Drop a ❤️ if you believe everyone deserves a second chance at navigating life.",
-        postingTime: "8:00 AM (Morning devotional/coffee crowd)"
-      }
-    ]
-  },
-  {
-    id: "clip-2",
-    type: "video",
-    aspectRatio: "9/16",
-    title: "Losing Freedom",
-    thumbnail: "/assets/shorts/thumbnail-tiktok-2.webp",
-    assetUrl: "/assets/shorts/Losing Freedom.mp4",
-    thumbnailAssetUrl: "/assets/shorts/thumbnail-tiktok-2.webp",
-    instructions: [
-      {
-        platform: "TikTok",
-        caption: "That sound... 🔒 It changes you. I went behind the gates for one hour and felt the weight of it. Imagine 10 years",
-        hashtags: "#PrisonTok #Jailtok #SacrificialConversations #Storytime #RealTalk #FYP",
-        sound: "Use a trending, low-fi instrumental or \"sad piano\" backing track at 1-10% volume.",
-        postingTime: "5:00 PM - 7:00 PM",
-        thumbnailStrategy: "Upload delivered thumbnail"
-      },
-      {
-        platform: "Instagram Reels",
-        caption: "We take 'lunch breaks' for granted. 🥪 But for some, that gate creates a permanent separation. Monica shares a moment of panic behind bars that put everything into perspective. 🎙️ Tune in to Sacrificial Conversations Pocast on Youtube. Link in Bio!",
-        hashtags: "#SacrificialConversations #PrisonReform #MindsetShift #Gratitude #FaithWalk #ChristianPodcast #NashvilleTN #WFTB #GospelRadio #RealTalk #PodcastClips #DeepDive #TruthBomb #SecondChances",
-        strategyNote: "Comment 'FREEDOM' if you’re grateful for yours today. 👇",
-        sound: "Use a trending sound backing track at 1-10% volume.",
-        postingTime: "11:00 AM - 1:00 PM",
-        thumbnailStrategy: "Upload delivered thumbnail"
-      },
-      {
-        platform: "YouTube Shorts",
-        caption: "The Sound That Means Your Freedom is GONE 🔒",
-        hashtags: "#Shorts #Prison #SacrificialConversations #TeddyAndMonica #WFTB1041 #PrisonLife #Inmate #Jail #Motivation #Inspiration #Christianity #Society #Culture",
-        pinnedComment: "\"Do we do enough to help people readjust, or are we setting them up to fail? Let's talk about it. 👇\"",
-        postingTime: "3:30 PM – 5:30 PM",
-        thumbnailStrategy: "Pick the frame where the guest looks the most emotional or confused (around 0:42).",
-        audienceSettings: "Is this video made for kids? Select NO.",
-        relatedVideo: "Link this Short to the Long-Form Episode of this interview."
-      },
-      {
-        platform: "Facebook",
-        caption: "\"I thank God for my freedom.\" 🙏\nWe often drive past prisons and don't think twice. But have you ever walked inside? In this clip, Monica shares a terrifying moment of realization during a prison ministry lunch. She walked behind the gate, the door slammed—Clap... Do-Doom—and suddenly, the reality of 'Losing Freedom' wasn't just a concept. It was a feeling.\nIt made us ask: How much do we take our daily liberty for granted?\nCatch the full Sacrificial Conversations episode on WFTB 104.1 or YouTube.",
-        hashtags: "#SacrificialConversations #Gratitude #Freedom #WFTB",
-        cta: "Tag someone who needs a reminder to be grateful for their freedom today. ❤️",
-        postingTime: "7:30 AM – 9:30 AM (The \"Coffee & Jesus\" crowd)"
-      }
-    ]
-  },
-  // 3 Static Flyers (3:4) — Ep. 68 Sergeant Whitfield promo assets
-  {
-    id: "s1",
-    type: "static",
-    aspectRatio: "3/4",
-    title: "Flyer 01: Correctional Sergeant Whitfield — Inside The Job",
-    thumbnail: "/assets/flyer%201.jpeg",
-    assetUrl: "/assets/flyer%201.jpeg",
-    caption: "NEW EPISODE OUT NOW! Correctional Sergeant Whitfield: Inside The Job. Journey, challenges & the untold truth. Watch now on YouTube — link in bio! 🎙️🔗",
-    hashtags: "#SacrificialConversations #Episode68 #PrisonLife #CorrectionalOfficer #Nashville #PodcastAlert",
-    platform: "Instagram Feed / Facebook",
-  },
-  {
-    id: "s2",
-    type: "static",
-    aspectRatio: "3/4",
-    title: "Flyer 02: Episode #68 — The Untold Truth From Inside The Walls",
-    thumbnail: "/assets/flyer%202.jpeg",
-    assetUrl: "/assets/flyer%202.jpeg",
-    caption: "Episode #68: Correctional Sergeant Whitfield — The untold truth from inside the walls. Faith, marriage, growth. Watch now on YouTube! 👇",
-    hashtags: "#SacrificialConversations #Episode68 #InsideTheWalls #RealTalk #FaithMarriageGrowth #Podcast",
-    platform: "Instagram Feed",
-  },
-  {
-    id: "s3",
-    type: "static",
-    aspectRatio: "3/4",
-    title: "Flyer 03: Episode #68 — Watch Now on YouTube",
-    thumbnail: "/assets/flyer%203.jpeg",
-    assetUrl: "/assets/flyer%203.jpeg",
-    caption: "The conversation you don't want to miss. Episode #68 with Correctional Sergeant Whitfield. Watch now on YouTube — link in bio! 🔥",
-    hashtags: "#SacrificialConversations #Episode68 #WatchNow #YouTube #Nashville #PodcastClips",
-    platform: "Facebook / Instagram",
-  },
-  // Long Form Settings
-  {
-    id: "longform-1",
-    type: "longform",
-    aspectRatio: "16/9",
-    title: "Long Form Video Optimization (Ep. 68)",
-    thumbnail: "/assets/e30d4e0e-bf9c-4016-afa4-5767533c0529.jpeg",
-    thumbnailAssetUrl: "/assets/e30d4e0e-bf9c-4016-afa4-5767533c0529.jpeg",
-    longformSteps: [
-      {
-        step: "Step 1: Change the Title",
-        action: "",
-        content: "Current title: \"Ep.68 Life on the Other Side of the Cell\"\n(Problem: This sounds a bit like a documentary. We need drama!)\n\nAction: Copy and paste one of these titles or enter all of them into the A/B testing titles section.\n\nCorrectional Officer REVEALS: Why Inmates Choose Prison Over Freedom | Ep. 68\nSurviving Maximum Security: A Sergeant’s Guide to Mental Warfare | Ep. 68\nLife Inside a Max Security Prison: The Truth About Officers & Inmates | Ep. 68"
-      },
-      {
-        step: "Step 2: Update the Description Box",
-        action: "",
-        content: "The description helps YouTube find new viewers.\n\nAction: Delete the old description and paste this in:\n\nIn this raw episode of Sacrificial Conversations, Teddy & Monica sit down with Sergeant Whitfield, a 13-year veteran of a maximum security prison. They go beyond the bars to discuss the mental toll of the job, the shocking 80% demographic statistic, and the story of an officer who broke down and quit.\nBroadcasted live on WFTB 104.1 TabNashville, this conversation exposes the sacrifice of those who work in the shadows.\n\nChapters:\n0:00 Intro\n5:00 First Day in a Max Security Prison\n15:00 The Hard Stat: 80% African American Population\n27:30 Why Inmates Choose Prison Over Freedom\n37:30 The \"Hyper-Vigilance\": Watching Exits at Restaurants\n43:00 The Officer Who Snapped & Quit\n54:13 Final Warning: \"Stay Free\"\n\n#SacrificialConversations #PrisonLife #CorrectionalOfficer #WFTB #RealTalk"
-      },
-      {
-        step: "Step 3: Add These Tags",
-        action: "",
-        content: "This helps the search engine.\n\nAction: Copy these into the \"Tags\" section at the bottom of the edit page:\n\n#PrisonLife #CorrectionalOfficer #MaximumSecurityPrison #InmateStories #PrisonDocumentary #Institutionalized #MassIncarceration #PrisonMentalHealth #FearOfFreedom #LifeBehindBars #SacrificialConversations #TeddyAndMonica #WFTB1041 #WhyInmatesStayInPrison #TruthAboutPrisonGuards"
-      },
-      {
-        step: "Step 4: The \"Pinned Comment\"",
-        action: "",
-        content: "This starts the conversation in the comment section.\n\nAction:\nGo to the video comments section.\n\nPost this comment from your account:\n\n\"Sergeant Whitfield said 80% of the inmates in his facility are African American. What is the FIRST step our community needs to take to lower this number? Let's talk below. 👇\"\n\nClick the three dots next to your comment and select \"Pin\"."
-      }
-    ]
-  }
-];
+export interface WeekData {
+  weekId: string;
+  dates: string;
+  status: string;
+  content: ContentPost[];
+}
 
-export default function WeeklyContentSection() {
+interface WeeklyContentSectionProps {
+  weekData: WeekData;
+  onChangeWeek: () => void;
+}
+
+export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyContentSectionProps) {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [previewItem, setPreviewItem] = useState<ContentPost | null>(null);
 
@@ -345,113 +60,141 @@ export default function WeeklyContentSection() {
     setTimeout(() => setCopiedId(null), 2000);
   };
 
+  const videos = weekData.content.filter(item => item.type === "video");
+  const statics = weekData.content.filter(item => item.type === "static");
+  const longforms = weekData.content.filter(item => item.type === "longform");
+
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 md:py-24 bg-black min-h-screen overflow-x-hidden">
       {/* Hero header — stacks on mobile, side-by-side on desktop */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-0 mb-10 sm:mb-16 md:mb-20 border-b border-zinc-800 pb-6 sm:pb-8">
         <div className="w-full">
           <span className="text-red-600 font-bold uppercase tracking-[0.2em] text-xs sm:text-sm mb-3 sm:mb-4 block">Weekly Distribution</span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white uppercase tracking-tight leading-tight">
-            Weekly <br className="sm:hidden" /> Content Hub
-          </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white uppercase tracking-tight leading-tight">
+              Weekly Content Hub
+            </h2>
+            <button 
+              onClick={onChangeWeek}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 hover:border-red-600 text-white text-xs font-bold uppercase tracking-widest transition-all rounded-sm sm:mt-2"
+            >
+              Change Week <ChevronDown className="w-4 h-4" />
+            </button>
+          </div>
         </div>
         <div className="w-full md:w-auto md:text-right flex flex-col sm:flex-row md:flex-col gap-2 sm:gap-4 md:gap-1">
           <p className="text-zinc-400 text-xs sm:text-sm uppercase tracking-widest font-mono">
-            Current Week: <span className="text-white">Feb 23 - Mar 01, 2026</span>
+            Selected: <span className="text-white">{weekData.dates}</span>
           </p>
           <p className="text-zinc-600 text-[10px] sm:text-xs uppercase tracking-widest font-mono flex items-center gap-2">
-            Status: <span className="text-emerald-500 inline-flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" /> Ready</span>
+            Status: {weekData.status === "Ready" ? (
+              <span className="text-emerald-500 inline-flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" /> Ready</span>
+            ) : (
+              <span className="text-amber-500 inline-flex items-center gap-1.5"><Clock className="w-3.5 h-3.5 flex-shrink-0" /> {weekData.status}</span>
+            )}
           </p>
         </div>
       </div>
 
       {/* Videos/Shorts Section (9:16) — 2 columns on sm+, single on mobile */}
-      <div className="mb-14 sm:mb-20">
-        <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
-          <Film className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">Short-Form Clips (9:16)</h3>
-          <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
+      {videos.length > 0 && (
+        <div className="mb-14 sm:mb-20">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
+            <Film className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">Short-Form Clips (9:16)</h3>
+            <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+            {videos.map((item) => (
+              <ContentCard key={item.id} item={item} onCopy={copyToClipboard} copiedId={copiedId} onPreview={setPreviewItem} />
+            ))}
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-          {WEEKLY_CONTENT.filter(item => item.type === "video").map((item) => (
-            <ContentCard key={item.id} item={item} onCopy={copyToClipboard} copiedId={copiedId} onPreview={setPreviewItem} />
-          ))}
-        </div>
-      </div>
+      )}
 
       {/* Digital Flyers Section (3:4) — 1 col mobile, 2 sm, 3 lg */}
-      <div className="mb-14 sm:mb-20">
-        <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
-          <Layout className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">
-            Digital Flyers <span className="text-red-600 font-normal normal-case text-sm sm:text-base tracking-normal">Use for social media posts to promote the latest podcast</span>
-          </h3>
-          <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
+      {statics.length > 0 && (
+        <div className="mb-14 sm:mb-20">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
+            <Layout className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">
+              Digital Flyers <span className="text-red-600 font-normal normal-case text-sm sm:text-base tracking-normal">Use for social media posts to promote the latest podcast</span>
+            </h3>
+            <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {statics.map((item) => (
+              <ContentCard key={item.id} item={item} onCopy={copyToClipboard} copiedId={copiedId} onPreview={setPreviewItem} />
+            ))}
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {WEEKLY_CONTENT.filter(item => item.type === "static").map((item) => (
-            <ContentCard key={item.id} item={item} onCopy={copyToClipboard} copiedId={copiedId} onPreview={setPreviewItem} />
-          ))}
-        </div>
-      </div>
+      )}
 
       {/* Long Form Optimization Section — single col mobile, side-by-side lg */}
-      <div className="mb-14 sm:mb-20">
-        <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
-          <Youtube className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">Long-Form Optimization</h3>
-          <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
-        </div>
-        
-        {WEEKLY_CONTENT.filter(item => item.type === "longform").map((item) => (
-          <div key={item.id} className="bg-zinc-900/30 border border-zinc-800 p-4 sm:p-6 lg:p-10 rounded-sm">
-            <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
-              <div className="w-full lg:w-1/3 flex-shrink-0">
-                <p className="text-zinc-400 text-xs font-mono uppercase tracking-widest mb-2">Optional thumbnail for your video — download below if you want to use it</p>
-                <div className="aspect-video relative border border-zinc-800 bg-black overflow-hidden rounded-sm">
-                  <Image src={item.thumbnail} alt={item.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
-                </div>
-                <h4 className="text-white font-bold uppercase tracking-widest mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl">{item.title}</h4>
-                <p className="text-zinc-500 text-xs sm:text-sm mt-2 font-mono uppercase tracking-widest">Target: YouTube Algorithm</p>
-                {/* Optional: download thumbnail for YouTube upload */}
-                {item.thumbnailAssetUrl && (
-                  <a
-                    href={item.thumbnailAssetUrl}
-                    download={item.thumbnailAssetUrl.split("/").pop() || "thumbnail.jpeg"}
-                    className="inline-flex items-center gap-2 mt-3 min-h-[44px] px-4 py-2 bg-zinc-800 hover:bg-red-600 text-white text-xs font-bold uppercase tracking-widest transition-colors rounded-sm"
-                  >
-                    <Download className="w-4 h-4" />
-                    Download thumbnail
-                  </a>
-                )}
-              </div>
-              
-              <div className="flex-1 min-w-0 space-y-6 sm:space-y-8">
-                {item.longformSteps?.map((step, idx) => (
-                  <div key={idx} className="border-l-2 border-red-600 pl-4 sm:pl-6 py-2">
-                    <h5 className="text-red-600 font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">{step.step}</h5>
-                    <p className="text-zinc-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold mb-3">{step.action}</p>
-                    <div className="relative group">
-                      <pre className="bg-zinc-950 p-3 sm:p-4 border border-zinc-800 text-zinc-300 text-[11px] sm:text-xs leading-relaxed whitespace-pre-wrap font-mono overflow-x-auto rounded-sm">
-                        {step.content}
-                      </pre>
-                      <button 
-                        onClick={() => copyToClipboard(step.content, `${item.id}-step-${idx}`)}
-                        className="absolute top-2 right-2 min-h-[44px] min-w-[44px] sm:min-w-0 sm:min-h-0 px-4 py-3 sm:px-3 sm:py-1.5 bg-zinc-800 hover:bg-red-600 text-white text-xs sm:text-[10px] font-bold uppercase tracking-widest transition-colors rounded-sm flex items-center justify-center"
-                        aria-label="Copy to clipboard"
-                      >
-                        {copiedId === `${item.id}-step-${idx}` ? "Copied!" : "Copy"}
-                      </button>
-                    </div>
+      {longforms.length > 0 && (
+        <div className="mb-14 sm:mb-20">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
+            <Youtube className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">Long-Form Optimization</h3>
+            <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
+          </div>
+          
+          {longforms.map((item) => (
+            <div key={item.id} className="bg-zinc-900/30 border border-zinc-800 p-4 sm:p-6 lg:p-10 rounded-sm mb-8 last:mb-0">
+              <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
+                <div className="w-full lg:w-1/3 flex-shrink-0">
+                  <p className="text-zinc-400 text-xs font-mono uppercase tracking-widest mb-2">Optional thumbnail for your video — download below if you want to use it</p>
+                  <div className="aspect-video relative border border-zinc-800 bg-black overflow-hidden rounded-sm">
+                    {item.thumbnail ? (
+                      <Image src={item.thumbnail} alt={item.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 text-zinc-500 text-xs font-mono uppercase tracking-widest px-4 text-center">
+                        Thumbnail coming soon
+                      </div>
+                    )}
                   </div>
-                ))}
+                  <h4 className="text-white font-bold uppercase tracking-widest mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl">{item.title}</h4>
+                  <p className="text-zinc-500 text-xs sm:text-sm mt-2 font-mono uppercase tracking-widest">Target: YouTube Algorithm</p>
+                  {/* Optional: download thumbnail for YouTube upload */}
+                  {item.thumbnailAssetUrl && (
+                    <a
+                      href={item.thumbnailAssetUrl}
+                      download={item.thumbnailAssetUrl.split("/").pop() || "thumbnail.jpeg"}
+                      className="inline-flex items-center gap-2 mt-3 min-h-[44px] px-4 py-2 bg-zinc-800 hover:bg-red-600 text-white text-xs font-bold uppercase tracking-widest transition-colors rounded-sm"
+                    >
+                      <Download className="w-4 h-4" />
+                      Download thumbnail
+                    </a>
+                  )}
+                </div>
+                
+                <div className="flex-1 min-w-0 space-y-6 sm:space-y-8">
+                  {item.longformSteps?.map((step, idx) => (
+                    <div key={idx} className="border-l-2 border-red-600 pl-4 sm:pl-6 py-2">
+                      <h5 className="text-red-600 font-bold uppercase tracking-widest text-xs sm:text-sm mb-2">{step.step}</h5>
+                      <p className="text-zinc-400 text-[10px] sm:text-xs uppercase tracking-widest font-bold mb-3">{step.action}</p>
+                      <div className="relative group">
+                        <pre className="bg-zinc-950 p-3 sm:p-4 border border-zinc-800 text-zinc-300 text-[11px] sm:text-xs leading-relaxed whitespace-pre-wrap font-mono overflow-x-auto rounded-sm">
+                          {step.content}
+                        </pre>
+                        <button 
+                          onClick={() => copyToClipboard(step.content, `${item.id}-step-${idx}`)}
+                          className="absolute top-2 right-2 min-h-[44px] min-w-[44px] sm:min-w-0 sm:min-h-0 px-4 py-3 sm:px-3 sm:py-1.5 bg-zinc-800 hover:bg-red-600 text-white text-xs sm:text-[10px] font-bold uppercase tracking-widest transition-colors rounded-sm flex items-center justify-center"
+                          aria-label="Copy to clipboard"
+                        >
+                          {copiedId === `${item.id}-step-${idx}` ? "Copied!" : "Copy"}
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       {/* Fullscreen preview modal — responsive, touch-friendly close and download */}
       <AnimatePresence>

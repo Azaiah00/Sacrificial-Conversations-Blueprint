@@ -1,0 +1,32 @@
+{
+  "weekId": "week-2",
+  "dates": "Mar 02 - Mar 08, 2026",
+  "status": "In Progress",
+  "content": [
+    {
+      "id": "longform-week2",
+      "type": "longform",
+      "aspectRatio": "16/9",
+      "title": "YouTube Long-Form Optimization (Week 2)",
+      "thumbnail": "/assets/placeholder-thumbnail.jpg",
+      "thumbnailAssetUrl": "/assets/placeholder-thumbnail.jpg",
+      "longformSteps": [
+        {
+          "step": "Step 1: Keyword-Rich Title Options (Provide 4)",
+          "action": "Update your live video metadata immediately. Copy one of these titles:",
+          "content": "Option 1 (The \"Controversy/Truth\" Hook): Why The Nashville Gospel Industry BROKE Me (Nate Bean's Truth)\n\nOption 2 (The \"Value/How-To\" Hook): How to Survive the Music Industry Without Losing Your Soul\n\nOption 3 (The \"Search/SEO\" Hook): Nate Bean & 4Given: The Truth About Gospel Music, Faith & Nashville\n\nOption 4 (The \"Short & Punchy\" Hook): HE CHOSE MINISTRY OVER MONEY"
+        },
+        {
+          "step": "Step 2: The \"Perfect\" Description Template",
+          "action": "Delete the old description and paste this in:",
+          "content": "The Hook: What happens when the demand for a performance threatens the purity of your worship? Nate Bean finally tells the truth about surviving Music City.\n\nThe Summary: In this raw episode of Sacrificial Conversations, Teddy & Monica sit down with Nashville gospel legend and choir director Nate Bean (founder of 4Given). Broadcasted directly from the WFTB 104.1 TabNashville studios, Nate gets brutally honest about the sacrifices required to maintain the anointing in a city obsessed with the music business.\n\nTimestamps:\n* 0:00 Intro: The Reality of Nashville\n12:45 The Argument: Ministry vs. Industry\n24:30 Why 4Given Sounds Different\n38:00 The \"Sacrifice\": Giving Up the Ego\n51:15 Navigating Church Politics\n1:05:00 Final Thoughts & A Word of Hope\n\nLinks: 📻 Catch the live broadcast every Monday on WFTB 104.1 FM TabNashville! | Follow us: @sacrificial.convo"
+        },
+        {
+          "step": "Step 3: Tags",
+          "action": "Copy these into the Tags section at the bottom of the edit page:",
+          "content": "#SacrificialConversations #NateBean #GospelMusic #Nashville #TeddyAndMonica\nFred Sales, 26 min\n#ChristianPodcast\n#FaithBased\n#GospelMusic\n#SpiritualGrowth\n#PodcastClips\n#MinistryLife\n#WorshipLeader\n#ChristianCreative\n#FaithAndCulture\n#NateBean\n#4Given\n#NashvilleChoir\n#GospelArtist"
+        }
+      ]
+    }
+  ]
+}
