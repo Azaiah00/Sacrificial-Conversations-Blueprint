@@ -429,14 +429,24 @@ function BlueprintCard({ item }: { item: ContentPost }) {
     ].join("");
     const footerHtml = "<div style='margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e5e5e5; color: #888; font-size: 0.75rem;'>Teddy & Monica · WFTB 104.1 TabNashville · Sacrificial Conversations</div>";
     const escapedContent = content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    // Highlight when Teddy or Monica speak so hosts stand out in the PDF
+    const withHostHighlight = escapedContent
+      .replace(/Teddy \(V\/O\)/g, "<strong>Teddy (V/O)</strong>")
+      .replace(/Host Cue \(Monica\)/g, "<strong>Host Cue (Monica)</strong>")
+      .replace(/Producer Note/g, "<strong>Producer Note</strong>")
+      .replace(/The &quot;Pivot to Expertise&quot;: \(Teddy\)/g, "<strong>The &quot;Pivot to Expertise&quot;: (Teddy)</strong>")
+      .replace(/The &quot;Faith Check&quot;: \(Monica\)/g, "<strong>The &quot;Faith Check&quot;: (Monica)</strong>")
+      .replace(/\(Teddy\)/g, "<strong>(Teddy)</strong>")
+      .replace(/\(Monica\)/g, "<strong>(Monica)</strong>");
     const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>${item.title}</title>
 <style>
   body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1.5rem; color: #1a1a1a; line-height: 1.5; }
-  pre { white-space: pre-wrap; word-wrap: break-word; font-size: 0.85rem; }
+  .blueprint-body { white-space: pre-wrap; word-wrap: break-word; font-size: 0.85rem; }
+  .blueprint-body strong { color: #dc2626; font-weight: 700; }
   @media print { body { margin: 1rem; } .no-print { display: none; } }
 </style></head><body>
 ${headerHtml}
-<pre>${escapedContent}</pre>
+<div class="blueprint-body">${withHostHighlight}</div>
 ${footerHtml}
 <p class="no-print" style="margin-top: 2rem;">
   <button onclick="window.print()" style="background: #dc2626; color: white; border: none; padding: 0.5rem 1rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">Save as PDF / Print</button>
