@@ -389,6 +389,19 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
   );
 }
 
+/** Escapes HTML and wraps Teddy/Monica speaker labels in <strong> for PDF and portal display. */
+function highlightBlueprintSpeakers(raw: string): string {
+  const escaped = raw.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  return escaped
+    .replace(/Teddy \(V\/O\)/g, "<strong>Teddy (V/O)</strong>")
+    .replace(/Host Cue \(Monica\)/g, "<strong>Host Cue (Monica)</strong>")
+    .replace(/Producer Note/g, "<strong>Producer Note</strong>")
+    .replace(/The &quot;Pivot to Expertise&quot;: \(Teddy\)/g, "<strong>The &quot;Pivot to Expertise&quot;: (Teddy)</strong>")
+    .replace(/The &quot;Faith Check&quot;: \(Monica\)/g, "<strong>The &quot;Faith Check&quot;: (Monica)</strong>")
+    .replace(/\(Teddy\)/g, "<strong>(Teddy)</strong>")
+    .replace(/\(Monica\)/g, "<strong>(Monica)</strong>");
+}
+
 /** Fetches blueprint text and renders it with a branded "Download as PDF" (print) action. */
 function BlueprintCard({ item }: { item: ContentPost }) {
   const [content, setContent] = useState<string | null>(null);
@@ -428,16 +441,7 @@ function BlueprintCard({ item }: { item: ContentPost }) {
       "</div>",
     ].join("");
     const footerHtml = "<div style='margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e5e5e5; color: #888; font-size: 0.75rem;'>Teddy & Monica · WFTB 104.1 TabNashville · Sacrificial Conversations</div>";
-    const escapedContent = content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-    // Highlight when Teddy or Monica speak so hosts stand out in the PDF
-    const withHostHighlight = escapedContent
-      .replace(/Teddy \(V\/O\)/g, "<strong>Teddy (V/O)</strong>")
-      .replace(/Host Cue \(Monica\)/g, "<strong>Host Cue (Monica)</strong>")
-      .replace(/Producer Note/g, "<strong>Producer Note</strong>")
-      .replace(/The &quot;Pivot to Expertise&quot;: \(Teddy\)/g, "<strong>The &quot;Pivot to Expertise&quot;: (Teddy)</strong>")
-      .replace(/The &quot;Faith Check&quot;: \(Monica\)/g, "<strong>The &quot;Faith Check&quot;: (Monica)</strong>")
-      .replace(/\(Teddy\)/g, "<strong>(Teddy)</strong>")
-      .replace(/\(Monica\)/g, "<strong>(Monica)</strong>");
+    const withHostHighlight = highlightBlueprintSpeakers(content);
     const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>${item.title}</title>
 <style>
   body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1.5rem; color: #1a1a1a; line-height: 1.5; }
@@ -486,9 +490,10 @@ ${footerHtml}
         {loading && <p className="text-zinc-500 text-sm">Loading blueprint…</p>}
         {error && <p className="text-red-500 text-sm">{error}</p>}
         {content && (
-          <pre className="bg-zinc-950 p-4 sm:p-6 border border-zinc-800 text-zinc-300 text-[11px] sm:text-xs leading-relaxed whitespace-pre-wrap font-mono overflow-x-auto rounded-sm max-h-[60vh] overflow-y-auto">
-            {content}
-          </pre>
+          <div
+            className="bg-zinc-950 p-4 sm:p-6 border border-zinc-800 text-zinc-300 text-[11px] sm:text-xs leading-relaxed whitespace-pre-wrap font-mono overflow-x-auto rounded-sm max-h-[60vh] overflow-y-auto [&_strong]:text-red-500 [&_strong]:font-bold"
+            dangerouslySetInnerHTML={{ __html: highlightBlueprintSpeakers(content) }}
+          />
         )}
       </div>
       <div className="p-4 sm:p-6 border-t border-zinc-800 flex flex-wrap gap-3">
