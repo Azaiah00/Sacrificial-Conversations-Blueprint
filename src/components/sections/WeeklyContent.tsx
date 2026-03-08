@@ -1,13 +1,21 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Film, Layout, CheckCircle2, X, Play, Youtube, ChevronDown, Clock, ChevronLeft, ChevronRight } from "lucide-react";
+import { Download, Film, Layout, CheckCircle2, X, Play, Youtube, ChevronDown, Clock, ChevronLeft, ChevronRight, FileText } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+/** Metadata for podcast blueprint (guest, run time, theme). */
+export interface BlueprintMetadata {
+  guest?: string;
+  guestTitle?: string;
+  runTime?: string;
+  theme?: string;
+}
 
 export interface ContentPost {
   id: string;
-  type: "video" | "static" | "longform";
+  type: "video" | "static" | "longform" | "blueprint";
   aspectRatio: "9/16" | "3/4" | "16/9";
   title: string;
   thumbnail: string;
@@ -16,6 +24,12 @@ export interface ContentPost {
   thumbnailAssetUrl?: string;
   /** Optional list of multiple thumbnail choices (e.g. several YouTube options). */
   thumbnailOptions?: string[];
+  /** For type "blueprint": URL to fetch the full blueprint text (e.g. /content/week3-blueprint.txt). */
+  blueprintContentUrl?: string;
+  /** For type "blueprint": who this document is for — hosts (Teddy & Monica) or guest (to send before recording). */
+  blueprintAudience?: "hosts" | "guest";
+  /** For type "blueprint": guest and episode metadata for PDF header. */
+  blueprintMetadata?: BlueprintMetadata;
   isNew?: boolean;
   caption?: string;
   hashtags?: string;
@@ -66,6 +80,7 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
   const videos = weekData.content.filter(item => item.type === "video");
   const statics = weekData.content.filter(item => item.type === "static");
   const longforms = weekData.content.filter(item => item.type === "longform");
+  const blueprints = weekData.content.filter(item => item.type === "blueprint");
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 md:py-24 bg-black min-h-screen overflow-x-hidden">
@@ -98,6 +113,22 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
           </p>
         </div>
       </div>
+
+      {/* Podcast Blueprint Section — topic layout for hosts (e.g. Week 3 guest blueprint) */}
+      {blueprints.length > 0 && (
+        <div className="mb-14 sm:mb-20">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
+            <FileText className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">Podcast Blueprint</h3>
+            <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
+          </div>
+          <div className="space-y-6 sm:space-y-8">
+            {blueprints.map((item) => (
+              <BlueprintCard key={item.id} item={item} />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Videos/Shorts Section (9:16) — 2 columns on sm+, single on mobile */}
       {videos.length > 0 && (
@@ -355,6 +386,124 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
         </div>
       </div>
     </div>
+  );
+}
+
+/** Fetches blueprint text and renders it with a branded "Download as PDF" (print) action. */
+function BlueprintCard({ item }: { item: ContentPost }) {
+  const [content, setContent] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const url = item.blueprintContentUrl;
+
+  useEffect(() => {
+    if (!url) {
+      setLoading(false);
+      return;
+    }
+    fetch(url)
+      .then((res) => (res.ok ? res.text() : Promise.reject(new Error("Failed to load blueprint"))))
+      .then(setContent)
+      .catch(() => setError("Could not load blueprint. Check the content URL."))
+      .finally(() => setLoading(false));
+  }, [url]);
+
+  const openPrintView = () => {
+    if (!content) return;
+    const meta = item.blueprintMetadata || {};
+    const isGuest = item.blueprintAudience === "guest";
+    const guestLine = meta.guest ? `${meta.guest}${meta.guestTitle ? ` · ${meta.guestTitle}` : ""}` : "";
+    const runTimeLine = meta.runTime ? `Target run time: ${meta.runTime}` : "";
+    const themeLine = meta.theme ? `Theme: ${meta.theme}` : "";
+    const subtitle = isGuest
+      ? "Guest Prep Sheet · Send to Dr. Lametra Scott before recording"
+      : "Podcast Blueprint · Teddy & Monica";
+    const headerHtml = [
+      "<div style='margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid #dc2626;'>",
+      "<h1 style='color: #dc2626; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; margin: 0;'>SACRIFICIAL CONVERSATIONS</h1>",
+      `<p style='color: #333; font-size: 0.9rem; margin: 0.25rem 0 0 0;'>${subtitle}</p>`,
+      guestLine ? `<p style='color: #555; font-size: 0.85rem; margin: 0.25rem 0 0 0;'>${guestLine}</p>` : "",
+      runTimeLine ? `<p style='color: #666; font-size: 0.8rem; margin: 0.25rem 0 0 0;'>${runTimeLine}</p>` : "",
+      themeLine ? `<p style='color: #666; font-size: 0.8rem; margin: 0.25rem 0 0 0;'>${themeLine}</p>` : "",
+      "</div>",
+    ].join("");
+    const footerHtml = "<div style='margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e5e5e5; color: #888; font-size: 0.75rem;'>Teddy & Monica · WFTB 104.1 TabNashville · Sacrificial Conversations</div>";
+    const escapedContent = content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>${item.title}</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1.5rem; color: #1a1a1a; line-height: 1.5; }
+  pre { white-space: pre-wrap; word-wrap: break-word; font-size: 0.85rem; }
+  @media print { body { margin: 1rem; } .no-print { display: none; } }
+</style></head><body>
+${headerHtml}
+<pre>${escapedContent}</pre>
+${footerHtml}
+<p class="no-print" style="margin-top: 2rem;">
+  <button onclick="window.print()" style="background: #dc2626; color: white; border: none; padding: 0.5rem 1rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">Save as PDF / Print</button>
+  <span style="margin-left: 1rem; color: #666; font-size: 0.85rem;">Choose &quot;Save as PDF&quot; or &quot;Microsoft Print to PDF&quot; as the printer.</span>
+</p>
+</body></html>`;
+    const w = window.open("", "_blank");
+    if (w) {
+      w.document.write(html);
+      w.document.close();
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      className="flex flex-col bg-zinc-900/30 border border-zinc-800 rounded-sm overflow-hidden"
+    >
+      <div className="p-4 sm:p-6 border-b border-zinc-800">
+        {item.blueprintAudience === "guest" ? (
+          <span className="inline-block px-3 py-1.5 mb-3 bg-amber-500/20 border border-amber-500/40 text-amber-500 text-[10px] font-bold uppercase tracking-widest rounded-sm">
+            SEND TO GUEST — Share with Lametra Scott before the show
+          </span>
+        ) : (
+          <span className="inline-block px-3 py-1.5 mb-3 bg-red-600/20 border border-red-600/40 text-red-500 text-[10px] font-bold uppercase tracking-widest rounded-sm">
+            FOR HOSTS — Download for your use
+          </span>
+        )}
+        <h4 className="text-white font-bold uppercase tracking-wide text-base sm:text-lg">{item.title}</h4>
+        {item.blueprintMetadata?.guest && (
+          <p className="text-zinc-500 text-xs sm:text-sm mt-1">{item.blueprintMetadata.guest}</p>
+        )}
+      </div>
+      <div className="p-4 sm:p-6 flex-1 min-h-[200px]">
+        {loading && <p className="text-zinc-500 text-sm">Loading blueprint…</p>}
+        {error && <p className="text-red-500 text-sm">{error}</p>}
+        {content && (
+          <pre className="bg-zinc-950 p-4 sm:p-6 border border-zinc-800 text-zinc-300 text-[11px] sm:text-xs leading-relaxed whitespace-pre-wrap font-mono overflow-x-auto rounded-sm max-h-[60vh] overflow-y-auto">
+            {content}
+          </pre>
+        )}
+      </div>
+      <div className="p-4 sm:p-6 border-t border-zinc-800 flex flex-wrap gap-3">
+        {content && (
+          <button
+            type="button"
+            onClick={openPrintView}
+            className="inline-flex items-center gap-2 min-h-[48px] px-5 py-3 bg-red-600 hover:bg-red-500 text-white text-xs font-bold uppercase tracking-widest transition-colors rounded-sm"
+          >
+            <Download className="w-4 h-4" />
+            Download as PDF
+          </button>
+        )}
+        {url && (
+          <a
+            href={url}
+            download={url.split("/").pop() || "blueprint.txt"}
+            className="inline-flex items-center gap-2 min-h-[48px] px-5 py-3 bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-bold uppercase tracking-widest transition-colors rounded-sm"
+          >
+            <Download className="w-4 h-4" />
+            Download as TXT
+          </a>
+        )}
+      </div>
+    </motion.div>
   );
 }
 

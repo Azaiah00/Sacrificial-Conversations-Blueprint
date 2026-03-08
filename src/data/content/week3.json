@@ -1,0 +1,37 @@
+{
+  "weekId": "week-3",
+  "dates": "Mar 09 - Mar 15, 2026",
+  "status": "In Progress",
+  "content": [
+    {
+      "id": "blueprint-lamerra-scott",
+      "type": "blueprint",
+      "aspectRatio": "16/9",
+      "blueprintAudience": "hosts",
+      "title": "Podcast Blueprint: Dr. Lametra Scott",
+      "thumbnail": "",
+      "blueprintContentUrl": "/content/week3-blueprint-lamerra-scott.txt",
+      "blueprintMetadata": {
+        "guest": "Dr. Lametra Scott, PharmD",
+        "guestTitle": "Founder, Breaking the SSickle Cell Cycle Foundation",
+        "runTime": "60 - 75 Minutes",
+        "theme": "Faith Over Fear, Medical Advocacy, Motherhood, & Purpose in the Pain"
+      }
+    },
+    {
+      "id": "guest-prep-lamerra-scott",
+      "type": "blueprint",
+      "aspectRatio": "16/9",
+      "blueprintAudience": "guest",
+      "title": "Guest Prep Sheet: Dr. Lametra Scott",
+      "thumbnail": "",
+      "blueprintContentUrl": "/content/week3-guest-prep-lamerra-scott.txt",
+      "blueprintMetadata": {
+        "guest": "Dr. Lametra Scott, PharmD",
+        "guestTitle": "Founder, Breaking the SSickle Cell Cycle Foundation",
+        "runTime": "60 - 75 Minutes",
+        "theme": "Faith Over Fear, Medical Advocacy, Motherhood, & Purpose in the Pain"
+      }
+    }
+  ]
+}

@@ -8,10 +8,12 @@ import WeekSelector from "@/components/ui/WeekSelector";
 // Import week data
 import week1Data from "@/data/content/week1.json";
 import week2Data from "@/data/content/week2.json";
+import week3Data from "@/data/content/week3.json";
 
 const weekDataMap: Record<string, WeekData> = {
   "week-1": week1Data as WeekData,
   "week-2": week2Data as WeekData,
+  "week-3": week3Data as WeekData,
 };
 
 export default function WeeklyContentPage() {
