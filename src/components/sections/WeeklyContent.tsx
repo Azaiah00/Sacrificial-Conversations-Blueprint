@@ -67,6 +67,12 @@ interface WeeklyContentSectionProps {
   onChangeWeek: () => void;
 }
 
+/** Encode local asset paths (e.g. /assets/week 3 media/...) so spaces work on Netlify/static hosts. */
+function assetSrc(path: string | undefined): string {
+  if (!path) return "";
+  return path.startsWith("/") ? encodeURI(path) : path;
+}
+
 export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyContentSectionProps) {
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [previewItem, setPreviewItem] = useState<ContentPost | null>(null);
@@ -221,7 +227,7 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
                 </div>
               ) : previewItem.type === "video" ? (
                 <video
-                  src={previewItem.assetUrl}
+                  src={assetSrc(previewItem.assetUrl)}
                   className="w-full h-full object-contain"
                   controls
                   autoPlay
@@ -230,7 +236,7 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
                 />
               ) : (
                 <Image
-                  src={previewItem.assetUrl || ""}
+                  src={assetSrc(previewItem.assetUrl) || ""}
                   alt={previewItem.title}
                   fill
                   className="object-contain"
@@ -244,7 +250,7 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
                   <div className="flex flex-wrap gap-2">
                     {previewItem.assetUrl && (
                       <a
-                        href={previewItem.assetUrl}
+                        href={assetSrc(previewItem.assetUrl)}
                         download={previewItem.assetUrl.split("/").pop() || "video.mp4"}
                         className="inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-3 sm:py-2 bg-red-600 hover:bg-red-500 active:bg-red-500 text-white text-xs font-bold uppercase tracking-widest transition-colors rounded-sm"
                       >
@@ -254,7 +260,7 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
                     )}
                     {previewItem.thumbnailAssetUrl && (
                       <a
-                        href={previewItem.thumbnailAssetUrl}
+                        href={assetSrc(previewItem.thumbnailAssetUrl)}
                         download={previewItem.thumbnailAssetUrl.split("/").pop() || "thumbnail.webp"}
                         className="inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-3 sm:py-2 bg-zinc-700 hover:bg-zinc-600 active:bg-zinc-600 text-white text-xs font-bold uppercase tracking-widest transition-colors rounded-sm border border-zinc-600"
                       >
@@ -308,7 +314,7 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
             {hasThumbnails ? (
               <>
                 <Image
-                  src={activeThumbnail}
+                  src={assetSrc(activeThumbnail)}
                   alt={item.title}
                   fill
                   className="object-cover"
@@ -354,7 +360,7 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
           <p className="text-zinc-500 text-xs sm:text-sm mt-2 font-mono uppercase tracking-widest">Target: YouTube Algorithm</p>
           {hasThumbnails && (
             <a
-              href={activeThumbnail}
+              href={assetSrc(activeThumbnail)}
               download={activeThumbnail.split("/").pop() || "thumbnail.jpeg"}
               className="inline-flex items-center gap-2 mt-3 min-h-[44px] px-4 py-2 bg-zinc-800 hover:bg-red-600 text-white text-xs font-bold uppercase tracking-widest transition-colors rounded-sm"
             >
@@ -544,7 +550,7 @@ function ContentCard({ item, onCopy, copiedId, onPreview }: { item: ContentPost;
       >
         {item.thumbnail ? (
           <Image
-            src={item.thumbnail}
+            src={assetSrc(item.thumbnail)}
             alt={item.title}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -569,7 +575,7 @@ function ContentCard({ item, onCopy, copiedId, onPreview }: { item: ContentPost;
           </span>
           {item.assetUrl && (
             <a
-              href={item.assetUrl}
+              href={assetSrc(item.assetUrl)}
               download={item.assetUrl.split("/").pop() || "download"}
               className="inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-2.5 sm:py-2 bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-700 text-white text-[10px] font-bold uppercase tracking-widest transition-colors rounded-sm sm:rounded-none"
               onClick={(e) => e.stopPropagation()}
@@ -580,7 +586,7 @@ function ContentCard({ item, onCopy, copiedId, onPreview }: { item: ContentPost;
           )}
           {item.thumbnailAssetUrl && (
             <a
-              href={item.thumbnailAssetUrl}
+              href={assetSrc(item.thumbnailAssetUrl)}
               download={item.thumbnailAssetUrl.split("/").pop() || "thumbnail.webp"}
               className="inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-2.5 sm:py-2 bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-700 text-white text-[10px] font-bold uppercase tracking-widest transition-colors rounded-sm sm:rounded-none"
               onClick={(e) => e.stopPropagation()}
@@ -741,7 +747,7 @@ function ContentCard({ item, onCopy, copiedId, onPreview }: { item: ContentPost;
           <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3">
             {item.assetUrl && (
               <a
-                href={item.assetUrl}
+                href={assetSrc(item.assetUrl)}
                 download={item.assetUrl.split("/").pop() || "video.mp4"}
                 className="w-full min-h-[48px] py-3.5 sm:py-3 bg-zinc-800 hover:bg-red-600 active:bg-red-600 text-white text-xs sm:text-[10px] font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2 rounded-sm"
               >
@@ -751,7 +757,7 @@ function ContentCard({ item, onCopy, copiedId, onPreview }: { item: ContentPost;
             )}
             {item.thumbnailAssetUrl && (
               <a
-                href={item.thumbnailAssetUrl}
+                href={assetSrc(item.thumbnailAssetUrl)}
                 download={item.thumbnailAssetUrl.split("/").pop() || "thumbnail.webp"}
                 className="w-full min-h-[48px] py-3.5 sm:py-3 bg-zinc-800 hover:bg-red-600 active:bg-red-600 text-white text-xs sm:text-[10px] font-bold uppercase tracking-widest transition-all flex items-center justify-center gap-2 rounded-sm border border-zinc-700"
               >
