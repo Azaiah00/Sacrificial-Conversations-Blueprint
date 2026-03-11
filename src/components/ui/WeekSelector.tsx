@@ -11,9 +11,9 @@ interface WeekOption {
 }
 
 const WEEKS: WeekOption[] = [
-  { id: "week-1", dates: "Feb 23 - Mar 01, 2026", label: "Week 1", status: "Ready" },
-  { id: "week-2", dates: "Mar 02 - Mar 08, 2026", label: "Week 2", status: "In Progress" },
-  { id: "week-3", dates: "Mar 09 - Mar 15, 2026", label: "Week 3", status: "In Progress" },
+  { id: "week-1", dates: "Feb 23 - Mar 01, 2026", label: "Week 1", status: "Done" },
+  { id: "week-2", dates: "Mar 02 - Mar 08, 2026", label: "Week 2", status: "Done" },
+  { id: "week-3", dates: "Mar 09 - Mar 15, 2026", label: "Week 3", status: "Ready" },
 ];
 
 interface WeekSelectorProps {
@@ -87,9 +87,9 @@ export default function WeekSelector({ isOpen, onClose, onSelect, currentWeekId 
                   </div>
                   
                   <div className="flex flex-col items-end gap-1">
-                    {week.status === "Ready" ? (
+                    {(week.status === "Ready" || week.status === "Done") ? (
                       <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-500 flex items-center gap-1">
-                        <CheckCircle2 className="w-3 h-3" /> Ready
+                        <CheckCircle2 className="w-3 h-3" /> {week.status}
                       </span>
                     ) : (
                       <span className="text-[10px] font-bold uppercase tracking-widest text-amber-500 flex items-center gap-1">

@@ -105,30 +105,14 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
             Selected: <span className="text-white">{weekData.dates}</span>
           </p>
           <p className="text-zinc-600 text-[10px] sm:text-xs uppercase tracking-widest font-mono flex items-center gap-2">
-            Status: {weekData.status === "Ready" ? (
-              <span className="text-emerald-500 inline-flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" /> Ready</span>
+            Status: {(weekData.status === "Ready" || weekData.status === "Done") ? (
+              <span className="text-emerald-500 inline-flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" /> {weekData.status}</span>
             ) : (
               <span className="text-amber-500 inline-flex items-center gap-1.5"><Clock className="w-3.5 h-3.5 flex-shrink-0" /> {weekData.status}</span>
             )}
           </p>
         </div>
       </div>
-
-      {/* Podcast Blueprint Section — topic layout for hosts (e.g. Week 3 guest blueprint) */}
-      {blueprints.length > 0 && (
-        <div className="mb-14 sm:mb-20">
-          <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
-            <FileText className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">Podcast Blueprint</h3>
-            <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
-          </div>
-          <div className="space-y-6 sm:space-y-8">
-            {blueprints.map((item) => (
-              <BlueprintCard key={item.id} item={item} />
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Videos/Shorts Section (9:16) — 2 columns on sm+, single on mobile */}
       {videos.length > 0 && (
@@ -178,6 +162,22 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
           {longforms.map((item) => (
             <LongformCard key={item.id} item={item} copiedId={copiedId} onCopy={copyToClipboard} />
           ))}
+        </div>
+      )}
+
+      {/* Podcast Blueprint Section — moved to bottom of page for Week 3+ */}
+      {blueprints.length > 0 && (
+        <div className="mb-14 sm:mb-20">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
+            <FileText className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">Podcast Blueprint</h3>
+            <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
+          </div>
+          <div className="space-y-6 sm:space-y-8">
+            {blueprints.map((item) => (
+              <BlueprintCard key={item.id} item={item} />
+            ))}
+          </div>
         </div>
       )}
 
