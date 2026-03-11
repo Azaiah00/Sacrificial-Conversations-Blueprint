@@ -1,37 +1,148 @@
 {
   "weekId": "week-3",
   "dates": "Mar 09 - Mar 15, 2026",
-  "status": "In Progress",
+  "status": "Ready",
   "content": [
     {
-      "id": "blueprint-lamerra-scott",
-      "type": "blueprint",
-      "aspectRatio": "16/9",
-      "blueprintAudience": "hosts",
-      "title": "Podcast Blueprint: Dr. Lametra Scott",
-      "thumbnail": "",
-      "blueprintContentUrl": "/content/week3-blueprint-lamerra-scott.txt",
-      "blueprintMetadata": {
-        "guest": "Dr. Lametra Scott, PharmD",
-        "guestTitle": "Founder, Breaking the SSickle Cell Cycle Foundation",
-        "runTime": "60 - 75 Minutes",
-        "theme": "Faith Over Fear, Medical Advocacy, Motherhood, & Purpose in the Pain"
-      }
+      "id": "clip-one-test-generations",
+      "type": "video",
+      "aspectRatio": "9/16",
+      "title": "One Test Can Change Generations",
+      "thumbnail": "/assets/week 3 media/week 3 shorts/week 3 thumbnails/One Test Can Change Generations_ Know Your Sickle Cell Status!-thumbnail.png",
+      "assetUrl": "/assets/week 3 media/week 3 shorts/clips/One Test Can Change Generations_ Know Your Sickle Cell Status!.mp4",
+      "thumbnailAssetUrl": "/assets/week 3 media/week 3 shorts/week 3 thumbnails/One Test Can Change Generations_ Know Your Sickle Cell Status!-thumbnail.png",
+      "isNew": true,
+      "instructions": [
+        {
+          "platform": "TikTok",
+          "caption": "Are you passing on a generational battle without even knowing it? 🛑🩸 We talk a lot about generational wealth, but we need to talk about generational HEALTH. Don't let fear stop you from getting the information that could save your future family. Catch the full truth bomb on the Sacrificial Conversations podcast!",
+          "hashtags": "#SacrificialConversations #WFTB #SickleCellAwareness #GenerationalHealth #BreakTheCycle #TeddyAndMonica",
+          "sound": "Emotional, cinematic underscore (Search: \"Slowed Hans Zimmer Time\" or \"Gospel Piano Ambient\"). Keep the volume at exactly 12% so the doctor's passionate voice cuts through clearly.",
+          "postingTime": "Tuesday at 7:00 PM EST. (Your audience is winding down from the workday and is in a more reflective, receptive headspace to process serious family-oriented content).",
+          "thumbnailStrategy": "Uploaded"
+        },
+        {
+          "platform": "Instagram Reels",
+          "caption": "We pray over our families and work hard to leave them an inheritance, but what about the inheritance in our DNA? 🤔 Dr. [Guest Name] dropped a massive truth bomb on Sacrificial Conversations today. Getting tested isn't just for you; it's for the strangers you haven't met and the kids you haven't raised yet. Sacrifice the fear of the doctor's office for the peace of mind of your family. 👇 What's holding our community back from getting these vital tests? Let's talk in the comments!",
+          "hashtags": "#SacrificialConversations #WFTB1041 #SickleCellTrait #HealthIsWealth #BlackHealthMatters #GenerationalTrauma",
+          "strategyNote": "Pin a comment tagging 2-3 major Sickle Cell awareness pages (e.g., @sicklecell101) to bait them into sharing the reel to their massive followings.",
+          "sound": "A trending lo-fi instrumental or a slowed R&B track to ground the emotional weight of the video.",
+          "postingTime": "Wednesday at 12:00 PM EST. (Hit the mid-day lunch break scrollers who are looking for meaningful content).",
+          "thumbnailStrategy": "Uploaded"
+        },
+        {
+          "platform": "YouTube Shorts",
+          "caption": "Title: This ONE Test Can Save Your Future Bloodline 🩸 #Shorts\n\nDescription: Ignorance isn't bliss; it's a generational risk. On this episode of Sacrificial Conversations, we dive deep into why knowing your Sickle Cell status is the ultimate sacrifice of comfort for your family's future. Stop running from the truth. Catch Teddy & Monica live on WFTB 104.1 TabNashville every Monday! Watch the full breakdown here: [Insert Link to Full Video]",
+          "hashtags": "#SickleCell #SacrificialConversations #Podcast #Health #WFTB",
+          "pinnedComment": "Teddy here. Let's be real—going to the doctor is scary. But what's scarier: knowing the truth, or passing on a struggle you could have prevented? Sound off below. 👇",
+          "postingTime": "Thursday at 4:00 PM EST.",
+          "thumbnailStrategy": "Uploaded",
+          "audienceSettings": "Is this video made for kids? Select NO. Age Restriction: Select NO.",
+          "relatedVideo": "Action: Link this Short directly to the full-length podcast interview. Why: This 35-second clip creates an intense \"information gap.\" Viewers will feel the emotional weight but will need the full context of the episode to understand the full scope of the disease and Teddy & Monica's personal reactions."
+        },
+        {
+          "platform": "Facebook",
+          "caption": "The \"Mini-Blog\" Post: We talk a lot on WFTB 104.1 about breaking generational curses through prayer, but today on Sacrificial Conversations, we are talking about breaking them through action. Faith without works is dead, and sometimes that \"work\" looks like making a doctor's appointment you've been putting off.\n\nWe had to face a hard truth today: your health status isn't just about you. It's about your children, your grandchildren, and even perfect strangers. Sacrificing your pride and your fear of the unknown by getting a simple Sickle Cell trait test can literally change the trajectory of a complete generation. Are we willing to lay down our fear to arm our families with knowledge? Watch the full episode here: [Link]",
+          "hashtags": "#SacrificialConversations #WFTB #SickleCellAwareness",
+          "shareableQuote": "All it takes is one test, and that little piece of information can change a complete generation after you.",
+          "cta": "Have you or someone you love been impacted by Sickle Cell? Drop a 🩸 in the comments or share your testimony below. Let's break the stigma and spread wisdom today.",
+          "postingTime": "Sunday at 3:00 PM EST. (Post-church afternoon. The Facebook audience is highly engaged with faith, family, and community-centric posts during this window)."
+        }
+      ]
     },
     {
-      "id": "guest-prep-lamerra-scott",
-      "type": "blueprint",
-      "aspectRatio": "16/9",
-      "blueprintAudience": "guest",
-      "title": "Guest Prep Sheet: Dr. Lametra Scott",
-      "thumbnail": "",
-      "blueprintContentUrl": "/content/week3-guest-prep-lamerra-scott.txt",
-      "blueprintMetadata": {
-        "guest": "Dr. Lametra Scott, PharmD",
-        "guestTitle": "Founder, Breaking the SSickle Cell Cycle Foundation",
-        "runTime": "60 - 75 Minutes",
-        "theme": "Faith Over Fear, Medical Advocacy, Motherhood, & Purpose in the Pain"
-      }
+      "id": "clip-sickle-cell-myths",
+      "type": "video",
+      "aspectRatio": "9/16",
+      "title": "Sickle Cell Myths DEBUNKED: Not Lazy, Just Anemic",
+      "thumbnail": "/assets/week 3 media/week 3 shorts/week 3 thumbnails/Sickle Cell Myths DEBUNKED_ Not Lazy, Just Anemic!-thumbnail.png",
+      "assetUrl": "/assets/week 3 media/week 3 shorts/clips/Sickle Cell Myths DEBUNKED_ Not Lazy, Just Anemic!.mp4",
+      "thumbnailAssetUrl": "/assets/week 3 media/week 3 shorts/week 3 thumbnails/Sickle Cell Myths DEBUNKED_ Not Lazy, Just Anemic!-thumbnail.png",
+      "isNew": true,
+      "instructions": [
+        {
+          "platform": "TikTok",
+          "caption": "Stop calling them lazy. 🛑 The hidden truth about Sickle Cell Disease that people refuse to understand. It's time to sacrifice our judgment and start showing some grace. Drop a 🩸 if you or someone you know is a warrior.",
+          "hashtags": "#SacrificialConversations #WFTB #SickleCellAwareness #InvisibleIllness #NotLazy #SickleCellWarrior",
+          "sound": "Ambient, slow emotional cinematic strings (e.g., a trending Hans Zimmer style track or a slow worship instrumental). Volume level strictly at 10-15% so it drives emotion without overpowering her voice.",
+          "postingTime": "8:00 PM EST. (Capture the evening wind-down scroll after the Monday WFTB broadcast).",
+          "thumbnailStrategy": "Uploaded"
+        },
+        {
+          "platform": "Instagram Reels",
+          "caption": "\"You would NEVER say that...\" if you knew what was actually happening inside their bodies. 🩸 Sickle Cell Disease is completely misunderstood, and too many warriors are fighting the stigma of being \"lazy\" while their bodies are literally starved for oxygen. On the Sacrificial Conversations podcast, we're talking about sacrificing our rush to judge. Let's educate ourselves. 👇 Have you or a loved one ever been misjudged because of an invisible illness? Tell us your story below.",
+          "hashtags": "#SacrificialConversations #SickleCell #ChronicFatigue #FaithAndHealing #WFTB #TabNashville #Empathy",
+          "strategyNote": "The \"Debate Hook\" tactic. We need to polarize the people who judge vs. the people who suffer. Pin a comment immediately after posting: \"We are too quick to label what we don't understand. Who do you need to apologize to today?\"",
+          "sound": "Trending melancholic piano instrumental.",
+          "postingTime": "12:00 PM EST. (Catch the midday lunch break scrollers looking for meaningful content).",
+          "thumbnailStrategy": "Uploaded"
+        },
+        {
+          "platform": "YouTube Shorts",
+          "caption": "Title: Stop Calling Sickle Cell Patients Lazy! 🛑🩸 #Shorts\n\nDescription: How often do we judge someone's spirit when it's actually their body that's failing them? In this clip, we debunk the toxic myth that Sickle Cell patients are just \"lazy.\" God calls us to empathy, not judgment. Catch Teddy & Monica live every Monday on WFTB 104.1 TabNashville for more Sacrificial Conversations. Watch the full interview here! 👇",
+          "hashtags": "#SickleCell #SacrificialConversations #Podcast #ChristianPodcast #WFTB",
+          "pinnedComment": "What's the most hurtful misconception you've heard about an invisible illness? Let's talk about the hard truths below. 👇",
+          "postingTime": "4:00 PM EST.",
+          "thumbnailStrategy": "Frame at 0:24 (\"You are not lazy\"). Brightened image, warm studio lighting applied in post. Clean, bold text overlay: \"NOT LAZY. JUST ANEMIC.\"",
+          "audienceSettings": "Is this video made for kids? Select NO. Age Restriction: Select NO.",
+          "relatedVideo": "Action: Link this Short to the full-length Sickle Cell/Invisible Illness interview episode. Why: The Short hooks them with the emotional injustice of being called lazy; the full video delivers the theological and practical deep dive on how to support these warriors."
+        },
+        {
+          "platform": "Facebook",
+          "caption": "How often do we judge what we simply do not understand?\n\nIn our communities, we are so quick to label someone as \"lazy,\" \"sluggish,\" or \"unmotivated.\" But what if their body is fighting a war you can't see? In this powerful segment from Sacrificial Conversations, we break down the heartbreaking reality of Sickle Cell Disease. Your red blood cells carry oxygen—the very breath of life—throughout your body. When you don't have enough, your body is literally suffocating. That's not laziness. That is exhaustion from trying to survive.\n\nAs believers and as a community, we need to sacrifice our pride and our quick assumptions. We need to replace our judgment with grace. If you are a Sickle Cell warrior, hear us today: We see you. You are not lazy.\n\nCatch us every Monday on WFTB 104.1 TabNashville as we continue to have these hard talks. Watch the full episode here: [Link]",
+          "hashtags": "#SacrificialConversations #WFTB #SickleCell #Empathy",
+          "shareableQuote": "You are not lazy. You are suffering because your body doesn't have enough oxygen to do what it needs to do.",
+          "cta": "Tag a friend or family member who needs this validation today, or drop a prayer for our Sickle Cell warriors in the comments. Let's cover them!",
+          "postingTime": "Sunday at 7:00 PM EST. (Prime Facebook community browsing time, perfectly positioning the WFTB 104.1 radio broadcast the next morning)."
+        }
+      ]
+    },
+    {
+      "id": "clip-mom-turns-sickle-cell",
+      "type": "video",
+      "aspectRatio": "9/16",
+      "title": "Mom Turns Son's Sickle Cell into Purposeful Education!",
+      "thumbnail": "/assets/week 3 media/week 3 shorts/week 3 thumbnails/Mom Turns Son's Sickle Cell into Purposeful Education!-thumbnail.png",
+      "assetUrl": "/assets/week 3 media/week 3 shorts/clips/Mom Turns Son's Sickle Cell into Purposeful Education!.mp4",
+      "thumbnailAssetUrl": "/assets/week 3 media/week 3 shorts/week 3 thumbnails/Mom Turns Son's Sickle Cell into Purposeful Education!-thumbnail.png",
+      "isNew": true,
+      "instructions": [
+        {
+          "platform": "TikTok",
+          "caption": "When the enemy tries to attack your family, but forgets God already gave you the exact resume to destroy the system. 😤 Don't just sit in the pain—build the solution. #SacrificialConversations #WFTB #SickleCellAwareness #PurposeDriven #FaithAndAction #MomBoss #BlackHealth",
+          "hashtags": "#SacrificialConversations, #WFTB, #SickleCellAwareness, #PurposeDriven, #MomBoss, #Advocacy, #Testimony",
+          "sound": "Ambient, cinematic build-up track (e.g., Hans Zimmer style \"Time\" or a trending slow-reverb Gospel instrumental). Volume set to 15% so her voice is the primary focus.",
+          "postingTime": "Tuesday at 7:00 PM EST. Rationale: Post-dinner scroll time when parents and professionals are decompressing and looking for inspirational/deep content.",
+          "thumbnailStrategy": "Thumbnail uploaded"
+        },
+        {
+          "platform": "Instagram Reels",
+          "caption": "Your current career might just be training for your future calling. 🤯 When her son was diagnosed with Sickle Cell, she didn't ask \"Why me?\"—she realized her entire background in disease state management was a divine setup to educate the medical world. How are you using your skills for the Kingdom? 👇🏽",
+          "hashtags": "#SacrificialConversations #WFTB1041 #SickleCell #FaithBased #ChristianPodcast #PurposeInPain #Motherhood",
+          "strategyNote": "The \"Debate/Testimony Hook.\" Pin a comment immediately after posting: \"Have you ever realized God was training you for a battle years before it actually happened? Tell us below.\"",
+          "sound": "Trending lo-fi instrumental beat (keeps it modern, retains the serious tone without being overly dramatic).",
+          "postingTime": "Wednesday at 12:00 PM EST. Rationale: Catch the lunch-break scrollers who need a midday faith and motivation boost.",
+          "thumbnailStrategy": "Thumbnail uploaded"
+        },
+        {
+          "platform": "YouTube Shorts",
+          "caption": "Title: She Turned Her Son's Diagnosis into a MISSION 🩸🙏🏾 #Shorts\n\nDescription: Sometimes the hardest seasons are the exact training ground for your calling. Listen to how this mother sacrificed her right to give up, using her corporate healthcare background to build \"Breaking the Sickle Cell Cycle.\" God doesn't waste pain! Catch Teddy & Monica on Sacrificial Conversations every Monday, live on WFTB 104.1 TabNashville Gospel Radio. Watch the full episode here: [Insert Full Link]",
+          "hashtags": "#SacrificialConversations #SickleCell #Testimony #Podcast #WFTB",
+          "pinnedComment": "The greatest sacrifice is often laying down our own grief to pick up our purpose. What is God calling you to build out of your struggle?",
+          "postingTime": "Thursday at 4:00 PM EST.",
+          "thumbnailStrategy": "Brightened, warm studio lighting. Text over her face: \"PAIN = PURPOSE.\"",
+          "audienceSettings": "Is this video made for kids? Select NO. Age Restriction: Select NO.",
+          "relatedVideo": "Action: Link this Short directly to the full-length interview. Why: We hook them with the emotional high of the mother's mission, leaving them wanting to know how she actually did it and what Teddy and Monica's reaction was."
+        },
+        {
+          "platform": "Facebook",
+          "caption": "Romans 8:28 tells us that all things work together for good, but sometimes it's hard to see the \"good\" in a devastating medical diagnosis.\n\nIn this powerful moment from Sacrificial Conversations, we see the ultimate example of a divine setup. Before her son was ever diagnosed with Sickle Cell Disease, God had already placed her in a career managing disease states and educating healthcare providers. When the diagnosis hit, she had a choice: succumb to the tragedy, or sacrifice her comfort to become the exact advocate her son—and thousands of others—needed. She turned a devastating cycle into \"Breaking the Sickle Cell Cycle.\" God will never allow a giant in your life without first giving you the stones to defeat it.\n\nWatch the full conversation to see how Teddy and Monica unpack this incredible testimony of turning pain into purpose! [Insert YouTube Link]",
+          "hashtags": "#SacrificialConversations #WFTB #SickleCell #PurposeInPain",
+          "shareableQuote": "I started to think... why not just do this same thing for Sickle Cell Disease? And that is how Breaking the Sickle Cell Cycle was formed.",
+          "cta": "What is a difficult situation in your life that God has used to help someone else? Share your testimony in the comments below!",
+          "postingTime": "Sunday at 6:00 PM EST. Rationale: Sunday evening is prime time for Facebook's faith-based communities as they reflect on the weekend's sermons and prepare for the Monday WFTB broadcast."
+        }
+      ]
     },
     {
       "id": "longform-dr-lamerra",
@@ -61,6 +172,36 @@
           "content": "#SickleCellDisease #SickleCellTrait #DrLametraScott #SickleCellAwareness #BloodDonation #Nashville #ChristianPodcast #FaithBased #SacrificialConversations"
         }
       ]
+    },
+    {
+      "id": "blueprint-lamerra-scott",
+      "type": "blueprint",
+      "aspectRatio": "16/9",
+      "blueprintAudience": "hosts",
+      "title": "Podcast Blueprint: Dr. Lametra Scott",
+      "thumbnail": "",
+      "blueprintContentUrl": "/content/week3-blueprint-lamerra-scott.txt",
+      "blueprintMetadata": {
+        "guest": "Dr. Lametra Scott, PharmD",
+        "guestTitle": "Founder, Breaking the Sickle Cell Cycle Foundation",
+        "runTime": "60 - 75 Minutes",
+        "theme": "Faith Over Fear, Medical Advocacy, Motherhood, & Purpose in the Pain"
+      }
+    },
+    {
+      "id": "guest-prep-lamerra-scott",
+      "type": "blueprint",
+      "aspectRatio": "16/9",
+      "blueprintAudience": "guest",
+      "title": "Guest Prep Sheet: Dr. Lametra Scott",
+      "thumbnail": "",
+      "blueprintContentUrl": "/content/week3-guest-prep-lamerra-scott.txt",
+      "blueprintMetadata": {
+        "guest": "Dr. Lametra Scott, PharmD",
+        "guestTitle": "Founder, Breaking the Sickle Cell Cycle Foundation",
+        "runTime": "60 - 75 Minutes",
+        "theme": "Faith Over Fear, Medical Advocacy, Motherhood, & Purpose in the Pain"
+      }
     }
   ]
 }
