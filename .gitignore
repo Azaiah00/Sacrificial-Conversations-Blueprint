@@ -40,6 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large media assets (keep local only)
+# large media assets (keep local only; week 2 had 100MB+ .MOV)
 public/assets/week 2 media/
-public/assets/week 3 media/
