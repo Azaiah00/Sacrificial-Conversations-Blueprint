@@ -32,6 +32,35 @@
         "runTime": "60 - 75 Minutes",
         "theme": "Faith Over Fear, Medical Advocacy, Motherhood, & Purpose in the Pain"
       }
+    },
+    {
+      "id": "longform-dr-lamerra",
+      "type": "longform",
+      "aspectRatio": "16/9",
+      "title": "Dr. Lametra YouTube Long-Form Optimization",
+      "thumbnail": "/assets/week 3 media/week 3 shorts/week 3 thumbnails/new week three thumbnail-1.webp",
+      "thumbnailAssetUrl": "/assets/week 3 media/week 3 shorts/week 3 thumbnails/new week three thumbnail-1.webp",
+      "thumbnailOptions": [
+        "/assets/week 3 media/week 3 shorts/week 3 thumbnails/new week three thumbnail-1.webp",
+        "/assets/week 3 media/week 3 shorts/week 3 thumbnails/new week three thumbnail-2.webp"
+      ],
+      "longformSteps": [
+        {
+          "step": "Step 1: Title (Copy One of These)",
+          "action": "Update your live video metadata. Copy one of these titles:",
+          "content": "Sickle Cell Disease: What Most People Still Get Wrong | Dr. Lametra Scott | Ep.70"
+        },
+        {
+          "step": "Step 2: Description (Paste This)",
+          "action": "Delete the old description and paste this in:",
+          "content": "Dr. Lametra Scott explains sickle cell disease, sickle cell trait, symptoms, screening, family planning, treatment, and why knowing your status can change lives.\n\nIn this conversation, Dr. Lametra Scott breaks down what sickle cell disease really is, how it differs from sickle cell trait, why so many people still do not know their status, and why that knowledge can change family planning, treatment decisions, and long-term health. This is a clear, direct conversation about symptoms, screening, awareness, advocacy, and what every family should know about sickle cell.\nDr. Scott is the founder of Breaking the Sickle Cell Cycle Foundation and has built her work around increasing sickle cell education, support, and trait awareness after learning her own status during pregnancy and later navigating her son's sickle cell diagnosis. In this episode, we get into sickle cell trait vs sickle cell disease, early screening, symptoms, treatment options, blood transfusions, gene therapy, and the importance of knowing your status before major life decisions.\n\nLinks: 📻 Catch the live broadcast every Monday on WFTB 104.1 FM TabNashville! | Follow us: @sacrificial.convo\n\nShare Your Story on the Teddy & Monica Show! 📻\nAre you making a positive impact in Nashville? We are currently looking for inspiring guests to join us on the Teddy & Monica Show, broadcasting locally on WFTB 104.1FM and streaming globally on our YouTube podcast, Sacrificial Conversations.\nWe love diving into meaningful discussions about faith, real life, and the uplifting work happening right here in our community.\n\nWho We're Looking For:\nCommunity Leaders & Advocates\nArtists & Creatives\nEntrepreneurs & Business Owners\nAnyone with a powerful, faith-driven story to tell!\n\nWhy Join Us?\nExpand your reach with double the exposure. Your interview will air on traditional FM radio and stream as a video podcast on YouTube, giving your message and your work maximum visibility.\n\nReady to Book Your Spot?\nWe would love to hear from you. Reach out to us today to schedule your appearance:\n📧 Email: Teddychisom1963@gmail.com\n📱 Facebook: Send us a DM at https://www.facebook.com/theodore.chisom/\n\nLearn More & Support Our Ministry:\nSacrificial Conversations:  https://dot.cards/sacrificialconvo \nTabernacle Baptist Church: https://tabnashville.net/online-giving"
+        },
+        {
+          "step": "Step 3: Hashtags (Copy Into Tags)",
+          "action": "Copy these into the Tags section at the bottom of the edit page:",
+          "content": "#SickleCellDisease #SickleCellTrait #DrLametraScott #SickleCellAwareness #BloodDonation #Nashville #ChristianPodcast #FaithBased #SacrificialConversations"
+        }
+      ]
     }
   ]
 }
