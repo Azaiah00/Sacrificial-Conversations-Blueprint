@@ -1,0 +1,8 @@
+# Netlify build config for Sacrificial Conversations Blueprint
+# Ensures Next.js builds correctly. If Week 3 doesn't appear, in Netlify: Deploys → Trigger deploy → Clear cache and deploy site.
+
+[build]
+  command = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
