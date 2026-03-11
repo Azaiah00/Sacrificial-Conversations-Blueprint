@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large media assets (keep local only)
+public/assets/week 2 media/
+public/assets/week 3 media/
