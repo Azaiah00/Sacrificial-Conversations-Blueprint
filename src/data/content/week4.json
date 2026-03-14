@@ -1,0 +1,21 @@
+{
+  "weekId": "week-4",
+  "dates": "Mar 16 - Mar 22, 2026",
+  "status": "Ready",
+  "content": [
+    {
+      "id": "blueprint-monica-all-girls",
+      "type": "blueprint",
+      "aspectRatio": "16/9",
+      "blueprintAudience": "hosts",
+      "title": "Monica's Talking Points: All Girls Episode",
+      "thumbnail": "",
+      "blueprintContentUrl": "/content/week4-blueprint-monica-all-girls.txt",
+      "blueprintMetadata": {
+        "hostLabel": "Monica (Solo Host)",
+        "runTime": "60 Minutes",
+        "theme": "Sisterhood, Survival, Love, Loss, Grief, Second Chances, Single Motherhood · All Girls Podcast with 4 Friends"
+      }
+    }
+  ]
+}

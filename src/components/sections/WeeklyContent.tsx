@@ -11,6 +11,8 @@ export interface BlueprintMetadata {
   guestTitle?: string;
   runTime?: string;
   theme?: string;
+  /** When set, overrides default "Teddy & Monica" in PDF header (e.g. solo-host episodes). */
+  hostLabel?: string;
 }
 
 export interface ContentPost {
@@ -438,7 +440,7 @@ function BlueprintCard({ item }: { item: ContentPost }) {
     const themeLine = meta.theme ? `Theme: ${meta.theme}` : "";
     const subtitle = isGuest
       ? "Guest Prep Sheet · Send to Dr. Lametra Scott before recording"
-      : "Podcast Blueprint · Teddy & Monica";
+      : (meta.hostLabel ? `Podcast Blueprint · ${meta.hostLabel}` : "Podcast Blueprint · Teddy & Monica");
     const headerHtml = [
       "<div style='margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid #dc2626;'>",
       "<h1 style='color: #dc2626; font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; margin: 0;'>SACRIFICIAL CONVERSATIONS</h1>",
