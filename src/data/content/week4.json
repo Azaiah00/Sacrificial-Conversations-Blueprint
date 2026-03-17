@@ -4,6 +4,32 @@
   "status": "Ready",
   "content": [
     {
+      "id": "longform-ep71-all-girls",
+      "type": "longform",
+      "aspectRatio": "16/9",
+      "title": "Episode 71 YouTube Long-Form Optimization (All Girls)",
+      "thumbnail": "",
+      "thumbnailAssetUrl": "",
+      "thumbnailOptions": [],
+      "longformSteps": [
+        {
+          "step": "Step 1: Title (Copy One of These)",
+          "action": "Update your live video metadata. Copy one of these titles:",
+          "content": "Option 1 (High Emotion/Curiosity): Overcoming Insecurities & Finding Your Power | 5 Women Share Their Truth | Ep. 71\n\nOption 2 (Search-Driven): The Untold Reality of Womanhood | 5 Women Share Their Deepest Truths | Ep. 71\n\nOption 3 (Direct & Bold): The Reality of Womanhood: Colorism, Body Image, & Finding God | Ep. 71"
+        },
+        {
+          "step": "Step 2: Description (Paste This)",
+          "action": "Delete the old description and paste this in:",
+          "content": "What does it take to truly love yourself when the world tells you otherwise? In Episode 70 of the Sacrificial Conversations Podcast, Monica sits down with four powerful women—Teneisha, Tammy, Tia, and Andrea—to discuss the raw, untold realities of womanhood. From battling childhood insecurities like colorism and body image issues to finding ultimate confidence and healing through God, this conversation will bless your spirit.\nIf you've ever struggled with feeling unaccepted, balancing motherhood, or finding your true identity, this episode is for you.\n🙏🏾 Subscribe for more episodes on Faith, Marriage, and Growth! https://www.youtube.com/@SacrificialConversations\n0:00 - Intro & Welcome to the Show \n4:15 - Meet the 5 Powerful Women \n12:30 - Overcoming Childhood Insecurities & Bullying \n18:45 - The Reality of Colorism and Finding Your Beauty \n25:20 - Embracing Your Body: \"I am thick and beautiful\" \n35:10 - Transitioning from a Tomboy to Embracing Femininity\n45:00 - How God Steps In During Our Darkest Moments \n52:30 - The Importance of Not Giving Up & Taking Time to Cry\n1:02:15 - Final Words of Encouragement for Women"
+        },
+        {
+          "step": "Step 3: Hashtags (Copy Into Tags)",
+          "action": "Copy these into the Tags section at the bottom of the edit page:",
+          "content": "#ChristianPodcast #WomenOfFaith #OvercomingInsecurities #SelfLoveJourney #SacrificialConversations #FaithMarriageGrowth #BlackWomenPodcast #ChristianWomen #Empowerment #ChildhoodTrauma #GodsPlan"
+        }
+      ]
+    },
+    {
       "id": "blueprint-monica-all-girls",
       "type": "blueprint",
       "aspectRatio": "16/9",
