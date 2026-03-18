@@ -294,6 +294,7 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
 
   const hasThumbnails = thumbnails.length > 0;
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showFullscreen, setShowFullscreen] = useState(false);
   const safeIndex = ((activeIndex % (thumbnails.length || 1)) + (thumbnails.length || 1)) % (thumbnails.length || 1);
   const activeThumbnail = hasThumbnails ? thumbnails[safeIndex] : "";
 
@@ -312,16 +313,23 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
         <div className="w-full lg:w-1/3 flex-shrink-0">
           <p className="text-zinc-400 text-xs font-mono uppercase tracking-widest mb-2">
-            Optional thumbnails for your video — use the arrows to preview all options and download the one you like.
+            Optional thumbnails for your video — scroll to preview, click to open big, download any.
           </p>
-          <div className="aspect-video relative border border-zinc-800 bg-black overflow-hidden rounded-sm flex items-center justify-center">
+          {/* Main thumbnail — clickable to open fullscreen */}
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={() => hasThumbnails && setShowFullscreen(true)}
+            onKeyDown={(e) => hasThumbnails && (e.key === "Enter" || e.key === " ") && setShowFullscreen(true)}
+            className={`aspect-video relative border border-zinc-800 bg-black overflow-hidden rounded-sm flex items-center justify-center ${hasThumbnails ? "cursor-pointer group" : ""}`}
+          >
             {hasThumbnails ? (
               <>
                 <Image
                   src={assetSrc(activeThumbnail)}
                   alt={item.title}
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:opacity-90 transition-opacity"
                   sizes="(max-width: 1024px) 100vw, 33vw"
                 />
                 {thumbnails.length > 1 && (
@@ -332,7 +340,7 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
                         e.stopPropagation();
                         goPrev();
                       }}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-sm bg-black/60 hover:bg-black/80 text-white"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-sm bg-black/60 hover:bg-black/80 text-white z-10"
                       aria-label="Previous thumbnail option"
                     >
                       <ChevronLeft className="w-4 h-4" />
@@ -343,16 +351,21 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
                         e.stopPropagation();
                         goNext();
                       }}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-sm bg-black/60 hover:bg-black/80 text-white"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-sm bg-black/60 hover:bg-black/80 text-white z-10"
                       aria-label="Next thumbnail option"
                     >
                       <ChevronRight className="w-4 h-4" />
                     </button>
-                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-mono uppercase tracking-widest bg-black/70 text-white px-2 py-1 rounded-sm">
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-mono uppercase tracking-widest bg-black/70 text-white px-2 py-1 rounded-sm z-10">
                       Option {safeIndex + 1} of {thumbnails.length}
                     </div>
-                  </>
+                </>
                 )}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-colors pointer-events-none">
+                  <span className="text-white text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 px-3 py-2 rounded-sm">
+                    Click to open
+                  </span>
+                </div>
               </>
             ) : (
               <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 text-zinc-500 text-xs font-mono uppercase tracking-widest px-4 text-center">
@@ -360,18 +373,46 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
               </div>
             )}
           </div>
+          {/* Horizontal scrollable strip — each thumbnail with download */}
+          {hasThumbnails && thumbnails.length > 0 && (
+            <div className="mt-3">
+              <p className="text-zinc-500 text-[10px] font-mono uppercase tracking-widest mb-2">Scroll & download:</p>
+              <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 scrollbar-thin">
+                {thumbnails.map((thumb, idx) => (
+                  <div
+                    key={idx}
+                    className={`flex-shrink-0 w-20 h-14 rounded-sm border overflow-hidden relative group/thumb ${idx === safeIndex ? "border-red-600 ring-1 ring-red-600" : "border-zinc-700"}`}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setActiveIndex(idx)}
+                      className="absolute inset-0 w-full h-full block focus:outline-none"
+                      aria-label={`Select thumbnail ${idx + 1}`}
+                    >
+                      <Image
+                        src={assetSrc(thumb)}
+                        alt={`${item.title} option ${idx + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="80px"
+                      />
+                    </button>
+                    <a
+                      href={assetSrc(thumb)}
+                      download={(thumb.split("/").pop() || `thumbnail-${idx + 1}.png`)}
+                      onClick={(e) => e.stopPropagation()}
+                      className="absolute bottom-0 left-0 right-0 py-1 bg-black/80 hover:bg-red-600 text-white flex items-center justify-center gap-1 text-[9px] font-bold uppercase opacity-0 group-hover/thumb:opacity-100 transition-opacity"
+                    >
+                      <Download className="w-3 h-3" />
+                      Save
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
           <h4 className="text-white font-bold uppercase tracking-widest mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl">{item.title}</h4>
           <p className="text-zinc-500 text-xs sm:text-sm mt-2 font-mono uppercase tracking-widest">Target: YouTube Algorithm</p>
-          {hasThumbnails && (
-            <a
-              href={assetSrc(activeThumbnail)}
-              download={activeThumbnail.split("/").pop() || "thumbnail.jpeg"}
-              className="inline-flex items-center gap-2 mt-3 min-h-[44px] px-4 py-2 bg-zinc-800 hover:bg-red-600 text-white text-xs font-bold uppercase tracking-widest transition-colors rounded-sm"
-            >
-              <Download className="w-4 h-4" />
-              Download current thumbnail
-            </a>
-          )}
         </div>
 
         <div className="flex-1 min-w-0 space-y-6 sm:space-y-8">

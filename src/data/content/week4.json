@@ -8,9 +8,13 @@
       "type": "longform",
       "aspectRatio": "16/9",
       "title": "Episode 71 YouTube Long-Form Optimization (All Girls)",
-      "thumbnail": "",
-      "thumbnailAssetUrl": "",
-      "thumbnailOptions": [],
+      "thumbnail": "/assets/week 4 media/longform-thumbnails/week4-longform-1.png",
+      "thumbnailAssetUrl": "/assets/week 4 media/longform-thumbnails/week4-longform-1.png",
+      "thumbnailOptions": [
+        "/assets/week 4 media/longform-thumbnails/week4-longform-1.png",
+        "/assets/week 4 media/longform-thumbnails/week4-longform-2.png",
+        "/assets/week 4 media/longform-thumbnails/week4-longform-3.png"
+      ],
       "longformSteps": [
         {
           "step": "Step 1: Title (Copy One of These)",
