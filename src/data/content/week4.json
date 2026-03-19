@@ -4,6 +4,240 @@
   "status": "Ready",
   "content": [
     {
+      "id": "clip-overwhelmed-oobe",
+      "type": "video",
+      "aspectRatio": "9/16",
+      "title": "Overwhelmed: Out-of-Body Experience & Exhaustion Explained",
+      "thumbnail": "/assets/shorts/Overwhelmed_ Out-of-Body Experience & Exhaustion Explained-thumbnail.jpg",
+      "assetUrl": "/assets/shorts/Overwhelmed_ Out-of-Body Experience & Exhaustion Explained.mp4",
+      "thumbnailAssetUrl": "/assets/shorts/Overwhelmed_ Out-of-Body Experience & Exhaustion Explained-thumbnail.jpg",
+      "isNew": true,
+      "instructions": [
+        {
+          "platform": "TikTok",
+          "caption": "When taking a \"deep breath\" just feels like a choke... 🥺 If you've ever cried in your car before walking into the house because you are so overwhelmed, this is for you. You aren't crazy, and you aren't alone. Catch the full conversation on WFTB 104.1. 🎙️",
+          "hashtags": "#SacrificialConversations #WFTB #Burnout #MentalHealth #ChristianTikTok #MotherhoodUnplugged #TeddyAndMonica",
+          "sound": "Ambient, slow, cinematic piano (set to 10-15% volume). Let the raw, cracking emotion in her voice be the main audio focus. Do NOT drown her out.",
+          "postingTime": "Tuesday at 8:30 PM EST. Why? This is the exact time overwhelmed mothers finally sit down on the couch after putting the kids to bed and start doom-scrolling. Hit them when they are quiet.",
+          "thumbnailStrategy": "Zoom in tight on her face right as she says, \"My life felt like a choke.\" Text overlay: When a deep breath feels like a choke 💔"
+        },
+        {
+          "platform": "Instagram Reels",
+          "caption": "Have you ever watched yourself break down from the outside? 💔 Tammy's description of severe burnout on the Teddy & Monica Show is shaking us to our core. \"When I'm exhaling... 80 more things are coming in.\" You do not have to carry the weight of the world alone. Drop a 🕊️ in the comments if you've felt this kind of exhaustion, and let's pray for each other today.",
+          "hashtags": "#SacrificialConversations #TeddyAndMonica #BurnoutRecovery #FaithAndMentalHealth #WFTB #NashvilleRadio #ChristianWomen",
+          "strategyNote": "Pin a comment immediately after posting to spark community interaction: \"What is the ONE thing making you feel 'choked' right now? Let's offload it here.\" People will trauma-bond and minister to each other in the comments, pushing the Reel to the Explore page.",
+          "sound": "Trending emotional instrumental (like a slowed-down Hans Zimmer track).",
+          "postingTime": "Wednesday at 12:00 PM EST. Why? Mid-week lunch break. People are stressed at work and looking for validation.",
+          "thumbnailStrategy": "Frame of her looking off-camera with a distressed expression. Text overlay: \"I was screaming in my parking lot...\""
+        },
+        {
+          "platform": "YouTube Shorts",
+          "caption": "She Had An Out-Of-Body Panic Attack 💔 #Shorts\n\nDescription: Tammy gets brutally honest about the realities of extreme exhaustion and why telling an overwhelmed woman to \"take a deep breath\" doesn't work. God doesn't ask us to carry it all. Catch Sacrificial Conversations with Teddy & Monica every Monday on WFTB 104.1 TabNashville. Watch the full episode here! 👇",
+          "hashtags": "#Shorts #Burnout #ChristianPodcast #TeddyAndMonica",
+          "pinnedComment": "\"Taking a deep breath doesn't work when 80 more things are waiting for you.\" Who else felt that hard truth today? Let's talk about it below. 👇",
+          "postingTime": "Thursday at 4:00 PM EST.",
+          "thumbnailStrategy": "Split screen. Top: Tammy looking exhausted. Bottom: Text: \"My life felt like a choke.\" High contrast, slight vignette around the edges to make it feel intimate and serious.",
+          "audienceSettings": "Is this video made for kids? Select NO. Age Restriction: Select NO.",
+          "relatedVideo": "Action: Link this Short directly to the full-length YouTube interview. Why: We hook them with the raw trauma of the breakdown in the Short, and we use the full-length video to provide the Gospel-centered resolution, the healing, and the context from Teddy and Monica."
+        },
+        {
+          "platform": "Facebook",
+          "caption": "We talk a lot about the \"Strong Woman\" trope. The woman who holds the family together, works the job, serves at the church, and never complains. But what happens when that strength runs out?\n\nOn this week's Sacrificial Conversations, Tammy gave us a chillingly accurate description of ultimate burnout. She described sitting outside on the floor, having an out-of-body experience, watching herself scream in a parking lot. When her mother told her to just \"take a deep breath,\" she realized she couldn't. Because exhaling just meant making room for 80 more stressful things to rush back in.\n\nIf your life feels like a \"choke\" right now, Teddy and Monica want you to know this: God did not build you to carry the weight of the world. It is okay to put it down. It is okay to say you are tired. Watch the full profound moment below, and join us every Monday on WFTB 104.1 TabNashville for more real talk. [Insert YouTube Link]",
+          "hashtags": "#SacrificialConversations #WFTB #Burnout #MentalHealth",
+          "shareableQuote": "Taking a deep breath feels like a choke, because when I exhale... 80 more things rush in.",
+          "cta": "Tag a mother, a sister, or a friend who is carrying way too much right now. Remind her she doesn't have to scream in the parking lot alone.",
+          "postingTime": "Sunday at 7:00 PM EST. Why? Sunday evening is prime reflection time. It perfectly primes the audience to tune into the live WFTB 104.1 broadcast the very next morning (Monday)."
+        }
+      ]
+    },
+    {
+      "id": "clip-stronger-than-you-think",
+      "type": "video",
+      "aspectRatio": "9/16",
+      "title": "You're Stronger Than You Think: Discover Your Inner Power",
+      "thumbnail": "/assets/shorts/You're Stronger Than You Think_ Discover Your Inner Power-thumbnail.webp",
+      "assetUrl": "/assets/shorts/You're Stronger Than You Think_ Discover Your Inner Power.mp4",
+      "thumbnailAssetUrl": "/assets/shorts/You're Stronger Than You Think_ Discover Your Inner Power-thumbnail.webp",
+      "isNew": true,
+      "instructions": [
+        {
+          "platform": "TikTok",
+          "caption": "To the person holding everyone else together while you feel like falling apart... this is for you. You don't always have to be the strong one. 💔🎙️ #SacrificialConversations #WFTB #GriefJourney #TheStrongFriend #InnerStrength #Healing #BlackTikTok",
+          "hashtags": "#SacrificialConversations #WFTB #GriefJourney #TheStrongFriend #InnerStrength #Healing #BlackTikTok",
+          "sound": "Ambient, slow emotional piano (e.g., a slowed-down, cinematic reverb track). Keep the music volume at 10-15% so her vocal tremor and emotion punch right through the mix.",
+          "postingTime": "Tuesday at 8:00 PM EST. (Post-workday. People are doom-scrolling and in a more reflective, vulnerable headspace).",
+          "thumbnailStrategy": "The exact visual frame at 0:19 when she drops her hands and mentions Lamont passing. Text Overlay: \"When you're the one holding the family together...\""
+        },
+        {
+          "platform": "Instagram Reels",
+          "caption": "Have you ever felt like you're about to break, but you can't because too many people are leaning on you? 🕊️ You are sitting there comforting everyone else while navigating your own heavy loss. Drop a ❤️ in the comments if you've ever had to be the \"strong friend\" for your family. You are stronger than you realize, but God sees your tears too. Catch the full emotional episode with Teddy & Monica on WFTB 104.1.",
+          "hashtags": "#SacrificialConversations #WFTB #HealingJourney #GriefSupport #FaithOverFear #StrongWomen #Testimony",
+          "strategyNote": "The \"Sacrificial\" Angle: Pin a comment right after posting: \"Who is the rock in your family? Tag them below to remind them they are loved and appreciated.\" This drives instant community tagging and algorithmic push.",
+          "sound": "Trending instrumental (soft cello or violin building up as she reaches the climax of the story).",
+          "postingTime": "Sunday at 7:00 PM EST. (Prime time for faith-adjacent reflection just before the Monday WFTB broadcast).",
+          "thumbnailStrategy": "A tight crop on her face showing deep emotion. Text Overlay: \"I just don't see how you do it...\""
+        },
+        {
+          "platform": "YouTube Shorts",
+          "caption": "The Hidden Burden of Being the \"Strong\" One 💔 #Shorts\n\nDescription: When loss hits, someone always has to hold the family together. In this powerful moment from Sacrificial Conversations, we uncover the unseen weight of being the anchor during a tragic storm and finding strength you didn't know God gave you. Tune in to Teddy & Monica live on WFTB 104.1 TabNashville every Monday. Watch the full testimony here: [Insert Link]",
+          "hashtags": "#SacrificialConversations #Grief #ChristianFaith #WFTB #TeddyAndMonica",
+          "pinnedComment": "It takes incredible sacrifice to comfort others when your own heart is breaking. What is your testimony of surviving a loss that should have broken you? Let's talk about it below.",
+          "postingTime": "Monday at 12:00 PM EST. (Catch people on their lunch break and cross-promote the live Monday show).",
+          "thumbnailStrategy": "Split screen showing Monica's empathetic reaction on the bottom, and the guest speaking on top. Brighten the exposure slightly.",
+          "audienceSettings": "Is this video made for kids? Select NO. Age Restriction: Select NO.",
+          "relatedVideo": "Action: Link this Short directly to the full-length interview. Why: We are leaving a cliffhanger. By ending the short right after she realizes her own strength, viewers will click the full video to find out how she navigated the aftermath of Lamont's passing."
+        },
+        {
+          "platform": "Facebook",
+          "caption": "Have you ever been in a season where you felt like you were completely falling apart, but you couldn't actually break because too many people were leaning on you?\n\nIn our latest episode of Sacrificial Conversations, we tackled the silent burden of being 'the strong one.' When tragedy strikes—like the heartbreaking loss of Lamont mentioned in this clip—someone usually steps up to be the anchor. You find yourself comforting everyone else, wiping their tears, and holding the family together, all while your own heart is shattered into pieces.\n\nIf that is you today, Teddy and Monica want to remind you of this truth: You are stronger than you actually realize. God has given you a grace for this season, but it is also okay to take off the cape and let Him carry you for a while. Watch the full powerful conversation on YouTube [Link] or catch us every Monday on WFTB 104.1 TabNashville.",
+          "hashtags": "#SacrificialConversations #WFTB #Grief #StrongWomen",
+          "shareableQuote": "You're sitting here comforting everybody else, while falling apart yourself. You are stronger than what you actually knew.",
+          "cta": "Have you ever had to be the strong one during a season of loss? Share your testimony in the comments below—your story might be exactly what someone else needs to read today.",
+          "postingTime": "Wednesday at 6:00 PM EST. (Facebook's older, community-driven demographic engages heavily with long-form emotional reading in the evenings)."
+        }
+      ]
+    },
+    {
+      "id": "clip-when-you-break-down",
+      "type": "video",
+      "aspectRatio": "9/16",
+      "title": "When You Break Down, But Can't Show It",
+      "thumbnail": "/assets/shorts/when-you-break-down-cant-show-it-thumbnail.webp",
+      "assetUrl": "/assets/shorts/When You Break Down, But Can't Show It.mp4",
+      "thumbnailAssetUrl": "/assets/shorts/when-you-break-down-cant-show-it-thumbnail.webp",
+      "isNew": true,
+      "instructions": [
+        {
+          "platform": "TikTok",
+          "caption": "We expect moms to be superheroes, but who catches them when they finally break? 💔 You don't have to hold it together 24/7. #SacrificialConversations #WFTB #MotherhoodUnplugged #TiredMoms #GenerationalTrauma #ChristianTikTok #MentalHealth",
+          "hashtags": "#SacrificialConversations #WFTB #MotherhoodUnplugged #TiredMoms #ChristianTikTok #MentalHealth",
+          "sound": "Cinematic, slow piano instrumental (e.g., a slowed-down worship track or a trending emotional Zimmer-style score). Keep the volume at 15% so the raw emotion in her voice remains the focal point.",
+          "postingTime": "8:30 PM EDT. Rationale: This is after the kids are asleep. Moms are doom-scrolling, emotionally exhausted, and highly susceptible to content that makes them feel seen and validated.",
+          "thumbnailStrategy": "The specific frame at 0:13 where she says \"break down\" with her hands gesturing in exhaustion. Text Overlay: \"Are mothers allowed to fall apart?\" (Use a bold, highly legible font like Anton, white text with a black stroke)."
+        },
+        {
+          "platform": "Instagram Reels",
+          "caption": "\"Did y'all really just see me break down? Now I gotta put it back together.\" 🛑 We've watched our mothers carry the weight of the world, and now we are doing the same. But when do we get to pause? When do we get to just sit on the bed and ask God, \"What is my next move?\" Let's talk about the sacrifice of strength. 👇 Mamas, when was the last time you allowed yourself to break down without feeling guilty? Let it out in the comments.",
+          "hashtags": "#SacrificialConversations #WFTB1041 #Motherhood #MomGuilt #FaithAndMentalHealth #TeddyAndMonica #BreakingGenerationalCurses",
+          "strategyNote": "Pin a vulnerable comment from a listener immediately after posting. Debate Hook: \"Is the 'strong woman' trope actually destroying our mothers?\"",
+          "sound": "Ambient lo-fi worship or a soft string swell.",
+          "postingTime": "6:30 AM EDT or 12:00 PM EDT. Rationale: Catch the morning scroll before the chaos of the day begins, or the brief respite of a lunch break.",
+          "thumbnailStrategy": "Visual frame of her looking directly off-camera, visibly frustrated. Text Overlay: \"The crushing weight of being 'The Strong Mom'.\""
+        },
+        {
+          "platform": "YouTube Shorts",
+          "caption": "Why Mothers Aren't Allowed To Fall Apart 💔 #Shorts\n\nDescription: The generational pressure on mothers to never break down is overwhelming. In this clip from Sacrificial Conversations, we unpack the heavy burden of motherhood, the trauma of having to always \"keep moving,\" and the desperate cry for God to just tell us our next move. What are you sacrificing by pretending to be unbreakable? Catch the full discussion and listen live every Monday on WFTB 104.1 TabNashville! 🔗 [Insert Full Video Link Here]",
+          "hashtags": "#SacrificialConversations #WFTB #ChristianPodcast #Motherhood #TeddyAndMonica",
+          "pinnedComment": "If Jesus wept, why do we expect mothers to be made of stone? What are you sacrificing by holding it all together? Let's get real in the replies. 👇",
+          "postingTime": "4:00 PM EDT. Rationale: Hits the afternoon slump/commute window when people are looking for quick, impactful content.",
+          "thumbnailStrategy": "The exact frame at 0:00 with the text: \"MOTHERS CAN'T FALL APART?\" Brighten the exposure slightly to make her pop against the background.",
+          "audienceSettings": "Is this video made for kids? Select NO. Age Restriction: Select NO.",
+          "relatedVideo": "Action: Link this Short directly to the full-length YouTube interview. Why: This clip acts as an emotional tripwire. Viewers who resonate with this extreme vulnerability will crave the full context of how she survived this feeling, driving high-retention traffic to your long-form content."
+        },
+        {
+          "platform": "Facebook",
+          "caption": "We've all seen it. We watched our grandmothers do it. We watched our mothers do it. They carried the weight of the entire family on their shoulders, wiped our tears, paid the bills, and never, ever showed a crack in the armor. But inheriting that kind of strength comes with a hidden cost.\n\nWhen do we get to fall apart? In this powerful moment on Sacrificial Conversations, we get real about the exhaustion of always having to \"keep moving.\" Sometimes, the most spiritual thing you can do is sit on the edge of your bed, look up, and say, \"Lord, I don't know my next move. You have to tell me.\" It's time we stop sacrificing our mental and emotional health on the altar of being a \"strong mom.\" Watch the full deep dive here: [Link to Full YT Video] and catch us every Monday on WFTB 104.1 TabNashville!",
+          "hashtags": "#SacrificialConversations #WFTB #Motherhood #MentalHealth",
+          "shareableQuote": "If you could just come sit on my bed and tell me what my next move is, I'd be so grateful. Because some days, I just don't have it anymore.",
+          "cta": "Mamas, we see you. Who is your safe space when you need to fall apart? Tag them below to thank them, or drop a 🙏 in the comments if you just need a prayer for strength today. Let's lift each other up.",
+          "postingTime": "Sunday at 7:30 PM EDT. Rationale: Sunday evenings trigger the \"Sunday Scaries\"—parents are mentally preparing for the exhausting week ahead and are highly receptive to faith-based, supportive, community-driven content."
+        }
+      ]
+    },
+    {
+      "id": "clip-learn-to-say-no",
+      "type": "video",
+      "aspectRatio": "9/16",
+      "title": "Learn to Say No",
+      "thumbnail": "",
+      "assetUrl": "",
+      "thumbnailAssetUrl": "",
+      "isNew": true,
+      "instructions": [
+        {
+          "platform": "TikTok",
+          "caption": "You can pray all day, but God gave you common sense too. 🛑 Stop pouring from an empty cup before your body forces you to. #boundaries #burnout #faith #sacrificialconversations #wftb #blackmentalhealth #christiantiktok",
+          "hashtags": "#SacrificialConversations #WFTB #SayingNo #BurnoutRecovery #ChristianTikTok #BlackMentalHealth #SetBoundaries",
+          "sound": "A slowed, cinematic gospel piano or ambient track (e.g., a slowed version of \"Goodness of God\" instrumental). Volume level: 10-15% maximum so the raw emotion in her voice remains front and center.",
+          "postingTime": "Tuesday at 7:00 PM EST. Catch people right after the post-work commute when they are feeling drained and emotionally overwhelmed by their responsibilities.",
+          "thumbnailStrategy": "The exact frame at 0:26 where she leans in. Text overlay: \"God gave you common sense.\" (Use bold, yellow text with a black stroke for maximum contrast)."
+        },
+        {
+          "platform": "Instagram Reels",
+          "caption": "Are you sacrificing your health just to keep everyone else happy? 🛑 In this episode of Sacrificial Conversations, we hit a hard truth: You can pray all day, but if your cup is empty, your body will shut down. Learning to say 'no' isn't selfish; it's survival. Teddy and Monica dive deep into why setting boundaries is one of the most practical and spiritual things you can do today. 👇 When was the last time you said 'No' to protect your peace?",
+          "hashtags": "#SacrificialConversations #WFTB1041 #MentalHealthMatters #Boundaries #FaithAndMentalHealth #PodcastClips #ProtectYourPeace",
+          "strategyNote": "Pin a controversial comment to spark the algorithm immediately: \"Is it un-Christian to say NO when family asks for help? Let's talk about it 👇\"",
+          "sound": "Trending lo-fi worship instrumental.",
+          "postingTime": "Wednesday at 12:00 PM EST. Target the mid-week slump when the lunchtime scroll is happening.",
+          "thumbnailStrategy": "Split screen: Top half showing the \"Sacrificial Conversations\" logo, bottom half showing the guest. Text overlay: \"'NO' is a complete sentence. 🗣️\""
+        },
+        {
+          "platform": "YouTube Shorts",
+          "caption": "Stop Saying YES To Everyone (Do This Instead) 🛑 #Shorts\n\nDescription: You can pray all day, but God also gave you common sense! In this clip from Sacrificial Conversations, we break down the reality of burnout. You cannot serve from an empty cup. Catch Teddy & Monica live on WFTB 104.1 every Monday for more hard truths. Watch the full episode here: [Link to Full Video]",
+          "hashtags": "#SacrificialConversations #ChristianPodcast #Boundaries #WFTB #Shorts",
+          "pinnedComment": "What happens to your family if there is no more YOU? Drop your thoughts below. 👇",
+          "postingTime": "Thursday at 4:00 PM EST (Pre-evening rush).",
+          "thumbnailStrategy": "High-contrast close-up of the guest looking exhausted but resolute. Text overlay: \"Your health is failing.\" (Creates high urgency and clickability).",
+          "audienceSettings": "Is this video made for kids? Select NO. Age Restriction: Select NO.",
+          "relatedVideo": "Action: Link this Short directly to the full-length interview. Why: We hook them with the \"God gave you common sense\" line, making them want to hear the full story of her \"close call\" health situation."
+        },
+        {
+          "platform": "Facebook",
+          "caption": "Have you ever thought about what would happen if there was no more YOU?\n\nWe spend so much of our lives pouring out for our families, our churches, our jobs, and our friends. But here is a hard, biblical truth we unpacked on the Sacrificial Conversations podcast this week: You can pray all day for strength, but God also gave you common sense to rest. When your cup is completely empty, your health will eventually force you to stop.\n\nSometimes, the greatest sacrifice you can make is your own pride and your need to be a people-pleaser. Saying \"NO\" is not a sin. In fact, \"No\" is a complete sentence. If you are running on fumes today, this is your sign to stop, breathe, and prioritize the vessel God gave you.\n\nCatch the rest of this powerful conversation with Teddy & Monica. Listen to us live every Monday on WFTB 104.1 TabNashville, or watch the full episode here: [YouTube Link]",
+          "hashtags": "#SacrificialConversations #WFTB #Boundaries #MentalHealth",
+          "shareableQuote": "You can pray all day, but God gives us common sense as well. 'No' is a complete sentence.",
+          "cta": "Has a health scare or burnout ever forced you to finally learn how to say NO? Share your testimony with us in the comments—someone needs to read your story today!",
+          "postingTime": "Sunday at 6:00 PM EST. Hit the faith-based community while they are reflecting on their Sunday service and dreading the Monday morning grind."
+        }
+      ]
+    },
+    {
+      "id": "clip-overcoming-self-doubt",
+      "type": "video",
+      "aspectRatio": "9/16",
+      "title": "Overcoming Self-Doubt",
+      "thumbnail": "",
+      "assetUrl": "",
+      "thumbnailAssetUrl": "",
+      "isNew": true,
+      "instructions": [
+        {
+          "platform": "TikTok",
+          "caption": "The mirror doesn't lie, but the trauma does. When therapy uncovers the painful truth about why you hate taking pictures. 💔",
+          "hashtags": "#SacrificialConversations #WFTB #HealingJourney #SelfLove #TherapyThoughts #ChildhoodTrauma #ChristianTikTok",
+          "sound": "Ambient, slow cinematic piano or a trending emotional instrumental. (Set original audio to 100%, background track to 12% so it drives emotion without overpowering her voice).",
+          "postingTime": "Tuesday at 8:30 PM EST. Rationale: Late evening is when users are doom-scrolling and in a more introspective, emotionally receptive headspace.",
+          "thumbnailStrategy": "Choose the frame where she looks down slightly, vulnerable. Text overlay: \"Why I hated taking pictures...\" in bold, high-contrast text."
+        },
+        {
+          "platform": "Instagram Reels",
+          "caption": "\"I am beautiful.\" It's the hardest thing to tell yourself when the echoes of past taunts are louder than the truth. 🥺 Have you ever realized a habit you have today is actually a defense mechanism from your past? Drop a 🤍 if you are unlearning the lies people told you. Catch the full emotional breakdown on the Teddy & Monica Show!",
+          "hashtags": "#SacrificialConversations #SelfWorth #MentalHealthAwareness #FaithAndTherapy #WFTB1041 #Vulnerability #Healing",
+          "strategyNote": "Pin a comment immediately after posting: \"What is one lie from your past you had to sacrifice to find your inner beauty? Let's talk about it.\" This forces community engagement and boosts the algorithm.",
+          "sound": "A trending worship instrumental or lofi-chill beat.",
+          "postingTime": "Wednesday at 12:15 PM EST. Rationale: Catch the lunch-break scrollers who need a midday emotional reset.",
+          "thumbnailStrategy": "Split screen or standard vertical frame of her looking directly at the camera. Text overlay: \"YEARS OF TAUNTS DID THIS...\""
+        },
+        {
+          "platform": "YouTube Shorts",
+          "caption": "Why She Frowned Her Entire Life 🥺💔 #Shorts\n\nDescription: Therapy reveals hard truths. Sometimes the things we hate about ourselves were placed there by other people's cruel words. The Teddy & Monica Show dives deep into the sacrifice of ego to find true inner beauty. Listen live every Monday on WFTB 104.1 TabNashville! Watch the full episode here: [Insert Full Video Link]",
+          "hashtags": "#SacrificialConversations #PodcastClips #SelfEsteem #Therapy",
+          "pinnedComment": "The realization that she hadn't smiled in pictures for years because of childhood bullies is heartbreaking. Who else relates to this struggle?",
+          "postingTime": "Thursday at 4:00 PM EST.",
+          "thumbnailStrategy": "The exact moment she says \"frowning all of my life,\" zoomed in slightly for intimacy.",
+          "audienceSettings": "Is this video made for kids? NO. Age Restriction: NO.",
+          "relatedVideo": "Action: Link this Short directly to the full-length interview. Why: This 40-second clip acts as a massive cliffhanger. Viewers will want to know the rest of her story and how she overcame it, driving high-retention traffic to your long-form content."
+        },
+        {
+          "platform": "Facebook",
+          "caption": "It takes immense courage to look in the mirror and trace your insecurities back to their root. In our latest Sacrificial Conversations episode, we discussed something so many of us hide: the lingering pain of childhood taunts.",
+          "hashtags": "#SacrificialConversations #WFTB #SelfLove #Healing",
+          "cta": "Have you ever traced a habit or insecurity back to something someone said to you as a child? Share your story in the comments below.",
+          "postingTime": "Sunday at 7:00 PM EST."
+        }
+      ]
+    },
+    {
       "id": "longform-ep71-all-girls",
       "type": "longform",
       "aspectRatio": "16/9",
