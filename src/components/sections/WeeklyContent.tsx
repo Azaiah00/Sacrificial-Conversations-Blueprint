@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Film, Layout, CheckCircle2, X, Play, Youtube, ChevronDown, Clock, ChevronLeft, ChevronRight, FileText } from "lucide-react";
+import { Download, Film, Layout, CheckCircle2, X, Play, Youtube, ChevronDown, Clock, ChevronLeft, ChevronRight, FileText, Megaphone } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -55,6 +55,11 @@ export interface ContentPost {
     action: string;
     content: string;
   }[];
+  /**
+   * longform type only. Default = YouTube long-form thumbnail / optimization (after episode exists).
+   * "prePodcastPromo" = social promo graphics before recording — separate section + copy from optimization.
+   */
+  longformPurpose?: "youtubeOptimization" | "prePodcastPromo";
 }
 
 export interface WeekData {
@@ -87,7 +92,10 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
 
   const videos = weekData.content.filter(item => item.type === "video");
   const statics = weekData.content.filter(item => item.type === "static");
-  const longforms = weekData.content.filter(item => item.type === "longform");
+  // Long-form posts: split promo (before podcast) vs YouTube optimization (after recording / thumbnails).
+  const longformsAll = weekData.content.filter((item) => item.type === "longform");
+  const longformPrePodcastPromo = longformsAll.filter((item) => item.longformPurpose === "prePodcastPromo");
+  const longformYoutubeOptimization = longformsAll.filter((item) => item.longformPurpose !== "prePodcastPromo");
   const blueprints = weekData.content.filter(item => item.type === "blueprint");
 
   return (
@@ -160,16 +168,35 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
         </div>
       )}
 
-      {/* Long Form Optimization Section — single col mobile, side-by-side lg */}
-      {longforms.length > 0 && (
+      {/* Pre-podcast promo (new): multi-flyer strips, social push before studio — not YouTube long-form packaging */}
+      {longformPrePodcastPromo.length > 0 && (
+        <div className="mb-14 sm:mb-20">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
+            <Megaphone className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">
+              Pre-Podcast Promo
+              <span className="text-red-600 font-normal normal-case text-sm sm:text-base tracking-normal ml-2">
+                Social graphics before the episode — long-form YouTube steps come after you record
+              </span>
+            </h3>
+            <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
+          </div>
+          {longformPrePodcastPromo.map((item) => (
+            <LongformCard key={item.id} item={item} copiedId={copiedId} onCopy={copyToClipboard} />
+          ))}
+        </div>
+      )}
+
+      {/* Long-form YouTube optimization — thumbnail options + posting copy (weeks 1–4 style) */}
+      {longformYoutubeOptimization.length > 0 && (
         <div className="mb-14 sm:mb-20">
           <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-6 sm:mb-10">
             <Youtube className="text-red-600 w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
             <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white uppercase tracking-wider">Long-Form Optimization</h3>
             <div className="h-px bg-zinc-800 flex-1 min-w-[60px]" />
           </div>
-          
-          {longforms.map((item) => (
+
+          {longformYoutubeOptimization.map((item) => (
             <LongformCard key={item.id} item={item} copiedId={copiedId} onCopy={copyToClipboard} />
           ))}
         </div>
@@ -284,6 +311,9 @@ export default function WeeklyContentSection({ weekData, onChangeWeek }: WeeklyC
 }
 
 function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId: string | null; onCopy: (text: string, id: string) => void }) {
+  /** Promo flyers before the show vs YouTube thumbnail workflow after the episode exists. */
+  const isPrePodcastPromo = item.longformPurpose === "prePodcastPromo";
+
   const thumbnails = (item.thumbnailOptions && item.thumbnailOptions.length > 0
     ? item.thumbnailOptions
     : item.thumbnailAssetUrl
@@ -324,7 +354,9 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
         <div className="w-full lg:w-1/3 flex-shrink-0">
           <p className="text-zinc-400 text-xs font-mono uppercase tracking-widest mb-2">
-            Optional thumbnails for your video — scroll to preview, click to open big, download any.
+            {isPrePodcastPromo
+              ? "Promo graphics for social — scroll to preview, click to open full size, download any."
+              : "Optional thumbnails for your video — scroll to preview, click to open big, download any."}
           </p>
           {/* Main thumbnail — clickable to open fullscreen */}
           <div
@@ -423,7 +455,13 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
             </div>
           )}
           <h4 className="text-white font-bold uppercase tracking-widest mt-4 sm:mt-6 text-base sm:text-lg lg:text-xl">{item.title}</h4>
-          <p className="text-zinc-500 text-xs sm:text-sm mt-2 font-mono uppercase tracking-widest">Target: YouTube Algorithm</p>
+          {isPrePodcastPromo ? (
+            <p className="text-zinc-500 text-xs sm:text-sm mt-2 font-mono uppercase tracking-widest">
+              Target: hype the upcoming episode · Long-form YouTube packaging is added later in the week
+            </p>
+          ) : (
+            <p className="text-zinc-500 text-xs sm:text-sm mt-2 font-mono uppercase tracking-widest">Target: YouTube Algorithm</p>
+          )}
         </div>
 
         <div className="flex-1 min-w-0 space-y-6 sm:space-y-8">
