@@ -308,7 +308,18 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
     setActiveIndex((prev) => (prev + 1) % thumbnails.length);
   };
 
+  // Close fullscreen on Escape (same UX as main preview modal).
+  useEffect(() => {
+    if (!showFullscreen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setShowFullscreen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [showFullscreen]);
+
   return (
+    <>
     <div className="bg-zinc-900/30 border border-zinc-800 p-4 sm:p-6 lg:p-10 rounded-sm mb-8 last:mb-0">
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
         <div className="w-full lg:w-1/3 flex-shrink-0">
@@ -437,10 +448,84 @@ function LongformCard({ item, copiedId, onCopy }: { item: ContentPost; copiedId:
         </div>
       </div>
     </div>
+
+    {/* Fullscreen image viewer — state was toggled on click but had no UI; flyers / multi-thumb longform need this. */}
+    <AnimatePresence>
+      {showFullscreen && hasThumbnails && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex flex-col items-center justify-center p-3 sm:p-4"
+          onClick={() => setShowFullscreen(false)}
+        >
+          <button
+            type="button"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-zinc-400 hover:text-white active:text-white transition-colors rounded-sm"
+            onClick={() => setShowFullscreen(false)}
+            aria-label="Close fullscreen"
+          >
+            <X className="w-7 h-7 sm:w-8 sm:h-8" />
+          </button>
+          <div
+            className="relative flex flex-col items-center justify-center max-w-[min(95vw,1200px)] max-h-[90vh] w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative flex items-center justify-center w-full max-h-[80vh]">
+              {thumbnails.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={goPrev}
+                    className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-sm bg-black/70 hover:bg-black/90 text-white min-h-[44px] min-w-[44px] flex items-center justify-center"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={goNext}
+                    className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-sm bg-black/70 hover:bg-black/90 text-white min-h-[44px] min-w-[44px] flex items-center justify-center"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </>
+              )}
+              <Image
+                src={assetSrc(activeThumbnail)}
+                alt={`${item.title} — full size`}
+                width={1200}
+                height={1600}
+                className="max-h-[80vh] w-auto max-w-full object-contain rounded-sm border border-zinc-800 shadow-2xl"
+                sizes="95vw"
+                priority
+              />
+            </div>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-3 w-full">
+              {thumbnails.length > 1 && (
+                <p className="text-zinc-400 text-[10px] font-mono uppercase tracking-widest w-full text-center">
+                  {safeIndex + 1} / {thumbnails.length}
+                </p>
+              )}
+              <a
+                href={assetSrc(activeThumbnail)}
+                download={(activeThumbnail.split("/").pop() || "image.png")}
+                className="inline-flex items-center justify-center gap-2 min-h-[44px] px-4 py-3 sm:py-2 bg-red-600 hover:bg-red-500 active:bg-red-500 text-white text-xs font-bold uppercase tracking-widest transition-colors rounded-sm"
+              >
+                <Download className="w-4 h-4 flex-shrink-0" />
+                Download this image
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
 
-/** Escapes HTML and wraps Teddy/Monica speaker labels in <strong> for PDF and portal display. */
+/** Escapes HTML and wraps Teddy/Monica speaker labels in <strong> for PDF and portal display (red in UI / print). */
 function highlightBlueprintSpeakers(raw: string): string {
   const escaped = raw.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   return escaped
@@ -449,6 +534,12 @@ function highlightBlueprintSpeakers(raw: string): string {
     .replace(/Producer Note/g, "<strong>Producer Note</strong>")
     .replace(/The &quot;Pivot to Expertise&quot;: \(Teddy\)/g, "<strong>The &quot;Pivot to Expertise&quot;: (Teddy)</strong>")
     .replace(/The &quot;Faith Check&quot;: \(Monica\)/g, "<strong>The &quot;Faith Check&quot;: (Monica)</strong>")
+    // Week 5+ run-of-show labels (Blissfull / AJ Hardcastle and similar host docs)
+    .replace(/Teddy Script Idea:/g, "<strong>Teddy Script Idea:</strong>")
+    .replace(/Monica's Endorsement:/g, "<strong>Monica's Endorsement:</strong>")
+    .replace(/Monica's Angle \(The User\):/g, "<strong>Monica's Angle (The User):</strong>")
+    .replace(/Teddy's Angle \(The Curious Co-Host\):/g, "<strong>Teddy's Angle (The Curious Co-Host):</strong>")
+    .replace(/The Hard Outro:/g, "<strong>The Hard Outro:</strong>")
     .replace(/\(Teddy\)/g, "<strong>(Teddy)</strong>")
     .replace(/\(Monica\)/g, "<strong>(Monica)</strong>");
 }
@@ -479,8 +570,9 @@ function BlueprintCard({ item }: { item: ContentPost }) {
     const guestLine = meta.guest ? `${meta.guest}${meta.guestTitle ? ` · ${meta.guestTitle}` : ""}` : "";
     const runTimeLine = meta.runTime ? `Target run time: ${meta.runTime}` : "";
     const themeLine = meta.theme ? `Theme: ${meta.theme}` : "";
+    const guestPrepName = meta.guest ? meta.guest.split(",")[0].trim() : "the guest";
     const subtitle = isGuest
-      ? "Guest Prep Sheet · Send to Dr. Lametra Scott before recording"
+      ? `Guest Prep Sheet · Send to ${guestPrepName} before recording`
       : (meta.hostLabel ? `Podcast Blueprint · ${meta.hostLabel}` : "Podcast Blueprint · Teddy & Monica");
     const headerHtml = [
       "<div style='margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid #dc2626;'>",
@@ -505,7 +597,7 @@ ${headerHtml}
 ${footerHtml}
 <p class="no-print" style="margin-top: 2rem;">
   <button onclick="window.print()" style="background: #dc2626; color: white; border: none; padding: 0.5rem 1rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;">Save as PDF / Print</button>
-  <span style="margin-left: 1rem; color: #666; font-size: 0.85rem;">Choose &quot;Save as PDF&quot; or &quot;Microsoft Print to PDF&quot; as the printer.</span>
+  <span style="margin-left: 1rem; color: #666; font-size: 0.85rem;">Choose &quot;Save as PDF&quot; or &quot;Microsoft Print to PDF&quot; as the printer. Teddy &amp; Monica cues stay red in the PDF.</span>
 </p>
 </body></html>`;
     const w = window.open("", "_blank");
@@ -525,11 +617,11 @@ ${footerHtml}
       <div className="p-4 sm:p-6 border-b border-zinc-800">
         {item.blueprintAudience === "guest" ? (
           <span className="inline-block px-3 py-1.5 mb-3 bg-amber-500/20 border border-amber-500/40 text-amber-500 text-[10px] font-bold uppercase tracking-widest rounded-sm">
-            SEND TO GUEST — Share with Lametra Scott before the show
+            FOR GUEST — Download PDF or TXT and send to {item.blueprintMetadata?.guest?.split(",")[0]?.trim() || "your guest"} before the show
           </span>
         ) : (
           <span className="inline-block px-3 py-1.5 mb-3 bg-red-600/20 border border-red-600/40 text-red-500 text-[10px] font-bold uppercase tracking-widest rounded-sm">
-            FOR HOSTS — Download for your use
+            FOR HOSTS — Teddy &amp; Monica only · Download branded PDF below
           </span>
         )}
         <h4 className="text-white font-bold uppercase tracking-wide text-base sm:text-lg">{item.title}</h4>
@@ -547,7 +639,23 @@ ${footerHtml}
           />
         )}
       </div>
-      <div className="p-4 sm:p-6 border-t border-zinc-800 flex flex-wrap gap-3">
+      <div className="p-4 sm:p-6 border-t border-zinc-800 space-y-4">
+        {/* Make the branded PDF path obvious for hosts (same flow as Week 3: print dialog → Save as PDF). */}
+        {content && item.blueprintAudience !== "guest" && (
+          <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed border border-red-600/30 bg-red-600/5 rounded-sm p-4">
+            <span className="text-red-500 font-bold uppercase tracking-widest text-[10px] block mb-2">Branded PDF</span>
+            Click <strong className="text-white">Download as PDF</strong> below. A new tab opens with the Sacrificial Conversations header and{" "}
+            <strong className="text-red-500">Teddy &amp; Monica cues in red</strong>. In the print dialog, choose{" "}
+            <strong className="text-white">Save as PDF</strong> or <strong className="text-white">Microsoft Print to PDF</strong> to save the file.
+          </p>
+        )}
+        {content && item.blueprintAudience === "guest" && (
+          <p className="text-zinc-500 text-xs leading-relaxed">
+            This is a prep document (not an email template). Use <strong className="text-zinc-300">Download as PDF</strong> or{" "}
+            <strong className="text-zinc-300">Download as TXT</strong> and attach or share the file with your guest.
+          </p>
+        )}
+        <div className="flex flex-wrap gap-3">
         {content && (
           <button
             type="button"
@@ -568,6 +676,7 @@ ${footerHtml}
             Download as TXT
           </a>
         )}
+        </div>
       </div>
     </motion.div>
   );

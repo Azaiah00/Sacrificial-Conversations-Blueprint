@@ -1,0 +1,85 @@
+{
+  "weekId": "week-5",
+  "dates": "Mar 23 - Mar 29, 2026",
+  "status": "In Progress",
+  "content": [
+    {
+      "id": "longform-aj-hardcastle",
+      "type": "longform",
+      "aspectRatio": "16/9",
+      "title": "Digital Flyers & Promo Graphics (Scroll to View All)",
+      "thumbnail": "/assets/week 5 media/flyers/flyer-1.png",
+      "thumbnailAssetUrl": "/assets/week 5 media/flyers/flyer-1.png",
+      "thumbnailOptions": [
+        "/assets/week 5 media/flyers/flyer-1.png",
+        "/assets/week 5 media/flyers/flyer-2.png",
+        "/assets/week 5 media/flyers/flyer-3.png",
+        "/assets/week 5 media/flyers/flyer-4.png",
+        "/assets/week 5 media/flyers/flyer-5.png",
+        "/assets/week 5 media/flyers/flyer-6.png",
+        "/assets/week 5 media/flyers/flyer-7.png",
+        "/assets/week 5 media/flyers/flyer-8.png",
+        "/assets/week 5 media/flyers/flyer-9.png",
+        "/assets/week 5 media/flyers/flyer-10.png",
+        "/assets/week 5 media/flyers/flyer-11.png",
+        "/assets/week 5 media/flyers/flyer-12.png",
+        "/assets/week 5 media/flyers/flyer-13.png",
+        "/assets/week 5 media/flyers/flyer-14.png",
+        "/assets/week 5 media/flyers/flyer-15.png",
+        "/assets/week 5 media/flyers/flyer-16.png",
+        "/assets/week 5 media/flyers/flyer-17.png",
+        "/assets/week 5 media/flyers/flyer-18.png",
+        "/assets/week 5 media/flyers/flyer-19.png",
+        "/assets/week 5 media/flyers/flyer-20.png",
+        "/assets/week 5 media/flyers/flyer-21.png",
+        "/assets/week 5 media/flyers/flyer-22.png",
+        "/assets/week 5 media/flyers/flyer-23.png",
+        "/assets/week 5 media/flyers/flyer-24.png",
+        "/assets/week 5 media/flyers/flyer-25.png",
+        "/assets/week 5 media/flyers/flyer-26.png"
+      ],
+      "longformSteps": [
+        {
+          "step": "Step 1: Download Your Favorites",
+          "action": "Instructions:",
+          "content": "Use the arrow buttons on the image or the scrollbar below to view all 26 promotional flyers for the AJ Hardcastle (Blissfull) episode.\n\nClick 'Save' under any thumbnail to download it directly to your device."
+        },
+        {
+          "step": "Step 2: Post to Social Media",
+          "action": "Suggested Captions:",
+          "content": "Option 1: Join us this Monday on WFTB 104.1 TabNashville as we sit down with AJ Hardcastle, founder of Blissfull! We're talking faith, growth, and what it takes to build a brand from the ground up. Don't miss this! #SacrificialConversations #Blissfull\n\nOption 2: The Blueprint to Bliss. 🔥 Catch our incredible conversation with entrepreneur AJ Hardcastle. We get real about the sacrifices required to succeed and how to protect your peace along the way. Link in bio! #WFTB1041"
+        }
+      ]
+    },
+    {
+      "id": "blueprint-teddy-monica-aj-hardcastle",
+      "type": "blueprint",
+      "aspectRatio": "16/9",
+      "blueprintAudience": "hosts",
+      "title": "Run of Show: AJ Hardcastle (The Blissfull Episode)",
+      "thumbnail": "",
+      "blueprintContentUrl": "/content/week5-blueprint-teddy-monica-aj-hardcastle.txt",
+      "blueprintMetadata": {
+        "guest": "AJ Hardcastle",
+        "guestTitle": "Founder, Blissfull · myblissfull.com",
+        "runTime": "~45 Minutes",
+        "theme": "The Blueprint to Bliss: Growth, Grace, and Glowing Up — drive traffic to myblissfull.com"
+      }
+    },
+    {
+      "id": "guest-prep-aj-hardcastle",
+      "type": "blueprint",
+      "aspectRatio": "16/9",
+      "blueprintAudience": "guest",
+      "title": "Guest Prep Sheet: AJ Hardcastle (Download & Share)",
+      "thumbnail": "",
+      "blueprintContentUrl": "/content/week5-guest-prep-aj-hardcastle.txt",
+      "blueprintMetadata": {
+        "guest": "AJ Hardcastle",
+        "guestTitle": "Founder, Blissfull · myblissfull.com",
+        "runTime": "~45 Minutes · Studio Monday Mar 23",
+        "theme": "Monica's endorsement, product deep-dive, entrepreneurial journey, faith & balance, sacrificial success — myblissfull.com"
+      }
+    }
+  ]
+}

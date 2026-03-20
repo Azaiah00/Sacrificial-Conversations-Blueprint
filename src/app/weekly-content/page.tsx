@@ -10,16 +10,18 @@ import week1Data from "@/data/content/week1.json";
 import week2Data from "@/data/content/week2.json";
 import week3Data from "@/data/content/week3.json";
 import week4Data from "@/data/content/week4.json";
+import week5Data from "@/data/content/week5.json";
 
 const weekDataMap: Record<string, WeekData> = {
   "week-1": week1Data as WeekData,
   "week-2": week2Data as WeekData,
   "week-3": week3Data as WeekData,
   "week-4": week4Data as WeekData,
+  "week-5": week5Data as WeekData,
 };
 
 export default function WeeklyContentPage() {
-  const [selectedWeekId, setSelectedWeekId] = useState("week-4"); // Default to latest week (Monica's All-Girls episode)
+  const [selectedWeekId, setSelectedWeekId] = useState("week-5"); // Default to latest week
   const [isSelectorOpen, setIsSelectorOpen] = useState(true);
 
   // You could also use localStorage or URL params to persist selection
