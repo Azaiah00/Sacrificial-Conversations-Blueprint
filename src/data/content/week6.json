@@ -1,0 +1,21 @@
+{
+  "weekId": "week-6",
+  "dates": "Mar 30 - Apr 5, 2026",
+  "status": "In Progress",
+  "content": [
+    {
+      "id": "blueprint-week6-solo-run-of-show",
+      "type": "blueprint",
+      "aspectRatio": "16/9",
+      "blueprintAudience": "hosts",
+      "title": "Sacrificial Conversations: Episode Run-of-Show (Solo — Teddy & Monica)",
+      "thumbnail": "",
+      "blueprintContentUrl": "/content/week6-blueprint-teddy-monica-solo.txt",
+      "blueprintMetadata": {
+        "runTime": "~60 Minutes (segments scale past 1:00)",
+        "theme": "The 90% Rule: Finishing What You Start · Framework: The 3 Lies Society Tells You About Quitting · Record/Air: Monday, March 30, 2026",
+        "hostLabel": "Teddy & Monica · Solo episode (no guest)"
+      }
+    }
+  ]
+}

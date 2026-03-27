@@ -15,7 +15,8 @@ const WEEKS: WeekOption[] = [
   { id: "week-2", dates: "Mar 02 - Mar 08, 2026", label: "Week 2", status: "Done" },
   { id: "week-3", dates: "Mar 09 - Mar 15, 2026", label: "Week 3", status: "Ready" },
   { id: "week-4", dates: "Mar 16 - Mar 22, 2026", label: "Week 4", status: "Ready" },
-  { id: "week-5", dates: "Mar 23 - Mar 29, 2026", label: "Week 5", status: "In Progress" },
+  { id: "week-5", dates: "Mar 23 - Mar 29, 2026", label: "Week 5", status: "Ready" },
+  { id: "week-6", dates: "Mar 30 - Apr 5, 2026", label: "Week 6", status: "In Progress" },
 ];
 
 interface WeekSelectorProps {
