@@ -1,0 +1,23 @@
+{
+  "weekId": "week-7",
+  "dates": "Apr 6 - Apr 12, 2026",
+  "status": "In Progress",
+  "content": [
+    {
+      "id": "blueprint-week7-joy-boyz-run-of-show",
+      "type": "blueprint",
+      "aspectRatio": "16/9",
+      "blueprintAudience": "hosts",
+      "title": "Sacrificial Conversations: Episode Run-of-Show (The Joy Boyz)",
+      "thumbnail": "",
+      "blueprintContentUrl": "/content/week7-blueprint-teddy-monica-joy-boyz.txt",
+      "blueprintMetadata": {
+        "guest": "Donnie & Darryl's Joy Boyz",
+        "guestTitle": "Nashville, TN",
+        "runTime": "~60 Minutes (segments scale past 1:00)",
+        "theme": "Blessing in the Pressing: 40 Years of Brotherhood, Loss, and Legacy · Record/Air: Monday, April 6, 2026",
+        "hostLabel": "Teddy & Monica · with The Joy Boyz"
+      }
+    }
+  ]
+}

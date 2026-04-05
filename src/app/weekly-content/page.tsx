@@ -12,6 +12,7 @@ import week3Data from "@/data/content/week3.json";
 import week4Data from "@/data/content/week4.json";
 import week5Data from "@/data/content/week5.json";
 import week6Data from "@/data/content/week6.json";
+import week7Data from "@/data/content/week7.json";
 
 const weekDataMap: Record<string, WeekData> = {
   "week-1": week1Data as WeekData,
@@ -20,10 +21,11 @@ const weekDataMap: Record<string, WeekData> = {
   "week-4": week4Data as WeekData,
   "week-5": week5Data as WeekData,
   "week-6": week6Data as WeekData,
+  "week-7": week7Data as WeekData,
 };
 
 export default function WeeklyContentPage() {
-  const [selectedWeekId, setSelectedWeekId] = useState("week-6"); // Default to latest week
+  const [selectedWeekId, setSelectedWeekId] = useState("week-7"); // Default to latest week
   const [isSelectorOpen, setIsSelectorOpen] = useState(true);
 
   // You could also use localStorage or URL params to persist selection

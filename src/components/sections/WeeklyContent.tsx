@@ -578,6 +578,9 @@ function highlightBlueprintSpeakers(raw: string): string {
     .replace(/Monica's Angle \(The User\):/g, "<strong>Monica's Angle (The User):</strong>")
     .replace(/Teddy's Angle \(The Curious Co-Host\):/g, "<strong>Teddy's Angle (The Curious Co-Host):</strong>")
     .replace(/The Hard Outro:/g, "<strong>The Hard Outro:</strong>")
+    // Week 7+ Joy Boyz / guest run-of-show — producer-facing segment cues (PDF + portal red)
+    .replace(/Host Cue:/g, "<strong>Host Cue:</strong>")
+    .replace(/Closing Prayer:/g, "<strong>Closing Prayer:</strong>")
     .replace(/\(Teddy\)/g, "<strong>(Teddy)</strong>")
     .replace(/\(Monica\)/g, "<strong>(Monica)</strong>");
 }
