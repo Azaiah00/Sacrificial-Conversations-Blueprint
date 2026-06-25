@@ -6,10 +6,12 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const navItems = [
+// `href` set => external/static page link (e.g. the Merch Content page in /public).
+const navItems: { name: string; target: string; href?: string }[] = [
   { name: "Diagnostic", target: "audit" },
   { name: "Strategy", target: "strategy" },
   { name: "Visuals", target: "deliverables" },
+  { name: "Merch", target: "merch", href: "/merch-content.html" },
   { name: "Services", target: "services" },
 ];
 
@@ -23,7 +25,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      
+
       const scrollPosition = window.scrollY + 100;
 
       for (const item of navItems) {
@@ -55,8 +57,8 @@ export default function Navbar() {
       animate={{ y: 0 }}
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
-        scrolled 
-          ? "bg-black/90 backdrop-blur-md border-zinc-800" 
+        scrolled
+          ? "bg-black/90 backdrop-blur-md border-zinc-800"
           : "bg-transparent border-transparent"
       )}
     >
@@ -75,7 +77,7 @@ export default function Navbar() {
               Sacrificial<span className="text-red-600 group-hover:text-white">Conversations</span>
             </span>
           </Link>
-          
+
           {/* Desktop nav: on home scroll to section, on other pages link to home#section */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => {
@@ -83,6 +85,18 @@ export default function Navbar() {
                 "text-xs font-bold uppercase tracking-widest transition-colors duration-200 hover:text-red-500",
                 activeSection === item.target ? "text-red-600" : "text-zinc-500"
               );
+              if (item.href) {
+                return (
+                  <a
+                    key={item.target}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={linkClass}
+                  >
+                    {item.name}
+                  </a>
+                );
+              }
               if (isHome) {
                 return (
                   <button
@@ -109,7 +123,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger: min 44px touch target for accessibility */}
           <div className="md:hidden flex items-center justify-center">
-            <button 
+            <button
               className="text-zinc-400 hover:text-white transition-colors p-3 -m-3 min-w-[44px] min-h-[44px] flex items-center justify-center"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
@@ -145,6 +159,18 @@ export default function Navbar() {
                     ? "text-red-600 border-red-600 bg-zinc-900/50"
                     : "text-zinc-500 border-transparent hover:text-white hover:border-zinc-600"
                 );
+                if (item.href) {
+                  return (
+                    <a
+                      key={item.target}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={linkClass}
+                    >
+                      {item.name}
+                    </a>
+                  );
+                }
                 if (isHome) {
                   return (
                     <button
