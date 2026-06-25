@@ -6,13 +6,14 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-// `href` set => external/static page link (e.g. the Merch Content page in /public).
+// `href` set => link to another page (e.g. Merch static HTML or Beverly's portal).
 const navItems: { name: string; target: string; href?: string }[] = [
   { name: "Diagnostic", target: "audit" },
   { name: "Strategy", target: "strategy" },
   { name: "Visuals", target: "deliverables" },
   { name: "Merch", target: "merch", href: "/merch-content.html" },
   { name: "Services", target: "services" },
+  { name: "Beverly's", target: "beverlys", href: "/beverlys" },
 ];
 
 export default function Navbar() {
@@ -87,14 +88,14 @@ export default function Navbar() {
               );
               if (item.href) {
                 return (
-                  <a
+                  <Link
                     key={item.target}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
                     className={linkClass}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 );
               }
               if (isHome) {
@@ -161,14 +162,14 @@ export default function Navbar() {
                 );
                 if (item.href) {
                   return (
-                    <a
+                    <Link
                       key={item.target}
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
                       className={linkClass}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   );
                 }
                 if (isHome) {
